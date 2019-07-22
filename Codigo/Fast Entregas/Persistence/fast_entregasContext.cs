@@ -188,13 +188,13 @@ namespace Persistence
                 entity.Property(e => e.Destino)
                     .IsRequired()
                     .HasColumnName("destino")
-                    .HasMaxLength(45)
+                    .HasMaxLength(150)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Origem)
                     .IsRequired()
                     .HasColumnName("origem")
-                    .HasMaxLength(45)
+                    .HasMaxLength(150)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Status)
@@ -380,7 +380,7 @@ namespace Persistence
 
                 entity.Property(e => e.Tipo)
                     .HasColumnName("tipo")
-                    .HasColumnType("int(11)");
+                    .HasColumnType("enum('Cliente', 'Entregador', 'Funcionario')");
             });
 
             modelBuilder.Entity<UsuarioVeiculo>(entity =>
