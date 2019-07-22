@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\Model.csproj": {}
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {}
   },
   "projects": {
-    "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\Model.csproj": {
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\Model.csproj",
+        "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\obj\\",
+        "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

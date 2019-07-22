@@ -5444,11 +5444,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Services\\Services.csproj",
+      "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Services\\Services.csproj",
+      "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj",
       "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Services\\obj\\",
+      "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5467,11 +5467,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Model\\Model.csproj"
+            "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
+              "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
             },
-            "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\natan\\source\\repos\\Fast Entregas\\Persistence\\Persistence.csproj"
+            "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj"
             }
           }
         }
