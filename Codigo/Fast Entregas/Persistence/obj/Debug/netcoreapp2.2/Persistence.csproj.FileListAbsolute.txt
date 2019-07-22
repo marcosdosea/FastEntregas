@@ -1,0 +1,14 @@
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.deps.json
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.runtimeconfig.json
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.runtimeconfig.dev.json
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.pdb
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\natan\source\repos\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csprojAssemblyReference.cache
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.AssemblyInfoInputs.cache
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.AssemblyInfo.cs
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CopyComplete
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.pdb

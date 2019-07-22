@@ -1,0 +1,9 @@
+C:\Users\natan\source\repos\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.deps.json
+C:\Users\natan\source\repos\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\natan\source\repos\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.csprojAssemblyReference.cache
+C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.csproj.CoreCompileInputs.cache
+C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfoInputs.cache
+C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfo.cs
+C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.dll
+C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.pdb
