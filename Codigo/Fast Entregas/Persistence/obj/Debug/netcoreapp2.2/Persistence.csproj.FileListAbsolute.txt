@@ -12,3 +12,17 @@ C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Pe
 C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CopyComplete
 C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.dll
 C:\Users\natan\source\repos\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.deps.json
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.runtimeconfig.json
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.runtimeconfig.dev.json
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Model.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csprojAssemblyReference.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CoreCompileInputs.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.AssemblyInfoInputs.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.AssemblyInfo.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CopyComplete
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.pdb

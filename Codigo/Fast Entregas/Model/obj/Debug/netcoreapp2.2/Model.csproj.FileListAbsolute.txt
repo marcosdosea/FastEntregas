@@ -7,3 +7,12 @@ C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.As
 C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfo.cs
 C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.dll
 C:\Users\natan\source\repos\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.csprojAssemblyReference.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.csproj.CoreCompileInputs.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfoInputs.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfo.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.deps.json
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.pdb
