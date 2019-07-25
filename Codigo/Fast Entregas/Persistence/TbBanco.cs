@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Persistence
 {
-    public partial class Banco
+    public partial class TbBanco
     {
-        public Banco()
+        public TbBanco()
         {
-            ContaBancaria = new HashSet<ContaBancaria>();
+            ContaBancaria = new HashSet<TbContaBancaria>();
         }
 
         public int CodBanco { get; set; }
         public string Nome { get; set; }
 
-        public virtual ICollection<ContaBancaria> ContaBancaria { get; set; }
+        public virtual ICollection<TbContaBancaria> ContaBancaria { get; set; }
     }
 }

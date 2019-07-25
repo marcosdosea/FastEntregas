@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Persistence
+namespace Usuario
 {
     public partial class Usuario
     {

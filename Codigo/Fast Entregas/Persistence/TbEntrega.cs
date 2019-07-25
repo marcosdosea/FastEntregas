@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Persistence
 {
-    public partial class Entrega
+    public partial class TbEntrega
     {
-        public Entrega()
+        public TbEntrega()
         {
-            FormaspagamentoHasEntrega = new HashSet<FormaspagamentoHasEntrega>();
+            FormaspagamentoHasEntrega = new HashSet<TbFormaspagamentoHasEntrega>();
         }
 
         public int CodEntrega { get; set; }
@@ -20,8 +20,8 @@ namespace Persistence
         public int CodUsuarioCliente { get; set; }
         public int? CodUsuarioEntregador { get; set; }
 
-        public virtual Usuario CodUsuarioClienteNavigation { get; set; }
-        public virtual Usuario CodUsuarioEntregadorNavigation { get; set; }
-        public virtual ICollection<FormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
+        public virtual TbUsuario CodUsuarioClienteNavigation { get; set; }
+        public virtual TbUsuario CodUsuarioEntregadorNavigation { get; set; }
+        public virtual ICollection<TbFormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
     }
 }

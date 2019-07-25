@@ -12,5 +12,5 @@ namespace Model
         [Required]
         public string Nome { get; set; }
 
-    ]}
+    }
 }

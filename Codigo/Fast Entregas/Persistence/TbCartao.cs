@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Persistence
 {
-    public partial class Cartao
+    public partial class TbCartao
     {
         public int CodCartao { get; set; }
         public int Numero { get; set; }
@@ -12,6 +12,6 @@ namespace Persistence
         public int Cvv { get; set; }
         public int CodUsuario { get; set; }
 
-        public virtual Usuario CodUsuarioNavigation { get; set; }
+        public virtual TbUsuario CodUsuarioNavigation { get; set; }
     }
 }

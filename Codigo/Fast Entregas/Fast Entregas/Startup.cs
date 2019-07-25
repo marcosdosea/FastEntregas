@@ -14,6 +14,7 @@ using Fast_Entregas.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence;
+using Services;
 
 namespace Fast_Entregas
 {
@@ -43,6 +44,7 @@ namespace Fast_Entregas
                 options.UseMySQL(
                     Configuration.GetConnectionString("FastEntregasConnection")));
 
+            services.AddTransient<IGerenciadorVeiculo, GerenciadorVeiculo>();
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)

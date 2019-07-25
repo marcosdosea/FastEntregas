@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Persistence
 {
-    public partial class Formaspagamento
+    public partial class TbFormaspagamento
     {
-        public Formaspagamento()
+        public TbFormaspagamento()
         {
-            FormaspagamentoHasEntrega = new HashSet<FormaspagamentoHasEntrega>();
+            FormaspagamentoHasEntrega = new HashSet<TbFormaspagamentoHasEntrega>();
         }
 
         public int CodFormaPagamento { get; set; }
         public string Descricao { get; set; }
 
-        public virtual ICollection<FormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
+        public virtual ICollection<TbFormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
     }
 }
