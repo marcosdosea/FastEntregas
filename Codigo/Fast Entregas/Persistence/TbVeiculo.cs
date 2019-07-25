@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Persistence
 {
-    public partial class Veiculo
+    public partial class TbVeiculo
     {
-        public Veiculo()
+        public TbVeiculo()
         {
-            UsuarioVeiculo = new HashSet<UsuarioVeiculo>();
+            UsuarioVeiculo = new HashSet<TbUsuarioVeiculo>();
         }
 
         public int CodVeiculo { get; set; }
@@ -19,7 +19,7 @@ namespace Persistence
         public byte EmUso { get; set; }
         public int CodDono { get; set; }
 
-        public virtual Usuario CodDonoNavigation { get; set; }
-        public virtual ICollection<UsuarioVeiculo> UsuarioVeiculo { get; set; }
+        public virtual TbUsuario CodDonoNavigation { get; set; }
+        public virtual ICollection<TbUsuarioVeiculo> UsuarioVeiculo { get; set; }
     }
 }
