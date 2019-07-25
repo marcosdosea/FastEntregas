@@ -1,0 +1,14 @@
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csprojAssemblyReference.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csproj.CoreCompileInputs.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.AssemblyInfoInputs.cache
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.AssemblyInfo.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Services.deps.json
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Services.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Services.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Model.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Persistence.pdb
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csproj.CopyComplete
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.dll
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.pdb

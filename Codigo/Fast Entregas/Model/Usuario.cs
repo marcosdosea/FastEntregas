@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Usuario
+namespace Model
 {
     public partial class Usuario
     {
