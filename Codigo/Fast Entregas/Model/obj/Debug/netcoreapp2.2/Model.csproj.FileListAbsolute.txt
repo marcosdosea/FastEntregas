@@ -16,3 +16,12 @@ C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast 
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.deps.json
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.dll
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.deps.json
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.csprojAssemblyReference.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.csproj.CoreCompileInputs.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfoInputs.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.AssemblyInfo.cs
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Model\obj\Debug\netcoreapp2.2\Model.pdb

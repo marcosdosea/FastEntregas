@@ -45,6 +45,7 @@ namespace Fast_Entregas
                     Configuration.GetConnectionString("FastEntregasConnection")));
 
             services.AddTransient<IGerenciadorVeiculo, GerenciadorVeiculo>();
+            services.AddTransient<IGerenciadorCartao, GerenciadorCartao>();
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)

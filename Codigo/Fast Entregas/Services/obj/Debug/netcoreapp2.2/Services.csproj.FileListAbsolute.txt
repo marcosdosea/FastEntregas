@@ -12,3 +12,17 @@ C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast 
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csproj.CopyComplete
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.dll
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Services.deps.json
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Services.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Services.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\bin\Debug\netcoreapp2.2\Persistence.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csprojAssemblyReference.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csproj.CoreCompileInputs.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.AssemblyInfoInputs.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.AssemblyInfo.cs
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.csproj.CopyComplete
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Services\obj\Debug\netcoreapp2.2\Services.pdb
