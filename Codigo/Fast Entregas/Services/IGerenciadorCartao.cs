@@ -8,7 +8,7 @@ namespace Services
         void Editar(Cartao cartaoModel);
         int Inserir(Cartao cartaoModel);
         Cartao Obter(int codCartao);
-        IEnumerable<Cartao> ObterPorNumero(int numero);
+        IEnumerable<Cartao> ObterPorNumero(string numero);
         IEnumerable<Cartao> ObterTodos();
         void Remover(int codCartao);
     }

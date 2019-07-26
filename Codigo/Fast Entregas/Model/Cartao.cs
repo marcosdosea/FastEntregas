@@ -11,7 +11,7 @@ namespace Model
         public int CodCartao { get; set; }
         [Required]
         [Display(Name ="Número do Cartão")]
-        public int Numero { get; set; }
+        public string Numero { get; set; }
         [Required]
         [Display(Name ="Nome do Dono")]
         [StringLength(50)]

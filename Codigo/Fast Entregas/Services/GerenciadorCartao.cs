@@ -107,11 +107,12 @@ namespace Services
         /// </summary>
         /// <param name="numero">numero a ser buscado</param>
         /// <returns></returns>
-        public IEnumerable<Cartao> ObterPorNumero(int numero)
+        public IEnumerable<Cartao> ObterPorNumero(string numero)
         {
-            IEnumerable<Cartao> cartao = GetQuery().Where(cartaoModel => cartaoModel.Numero.Equals(numero));
+            IEnumerable<Cartao> cartao = GetQuery().Where(cartaoModel => cartaoModel.Numero.StartsWith(numero));
             return cartao;
         }
+        
 
         /// <summary>
         /// Atribui dados entre objetos do model e entity
