@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿    using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Services;
@@ -22,9 +22,9 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Cartao/Details/5
-        public ActionResult Details(int codCartao)
+        public ActionResult Details(int id)
         {
-            Cartao cartao = gerenciadorCartao.Obter(codCartao);
+            Cartao cartao = gerenciadorCartao.Obter(id);
             return View(cartao);
         }
 
@@ -51,9 +51,9 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Cartao/Edit/5
-        public ActionResult Edit(int codCartao)
+        public ActionResult Edit(int id)
         {
-            Cartao cartao = gerenciadorCartao.Obter(codCartao);
+            Cartao cartao = gerenciadorCartao.Obter(id);
             return View(cartao);
         }
 
@@ -74,18 +74,18 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Cartao/Delete/5
-        public ActionResult Delete(int codCartao)
+        public ActionResult Delete(int id)
         {
-            Cartao cartaoModel = gerenciadorCartao.Obter(codCartao);
+            Cartao cartaoModel = gerenciadorCartao.Obter(id);
             return View(cartaoModel);
         }
 
         // POST: Cartao/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int codCartao, IFormCollection collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            gerenciadorCartao.Remover(codCartao);
+            gerenciadorCartao.Remover(id);
             return RedirectToAction(nameof(Index));
         }
     }
