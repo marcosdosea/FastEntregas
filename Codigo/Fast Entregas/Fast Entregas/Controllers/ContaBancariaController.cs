@@ -72,18 +72,18 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: ContaBancaria/Delete/5
-        public ActionResult Delete(int codigo)
+        public ActionResult Delete(int id)
         {
-            ContaBancaria contabancariaModel = gerenciadorContaBancaria.Obter(codigo);
+            ContaBancaria contabancariaModel = gerenciadorContaBancaria.Obter(id);
             return View(contabancariaModel);
         }
 
         // POST: ContaBancaria/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int codigo, IFormCollection collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            gerenciadorContaBancaria.Remover(codigo);
+            gerenciadorContaBancaria.Remover(id);
             return RedirectToAction(nameof(Index));
         }
     }

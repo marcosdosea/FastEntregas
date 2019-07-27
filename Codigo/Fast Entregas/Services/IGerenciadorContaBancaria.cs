@@ -8,7 +8,7 @@ namespace Services
         void Editar(ContaBancaria contabancariaModel);
         int Inserir(ContaBancaria contabancariaModel);
         ContaBancaria Obter(int codConta);
-        IEnumerable<ContaBancaria> ObterPorAgencia(int agencia);
+        IEnumerable<ContaBancaria> ObterPorConta(int conta);
         IEnumerable<ContaBancaria> ObterTodas();
         void Remover(int codVeiculo);
 

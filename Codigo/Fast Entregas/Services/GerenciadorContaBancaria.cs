@@ -108,14 +108,14 @@ namespace Services
             return contabancaria.ElementAtOrDefault(0);
         }
 
-        /// <summary>
-        /// Obter contas que inicia com a agencia
-        /// </summary>
-        /// <param name="agencia"></param>
-        /// <returns></returns>
-        public IEnumerable<ContaBancaria> ObterPorAgencia(int agencia)
+       /// <summary>
+       /// Obter conta bancaria pelo número da conta
+       /// </summary>
+       /// <param name="conta"></param>
+       /// <returns></returns>
+        public IEnumerable<ContaBancaria> ObterPorConta(int conta)
         {
-            IEnumerable<ContaBancaria> contabancaria = GetQuery().Where(contabancariaModel => contabancariaModel.Agencia==agencia);
+            IEnumerable<ContaBancaria> contabancaria = GetQuery().Where(contabancariaModel => contabancariaModel.Numero == conta);
             return contabancaria;
         }
 
