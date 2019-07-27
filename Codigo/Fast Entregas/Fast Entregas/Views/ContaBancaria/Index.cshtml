@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Contas Bancarias Cadastradas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Inserir Nova Conta</a>
 </p>
 <table class="table">
     <thead>
@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.CodBanco)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CodConta}) |
-                @Html.ActionLink("Details", "Details", new { id=item.CodConta }) |
-                @Html.ActionLink("Delete", "Delete", new {id=item.CodConta })
+                @Html.ActionLink("Editar", "Edit", new { id=item.CodConta}) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.CodConta }) |
+                @Html.ActionLink("Excluir", "Delete", new {id=item.CodConta })
             </td>
         </tr>
 }
