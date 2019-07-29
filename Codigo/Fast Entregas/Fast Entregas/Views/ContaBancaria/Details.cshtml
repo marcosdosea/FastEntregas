@@ -1,0 +1,54 @@
+﻿@model Model.ContaBancaria
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes da conta bancária</h1>
+
+<div>
+    <h4>Conta Bancária</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodConta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodConta)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agencia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Agencia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodUsuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodUsuario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodBanco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodBanco)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar Dados", "Edit", new { codigo = Model.CodConta}) |
+    <a asp-action="Index">Voltar a lista</a>
+</div>
