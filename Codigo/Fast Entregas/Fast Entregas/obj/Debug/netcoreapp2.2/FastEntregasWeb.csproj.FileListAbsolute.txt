@@ -94,3 +94,13 @@ C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Fast 
 C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Create.g.cshtml.cs
 C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Edit.g.cshtml.cs
 C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Delete.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Create.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Delete.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Details.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Edit.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\Cartao\Index.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\ContaBancaria\Create.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\ContaBancaria\Delete.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\ContaBancaria\Details.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\ContaBancaria\Edit.g.cshtml.cs
+C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Fast Entregas\obj\Debug\netcoreapp2.2\Razor\Views\ContaBancaria\Index.g.cshtml.cs

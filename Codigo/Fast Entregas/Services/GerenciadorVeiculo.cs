@@ -43,9 +43,6 @@ namespace Services
         /// <param name="veiculo">dados do veiculo</param>
         public void Editar(Veiculo veiculoModel)
         {
-            //if (autorModel.AnoNascimento.Year < 1000)
-            //throw new ServiceException("O ano de nascimento de autor deve ser maior do que 1000. Favor informar nova data.");
-
             TbVeiculo tbVeiculo = new TbVeiculo();
             Atribuir(veiculoModel, tbVeiculo);
             _context.Update(tbVeiculo);

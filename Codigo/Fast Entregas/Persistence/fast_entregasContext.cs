@@ -448,8 +448,8 @@ namespace Persistence
 
                 entity.Property(e => e.EmUso)
                     .HasColumnName("emUso")
-                    .HasColumnType("tinyint(4)")
-                    .HasDefaultValueSql("0");
+                    .HasColumnType("enum('Sim','Nao')")
+                    .HasDefaultValueSql("Nao");
 
                 entity.Property(e => e.Placa)
                     .IsRequired()
