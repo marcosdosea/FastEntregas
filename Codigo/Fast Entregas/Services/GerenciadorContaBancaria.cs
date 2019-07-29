@@ -81,8 +81,6 @@ namespace Services
                             Tipo = contabancaria.Tipo,
                             CodUsuario = contabancaria.CodUsuario,
                             CodBanco = contabancaria.CodBanco,
-
-
                         };
             return query;
         }

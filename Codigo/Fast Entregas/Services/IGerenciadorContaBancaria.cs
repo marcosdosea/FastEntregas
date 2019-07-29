@@ -10,7 +10,7 @@ namespace Services
         ContaBancaria Obter(int codConta);
         IEnumerable<ContaBancaria> ObterPorConta(int conta);
         IEnumerable<ContaBancaria> ObterTodas();
-        void Remover(int codVeiculo);
+        void Remover(int codConta);
 
 
     }

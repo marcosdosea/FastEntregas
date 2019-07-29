@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using Persistence;
 using Services;
 
 namespace FastEntregasWeb.Controllers
@@ -33,7 +34,7 @@ namespace FastEntregasWeb.Controllers
 
         // GET: ContaBancaria/Create
         public ActionResult Create()
-        {
+        {   
             return View();
         }
 

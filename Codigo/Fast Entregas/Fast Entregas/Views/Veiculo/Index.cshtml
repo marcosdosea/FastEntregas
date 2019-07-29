@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Veiculos Cadastrados</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Adicionar Veiculo </a>
 </p>
 <table class="table">
     <thead>
@@ -40,38 +40,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodVeiculo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Placa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Renavam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ano)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmUso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodDono)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { codigo=item.CodVeiculo }) |
-                @Html.ActionLink("Details", "Details", new { codigo=item.CodVeiculo }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CodVeiculo })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodVeiculo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Renavam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ano)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmUso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodDono)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { codigo = item.CodVeiculo }) |
+                    @Html.ActionLink("Detalhes", "Details", new { codigo = item.CodVeiculo }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.CodVeiculo })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
