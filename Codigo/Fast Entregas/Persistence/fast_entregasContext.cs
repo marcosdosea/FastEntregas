@@ -90,8 +90,11 @@ namespace Persistence
                     .IsUnicode(false);
 
                 entity.Property(e => e.Numero)
+                    .IsRequired()
                     .HasColumnName("numero")
-                    .HasColumnType("int(11)");
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
 
                 entity.HasOne(d => d.CodUsuarioNavigation)
                     .WithMany(p => p.Cartao)
