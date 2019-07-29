@@ -23,7 +23,7 @@ namespace Model
         [Required]
         public string Status { get; set; }
         [Required]
-        public byte EmUso { get; set; }
+        public string EmUso { get; set; }
         [Required]
         public int CodDono { get; set; }
     }

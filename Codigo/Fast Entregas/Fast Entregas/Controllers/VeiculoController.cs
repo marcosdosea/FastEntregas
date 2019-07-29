@@ -73,18 +73,18 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Veiculo/Delete/5
-        public ActionResult Delete(int codigo)
+        public ActionResult Delete(int id)
         {
-            Veiculo veiculoModel = gerenciadorVeiculo.Obter(codigo);
+            Veiculo veiculoModel = gerenciadorVeiculo.Obter(id);
             return View(veiculoModel);
         }
 
         // POST: Veiculo/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int codigo, IFormCollection collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            gerenciadorVeiculo.Remover(codigo);
+            gerenciadorVeiculo.Remover(id);
             return RedirectToAction(nameof(Index));
         }
     }

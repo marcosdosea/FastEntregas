@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.CodDono)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { codigo=item.CodVeiculo }) |
+                @Html.ActionLink("Details", "Details", new { codigo=item.CodVeiculo }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CodVeiculo })
             </td>
         </tr>
 }

@@ -16,7 +16,7 @@ namespace Persistence
         public string Renavam { get; set; }
         public int Ano { get; set; }
         public string Status { get; set; }
-        public byte EmUso { get; set; }
+        public string EmUso { get; set; }
         public int CodDono { get; set; }
 
         public virtual TbUsuario CodDonoNavigation { get; set; }

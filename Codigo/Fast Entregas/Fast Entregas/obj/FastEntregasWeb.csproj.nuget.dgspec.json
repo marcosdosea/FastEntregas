@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj": {}
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj": {
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj",
+        "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj",
         "projectName": "FastEntregasWeb",
-        "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj",
-        "packagesPath": "C:\\Users\\janth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\obj\\",
+        "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\FastEntregasWeb.csproj",
+        "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
+        "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Fast Entregas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\janth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\natan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -32,11 +30,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
+              "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
+                "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
               },
-              "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj"
+              "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj": {
+                "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj"
               }
             }
           }
@@ -80,23 +78,21 @@
         }
       }
     },
-    "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\janth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\obj\\",
+        "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
+        "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\janth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\natan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -134,23 +130,21 @@
         }
       }
     },
-    "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj": {
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\janth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\obj\\",
+        "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
+        "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\janth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\natan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -162,8 +156,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
+              "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
+                "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
               }
             }
           }
@@ -200,23 +194,21 @@
         }
       }
     },
-    "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj": {
+    "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\janth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Services\\obj\\",
+        "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
+        "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\janth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\natan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -228,11 +220,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
+              "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj": {
+                "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj"
               },
-              "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\janth\\Desktop\\Projeto das aulas\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj"
+              "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Persistence\\Persistence.csproj"
               }
             }
           }
