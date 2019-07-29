@@ -26,3 +26,17 @@ C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast 
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CopyComplete
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.dll
 C:\Google Drive\UFS\6 periodo\Engenharia de software 2\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.deps.json
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.runtimeconfig.json
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.runtimeconfig.dev.json
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Persistence.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csprojAssemblyReference.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.AssemblyInfoInputs.cache
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.AssemblyInfo.cs
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.csproj.CopyComplete
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\janth\Desktop\Projeto das aulas\FastEntregas\Codigo\Fast Entregas\Persistence\obj\Debug\netcoreapp2.2\Persistence.pdb
