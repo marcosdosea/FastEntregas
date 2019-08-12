@@ -48,6 +48,7 @@ namespace Fast_Entregas
             services.AddTransient<IGerenciadorContaBancaria, GerenciadorContaBancaria>();
             services.AddTransient<IGerenciadorCartao, GerenciadorCartao>();
             services.AddTransient<IGerenciadorUsuario, GerenciadorUsuario>();
+            services.AddTransient<IGerenciadorSolicitacaoDeCadastro, GerenciadorSolicitacaoDeCadastro>();
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)

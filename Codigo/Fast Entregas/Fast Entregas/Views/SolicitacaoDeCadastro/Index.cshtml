@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Model.SolicitacaoDeCadastro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Solicitações de Cadastro</h1>
+
+<p>
+    <a asp-action="Create">Adicionar Nova Solicitação</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodSolicitacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumCnh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodUsuarioEntregador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodUsuarioFuncionario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodSolicitacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumCnh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodUsuarioEntregador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodUsuarioFuncionario)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CodSolicitacao }) |
+                @Html.ActionLink("Details", "Details", new { codigo = item.CodSolicitacao }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CodSolicitacao })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
