@@ -64,7 +64,7 @@
                     @Html.DisplayFor(modelItem => item.CodUsuarioFuncionario)
                 </td>
                 <td>
-                    @if (item.Status == "reprovada")
+                    @if (item.Status == "reprovada" && ViewBag.solicitacaoEmAndamento)
                     {
 
                         @Html.ActionLink("Reenviar Solicitacao", "Create", new { id = item.CodUsuarioEntregador })

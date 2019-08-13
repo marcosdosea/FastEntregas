@@ -41,6 +41,14 @@ namespace FastEntregasWeb.Controllers
         public ActionResult DetailsMultiple(int id)
         {
             IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioEntregador.Equals(id));
+            ViewBag.solicitacaoEmAndamento = true;
+            foreach (var item in solicitacaoDeCadastro)
+            {
+                if (item.Status != "reprovada")
+                {
+                    ViewBag.solicitacaoEmAndamento = false;
+                }
+            }
             return View(solicitacaoDeCadastro);
         }
 
