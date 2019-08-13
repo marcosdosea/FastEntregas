@@ -26,6 +26,13 @@ namespace FastEntregasWeb.Controllers
             return View(gerenciadorUsuario.ObterTodos());
         }
 
+        /// <summary>
+        /// Redireciona o usuário para solicitar cadastro para ser entregador ou redireciona para as solicitações de cadastro já solicitadas
+        /// </summary>
+        /// <param name="id">Código do Usuário</param>
+        /// <returns></returns>
+        
+        // GET: Usuario/SolicitarCadastro
         public ActionResult SolicitarCadastro(int id)
         {
             //Usuario usuario = gerenciadorUsuario.Obter(id);

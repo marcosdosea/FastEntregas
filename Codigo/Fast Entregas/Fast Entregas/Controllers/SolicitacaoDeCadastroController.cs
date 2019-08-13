@@ -31,13 +31,25 @@ namespace FastEntregasWeb.Controllers
             return View(solicitacao);
         }
 
+        /// <summary>
+        /// Mostrar todas as solicitações de cadastro feitas por um usuário específico
+        /// </summary>
+        /// <param name="id">Código do usuario</param>
+        /// <returns></returns>
+
+        // GET: SolicitacaoDeCadastro/DetailsMultiple/5
         public ActionResult DetailsMultiple(int id)
         {
             IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioEntregador.Equals(id));
-
             return View(solicitacaoDeCadastro);
         }
 
+        /// <summary>
+        /// Criar nova solicitação de cadastro já com o código do usuário que vai solicitar
+        /// </summary>
+        /// <param name="id"> Código do usuário </param>
+        /// <returns></returns>
+        
         // GET: SolicitacaoDeCadastro/Create
         public ActionResult Create(int id)
         {

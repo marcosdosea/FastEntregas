@@ -19,7 +19,7 @@ namespace Services
         /// <summary>
         /// Insere uma nova solicitaçao de cadastro na base de dados
         /// </summary>
-        /// <param name="solicitacaoModel">dados do banco</param>
+        /// <param name="solicitacaoModel">dados da solicitaçao</param>
         /// <returns>retorna o codigo do banco inserido</returns>
         public int Inserir(SolicitacaoDeCadastro solicitacaoModel)
         {
@@ -40,7 +40,7 @@ namespace Services
         /// <summary>
         /// Atualiza os dados das solicitações de cadastro na base de dados
         /// </summary>
-        /// <param name="solicitacaoModel">dados do banco</param>
+        /// <param name="solicitacaoModel">dados da solicitação</param>
         public void Editar(SolicitacaoDeCadastro solicitacaoModel)
         {
             TbSolicitacaoDeCadastro tbSolicitacaoDeCadastro = new TbSolicitacaoDeCadastro();
@@ -53,7 +53,7 @@ namespace Services
         /// <summary>
         /// Remove uma solicitacao da base de dados
         /// </summary>
-        /// <param name="codSolicitacao">identificador da solicitacao</param>
+        /// <param name="codSolicitacao">codigo da solicitacao</param>
         public void Remover(int codSolicitacao)
         {
             var tbSolicitacaoDeCadastro = _context.TbSolicitacaoDeCadastro.Find(codSolicitacao);
@@ -93,9 +93,9 @@ namespace Services
         }
 
         /// <summary>
-        /// Obtém pelo identificador da solicitacao
+        /// Obtém pelo codigo da solicitacao
         /// </summary>
-        /// <param name="codSolicitacao"></param>
+        /// <param name="codSolicitacao">codigo da solicitacao</param>
         /// <returns></returns>
         public SolicitacaoDeCadastro Obter(int codSolicitacao)
         {
@@ -107,7 +107,7 @@ namespace Services
         /// <summary>
         /// Obtém solicitacoes com o cnh
         /// </summary>
-        /// <param name="cnh">nome a ser buscado</param>
+        /// <param name="cnh"> numero da cnh</param>
         /// <returns></returns>
         public IEnumerable<SolicitacaoDeCadastro> ObterPorCnh(string cnh)
         {

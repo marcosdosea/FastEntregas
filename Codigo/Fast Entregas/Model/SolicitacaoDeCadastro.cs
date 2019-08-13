@@ -18,12 +18,13 @@ namespace Model
         [StringLength(15)]
         public string NumCnh { get; set; }
         [Required]
-        [Display(Name = "Data da Validade")]
+        [Display(Name = "Data da Nascimento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
         public string Status { get; set; }
         [Required]
+        [Display(Name = "Código do Usuário")]
         public int CodUsuarioEntregador { get; set; }
         public int? CodUsuarioFuncionario { get; set; }
 }
