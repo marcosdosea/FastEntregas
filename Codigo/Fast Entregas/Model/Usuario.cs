@@ -21,7 +21,6 @@ namespace Model
         [Required]
         [StringLength(45)]
         public string Email { get; set; }
-        [Required]
         [StringLength(45)]
         public string Senha { get; set; }
         public string Tipo { get; set; }

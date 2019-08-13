@@ -1,13 +1,13 @@
 ﻿@model Model.SolicitacaoDeCadastro
 
 @{
-    ViewData["Title"] = "Detalhes";
+    ViewData["Title"] = "Details";
 }
 
-<h1>Detalher</h1>
+<h1>Details</h1>
 
 <div>
-    <h4>Solicitação De Cadastro</h4>
+    <h4>SolicitacaoDeCadastro</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -56,5 +56,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CodSolicitacao }) |
-    <a asp-action="Index">Voltar a lista</a>
+    <a asp-action="Index">Back to List</a>
 </div>
