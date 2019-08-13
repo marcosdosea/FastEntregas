@@ -21,10 +21,8 @@ namespace Model
         [Required]
         [StringLength(45)]
         public string Email { get; set; }
-        [Required]
         [StringLength(45)]
         public string Senha { get; set; }
-        [Required]
         public string Tipo { get; set; }
         public string StatusCliente { get; set; }
         public string StatusEntregador { get; set; }

@@ -1,0 +1,47 @@
+﻿@model Model.SolicitacaoDeCadastro
+
+@{
+    ViewData["Title"] = "Solicitar Cadastro";
+}
+
+<h1>Solicitar Cadastro</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="NumRegistro" class="control-label"></label>
+                <input asp-for="NumRegistro" class="form-control" />
+                <span asp-validation-for="NumRegistro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumCnh" class="control-label"></label>
+                <input asp-for="NumCnh" class="form-control" />
+                <span asp-validation-for="NumCnh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CodUsuarioEntregador" class="control-label"></label>
+                <input asp-for="CodUsuarioEntregador" class="form-control" value="@ViewBag.codUsuario" readonly/>
+                <span asp-validation-for="CodUsuarioEntregador" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Solicitar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar a Lista</a>
+</div>
+

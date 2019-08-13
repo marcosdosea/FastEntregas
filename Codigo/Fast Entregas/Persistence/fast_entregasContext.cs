@@ -139,6 +139,7 @@ namespace Persistence
                     .IsRequired()
                     .HasColumnName("tipo")
                     .HasMaxLength(10)
+                    .HasColumnType("enum('Conta Corrente','Poupança')")
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.CodBancoNavigation)

@@ -43,41 +43,44 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cpf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Senha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusCliente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusEntregador)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CodUsuario }) |
-                @Html.ActionLink("Details", "Details", new { id=item.CodUsuario }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CodUsuario })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Senha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusEntregador)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CodUsuario }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CodUsuario }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CodUsuario }) |
+                    @Html.ActionLink("Solicitar", "SolicitarCadastro", new { id = item.CodUsuario })
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

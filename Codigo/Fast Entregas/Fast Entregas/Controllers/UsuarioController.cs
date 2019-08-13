@@ -12,10 +12,12 @@ namespace FastEntregasWeb.Controllers
     public class UsuarioController : Controller
     {
         private readonly IGerenciadorUsuario gerenciadorUsuario;
+        private readonly IGerenciadorSolicitacaoDeCadastro gerenciadorSolicitacao;
 
-        public UsuarioController(IGerenciadorUsuario _gerenciadorUsuario)
+        public UsuarioController(IGerenciadorUsuario _gerenciadorUsuario, IGerenciadorSolicitacaoDeCadastro _gerenciadorSolicitacao)
         {
             gerenciadorUsuario = _gerenciadorUsuario;
+            gerenciadorSolicitacao = _gerenciadorSolicitacao;
         }
 
         // GET: Usuario
@@ -24,12 +26,33 @@ namespace FastEntregasWeb.Controllers
             return View(gerenciadorUsuario.ObterTodos());
         }
 
+        /// <summary>
+        /// Redireciona o usuário para solicitar cadastro para ser entregador ou redireciona para as solicitações de cadastro já solicitadas
+        /// </summary>
+        /// <param name="id">Código do Usuário</param>
+        /// <returns></returns>
+        
+        // GET: Usuario/SolicitarCadastro
+        public ActionResult SolicitarCadastro(int id)
+        {
+            //Usuario usuario = gerenciadorUsuario.Obter(id);
+            IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = gerenciadorSolicitacao.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioEntregador.Equals(id));
+
+            if (solicitacaoDeCadastro.ToList().Count() == 0)
+            {
+                return RedirectToAction("Create", "SolicitacaoDeCadastro", new { id = id });
+            }
+
+            return RedirectToAction("DetailsMultiple", "SolicitacaoDeCadastro", new { id = id });
+        }
+
         // GET: Usuario/Details/5
         public ActionResult Details(int codigo)
         {
             Usuario usuario = gerenciadorUsuario.Obter(codigo);
             return View(usuario);
         }
+
 
         // GET: Usuario/Create
         public ActionResult Create()

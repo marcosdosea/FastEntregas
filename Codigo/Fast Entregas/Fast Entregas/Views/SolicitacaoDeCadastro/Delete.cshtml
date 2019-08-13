@@ -1,0 +1,62 @@
+﻿@model Model.SolicitacaoDeCadastro
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir</h1>
+
+<h3>Você tem certeza que deseja excluir essa solicitação?</h3>
+<div>
+    <h4>Solicitação De Cadastro</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodSolicitacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodSolicitacao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumRegistro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumRegistro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumCnh)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumCnh)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodUsuarioEntregador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodUsuarioEntregador)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodUsuarioFuncionario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodUsuarioFuncionario)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar a lista</a>
+    </form>
+</div>
