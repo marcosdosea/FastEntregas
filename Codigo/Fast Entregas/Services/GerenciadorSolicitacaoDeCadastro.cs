@@ -109,7 +109,7 @@ namespace Services
         /// </summary>
         /// <param name="cnh">nome a ser buscado</param>
         /// <returns></returns>
-        public IEnumerable<SolicitacaoDeCadastro> ObterPorCnh(int cnh)
+        public IEnumerable<SolicitacaoDeCadastro> ObterPorCnh(string cnh)
         {
             IEnumerable<SolicitacaoDeCadastro> solicitacao = GetQuery().Where(solicitacaoModel => solicitacaoModel.NumCnh.Equals(cnh));
             return solicitacao;
