@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Model;
 using Persistence;
 using Services;
@@ -13,10 +14,13 @@ namespace FastEntregasWeb.Controllers
     public class ContaBancariaController : Controller
     {
         private readonly IGerenciadorContaBancaria gerenciadorContaBancaria;
+        private readonly IGerenciadorBanco gerenciadorBanco;
 
-        public ContaBancariaController(IGerenciadorContaBancaria _gerenciadorContaBancaria)
+
+        public ContaBancariaController(IGerenciadorContaBancaria _gerenciadorContaBancaria, IGerenciadorBanco _gerenciadorBanco)
         {
             gerenciadorContaBancaria = _gerenciadorContaBancaria;
+            gerenciadorBanco = _gerenciadorBanco;
         }
 
         // GET: ContaBancaria
@@ -34,7 +38,8 @@ namespace FastEntregasWeb.Controllers
 
         // GET: ContaBancaria/Create
         public ActionResult Create()
-        {   
+        {
+            ViewBag.codBanco = new SelectList(gerenciadorBanco.ObterTodos(), "CodBanco", "Nome");
             return View();
         }
 
