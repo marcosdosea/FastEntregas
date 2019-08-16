@@ -19,9 +19,38 @@ namespace FastEntregasWeb.Controllers
         }
         
         // GET: SolicitacaoDeCadastro
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View(gerenciadorSolicitacaoDeCadastro.ObterTodos());
+            IEnumerable<SolicitacaoDeCadastro> solicitacoes = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.Status.StartsWith("solicitada") || solicitacao.Status.StartsWith("em analise"));            
+            ViewBag.codFuncionario = id;
+            return View(solicitacoes);
+        }
+
+        //GET: SolicitacaoDeCadastro/Avaliar
+        public ActionResult Avaliar(int id, int codFuncionario)
+        {
+            SolicitacaoDeCadastro solicitacao = gerenciadorSolicitacaoDeCadastro.Obter(id);
+            if (solicitacao.Status == "solicitada")
+            {
+                solicitacao.CodUsuarioFuncionario = codFuncionario;
+                solicitacao.Status = "em analise";
+            }
+            if (ModelState.IsValid)
+            {
+                gerenciadorSolicitacaoDeCadastro.Editar(solicitacao);
+            }
+            return View(solicitacao);
+        }
+
+        public ActionResult Aprovar(int id, string avaliacao)
+        {
+            SolicitacaoDeCadastro solicitacao = gerenciadorSolicitacaoDeCadastro.Obter(id);
+            solicitacao.Status = avaliacao;
+            if (ModelState.IsValid)
+            {
+                gerenciadorSolicitacaoDeCadastro.Editar(solicitacao);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: SolicitacaoDeCadastro/Details/5
