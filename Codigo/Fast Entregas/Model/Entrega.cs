@@ -22,7 +22,7 @@ namespace Model
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime Data { get; set; }
-        [Required]
+
         public string Status { get; set; }
         [Required]
         public float Valor { get; set; }
@@ -32,6 +32,6 @@ namespace Model
         public string Descricao { get; set; }
         [Required]
         public int CodUsuarioCliente { get; set; }
-        public int CodUsuarioEntregador { get; set; }
+        public int? CodUsuarioEntregador { get; set; }
     }
 }

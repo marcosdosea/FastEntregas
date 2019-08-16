@@ -1,0 +1,110 @@
+﻿@model Model.Entrega
+
+@{
+    Layout = "_LayoutCliente";
+    ViewData["Title"] = "Create";
+}
+
+<div class="container-fluid no-gutters">
+    <div class="w3-third no-gutters w3-border-right w3-border-bottom w3-border-black overflow-auto" style="height: 754px;margin-left:0; padding:0">
+
+        <h3 class="w3-border-bottom w3-border-black text-center mt-4" style="padding-bottom:25px">Dados da Entrega</h3>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="container" style="padding:15px">
+                <div class="container w3-border-bottom w3-border-black" style="padding:15px">
+                    <h3>Endereço de Retirada</h3>
+                    <div class="form-group">
+                        <label class="control-label">Rua</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Numero</label>
+                        <input class="form-control" type="number" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Complemento</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Bairro</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Cidade</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">O que o entregador deve fazer ?</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="container w3-border-bottom w3-border-black" style="padding:15px">
+                    <h3>Endereço de Destino</h3>
+                    <div class="form-group">
+                        <label class="control-label">Rua</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Numero</label>
+                        <input class="form-control" type="number" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Complemento</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Bairro</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Cidade</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">O que o entregador deve fazer ?</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Origem" class="control-label"></label>
+                    <input asp-for="Origem" class="form-control" />
+                    <span asp-validation-for="Origem" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Destino" class="control-label"></label>
+                    <input asp-for="Destino" class="form-control" />
+                    <span asp-validation-for="Destino" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodUsuarioCliente" class="control-label"></label>
+                    <input asp-for="CodUsuarioCliente" class="form-control" />
+                    <span asp-validation-for="CodUsuarioCliente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" style="background-color:black; border-color:black" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="w3-rest w3-display-topright" style="position:fixed;">
+        <img src="~/imagens/mapa.jpg" style="width:800px;height:790px;"/>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

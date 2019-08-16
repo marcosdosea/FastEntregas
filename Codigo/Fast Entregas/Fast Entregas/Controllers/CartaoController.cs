@@ -44,7 +44,6 @@ namespace FastEntregasWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
                 gerenciadorCartao.Inserir(cartao);
                 return RedirectToAction(nameof(Index));
             }
@@ -67,7 +66,6 @@ namespace FastEntregasWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
                 gerenciadorCartao.Editar(cartao);
                 return RedirectToAction(nameof(Index));
             }

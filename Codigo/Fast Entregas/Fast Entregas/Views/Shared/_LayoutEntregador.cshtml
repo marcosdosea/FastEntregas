@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Fast_Entregas</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="margin: 0%; padding: 0%;">
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-display-left w3-border-right w3-border-black w3-quarter" style="width: 230px;" id="mySidebar">
+
+        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+
+        <a asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="~/Images/Cores.png" alt="Logo" class="w3-bar-item w3-border-bottom" />
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-route" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Solicitações de Entrega
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-piggy-bank" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Conta Bancária
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-fighter-jet" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Veículos
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-shipping-fast" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Novo Pedido
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-wallet" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Formas de Pagamento
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-history" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Histórico
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-user" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Minha Conta
+        </a>
+
+        <a href="#" class="w3-bar-item w3-button w3-border-top w3-display-bottommiddle">
+            <i class="fas fa-door-closed" style="font-size:15px; color: black; margin-right: 8px;"></i>
+            Sair
+        </a>
+
+    </div>
+
+    <div class="w3-main container-fluid" style="margin-left:230px; height:100%">
+        <partial name="_CookieConsentPartial" />
+        <div>
+            <button class="w3-button w3-black w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+        </div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

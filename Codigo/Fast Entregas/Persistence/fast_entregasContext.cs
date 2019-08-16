@@ -384,8 +384,7 @@ namespace Persistence
 
                 entity.Property(e => e.Tipo)
                     .HasColumnName("tipo")
-                    .HasColumnType("enum('Cliente', 'Entregador', 'Funcionario')")
-                    .HasDefaultValueSql("cliente");
+                    .HasColumnType("enum('Cliente', 'Entregador', 'Funcionario')");
             });
 
             modelBuilder.Entity<TbUsuarioVeiculo>(entity =>

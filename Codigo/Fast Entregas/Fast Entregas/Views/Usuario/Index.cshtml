@@ -76,19 +76,8 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.CodUsuario }) |
                     @Html.ActionLink("Details", "Details", new { id = item.CodUsuario }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CodUsuario })
-                    @{
-                        if (item.Tipo == "cliente")
-                        {
-                            <span>|</span>
-                            @Html.ActionLink("Solicitar", "SolicitarCadastro", new { id = item.CodUsuario });
-                        }
-                        else if (item.Tipo == "funcionario")
-                        {
-                            <span>|</span>
-                            @Html.ActionLink("Avaliar", "Index", "SolicitacaoDeCadastro", new { id = item.CodUsuario });
-                        }
-                    }
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CodUsuario }) |
+                    @Html.ActionLink("Solicitar", "SolicitarCadastro", new { id = item.CodUsuario })
 
                 </td>
             </tr>
