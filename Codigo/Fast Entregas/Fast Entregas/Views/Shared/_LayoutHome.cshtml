@@ -23,13 +23,16 @@
             <div class="container">
 
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/imagens/Logo.png" alt="Logo" style="height: auto; width: 200px" class="navbar-brand img-fluid" />
+                    <img src="~/Images/Logo50.png" alt="Logo" style="height: auto; width: 200px" class="navbar-brand img-fluid" />
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"> </span>
                 </button>
 
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
         </nav>
     </header>

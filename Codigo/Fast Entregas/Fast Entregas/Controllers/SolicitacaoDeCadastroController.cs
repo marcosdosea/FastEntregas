@@ -17,11 +17,11 @@ namespace FastEntregasWeb.Controllers
         {
             gerenciadorSolicitacaoDeCadastro = _gerenciadorSolicitacaoDeCadastro;
         }
-        
+
         // GET: SolicitacaoDeCadastro
         public ActionResult Index(int id)
         {
-            IEnumerable<SolicitacaoDeCadastro> solicitacoes = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.Status.StartsWith("solicitada") || solicitacao.Status.StartsWith("em analise"));            
+            IEnumerable<SolicitacaoDeCadastro> solicitacoes = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.Status.StartsWith("solicitada") || solicitacao.Status.StartsWith("em analise"));
             ViewBag.codFuncionario = id;
             return View(solicitacoes);
         }
@@ -86,7 +86,7 @@ namespace FastEntregasWeb.Controllers
         /// </summary>
         /// <param name="id"> Código do usuário </param>
         /// <returns></returns>
-        
+
         // GET: SolicitacaoDeCadastro/Create
         public ActionResult Create(int id)
         {

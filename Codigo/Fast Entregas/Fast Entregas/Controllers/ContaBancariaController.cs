@@ -16,6 +16,7 @@ namespace FastEntregasWeb.Controllers
         private readonly IGerenciadorContaBancaria gerenciadorContaBancaria;
         private readonly IGerenciadorBanco gerenciadorBanco;
 
+
         public ContaBancariaController(IGerenciadorContaBancaria _gerenciadorContaBancaria, IGerenciadorBanco _gerenciadorBanco)
         {
             gerenciadorContaBancaria = _gerenciadorContaBancaria;
