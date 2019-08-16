@@ -52,6 +52,12 @@ namespace FastEntregasWeb.Controllers
             return View(solicitacaoDeCadastro);
         }
 
+        public ActionResult DetailsHistoricoSolicitacaoAnalisadas(int id)
+        {
+            IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastros = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioFuncionario.Equals(id));
+            return View(solicitacaoDeCadastros);
+        }
+
         /// <summary>
         /// Criar nova solicitação de cadastro já com o código do usuário que vai solicitar
         /// </summary>
@@ -64,6 +70,8 @@ namespace FastEntregasWeb.Controllers
             ViewBag.codUsuario = id;
             return View();
         }
+
+
 
         // POST: SolicitacaoDeCadastro/Create
         [HttpPost]
