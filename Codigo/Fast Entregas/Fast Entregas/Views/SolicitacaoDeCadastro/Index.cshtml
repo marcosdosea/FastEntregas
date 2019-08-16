@@ -63,7 +63,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CodSolicitacao }) |
                 @Html.ActionLink("Details", "Details", new { codigo = item.CodSolicitacao }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CodSolicitacao })
+                @Html.ActionLink("Delete", "Delete", new { id = item.CodSolicitacao }) |
+                @Html.ActionLink("Avaliar", "Avaliar", new { id = item.CodSolicitacao, codFuncionario = ViewBag.codFuncionario })
             </td>
         </tr>
 }
