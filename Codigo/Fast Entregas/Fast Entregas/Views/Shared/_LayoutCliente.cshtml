@@ -20,13 +20,13 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body style="margin: 0%; padding: 0%;">
+<body>
     <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-display-left w3-border-right w3-border-black w3-quarter" style="width: 230px;" id="mySidebar">
 
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
 
         <a asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/Images/Cores.png" alt="Logo" class="w3-bar-item w3-border-bottom" />
+            <img src="~/imagens/Slogan.png" alt="Logo" class="w3-bar-item w3-border-bottom" />
         </a>
 
         <a href="#" class="w3-bar-item w3-button w3-border-bottom">
@@ -55,7 +55,7 @@
                 <h style="color:rgb(157,203,43)">Seja Entregador</h>
             </a>
 
-            <a href="#" class="w3-bar-item w3-button w3-border-top">
+            <a asp-controller="Home" asp-action="Index" class="w3-bar-item w3-button w3-border-top">
                 <i class="fas fa-door-closed" style="font-size:15px; color: black; margin-right: 8px;"></i>
                 Sair
             </a>
