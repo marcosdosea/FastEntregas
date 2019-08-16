@@ -52,6 +52,11 @@ namespace FastEntregasWeb.Controllers
             return View(solicitacaoDeCadastro);
         }
 
+        /// <summary>
+        /// Consultar Histórico de solitações analisadas 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult DetailsHistoricoSolicitacaoAnalisadas(int id)
         {
             IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastros = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioFuncionario.Equals(id));
