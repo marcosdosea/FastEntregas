@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,32 +7,39 @@ namespace Model
 {
     public partial class Entrega
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Key]
         public int CodEntrega { get; set; }
-        [Required]
-        [Display(Name ="Endereço de Origem")]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "endOrigem", ResourceType = typeof(Mensagem))]
         [StringLength(100)]
         public string Origem { get; set; }
-        [Required]
-        [Display(Name = "Endereço de Destino")]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "endDestino", ResourceType = typeof(Mensagem))]
         [StringLength(100)]
         public string Destino { get; set; }
-        [Required]
-        [Display(Name ="Data da Corrida")]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "dtCorrida", ResourceType = typeof(Mensagem))]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime Data { get; set; }
 
         public string Status { get; set; }
-        [Required]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public float Valor { get; set; }
-        [Required]
-        [Display(Name ="Descrição")]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "descricao", ResourceType = typeof(Mensagem))]
         [StringLength(300)]
         public string Descricao { get; set; }
-        [Required]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public int CodUsuarioCliente { get; set; }
+
         public int? CodUsuarioEntregador { get; set; }
     }
 }
