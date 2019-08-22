@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,20 +7,25 @@ namespace Model
 {
     public partial class ContaBancaria
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Key]
         public int CodConta { get; set; }
-        [Required]
-        [Display(Name ="Número da Conta")]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "numConta", ResourceType = typeof(Mensagem))]
         public int Numero { get; set; }
-        [Required]
-        [Display(Name ="Agência")]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "agencia", ResourceType = typeof(Mensagem))]
         public int Agencia { get; set; }
-        [Required]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public string Tipo { get; set; }
-        [Required]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public int CodUsuario { get; set; }
-        [Required]
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public int CodBanco { get; set; }
     }
 }
