@@ -13,6 +13,8 @@ namespace Model
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Display(Name = "numCartao", ResourceType = typeof(Mensagem))]
+        [StringLength(16)]
+        [MinLength(16)]
         public string Numero { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]

@@ -29,12 +29,12 @@
             <img src="~/imagens/Slogan.png" alt="Logo" class="w3-bar-item w3-border-bottom" />
         </a>
 
-        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+        <a href="~/Entrega/Create" class="w3-bar-item w3-button w3-border-bottom">
             <i class="fas fa-shipping-fast" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
             Novo Pedido
         </a>
 
-        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+        <a href="~/Cartao/Index" class="w3-bar-item w3-button w3-border-bottom">    
             <i class="fas fa-wallet" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
             Formas de Pagamento
         </a>
@@ -63,14 +63,14 @@
 
     </div>
 
-    <div class="w3-main container-fluid" style="margin-left:230px; height:100%">
+    <div class="w3-main" style="margin-left:230px;">
         <partial name="_CookieConsentPartial" />
-        <div>
+        <div class="w3-black">
             <button class="w3-button w3-black w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
         </div>
-        <main role="main">
+        <div class="w3-container" style="padding:0px">
             @RenderBody()
-        </main>
+        </div>
     </div>
 
     <environment include="Development">
