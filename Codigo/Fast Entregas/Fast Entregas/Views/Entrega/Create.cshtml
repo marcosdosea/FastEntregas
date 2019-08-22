@@ -4,13 +4,34 @@
     Layout = "_LayoutCliente";
     ViewData["Title"] = "Create";
 }
+<div class="w3-cell-row">
 
-<div class="container-fluid no-gutters">
-    <div class="w3-third no-gutters w3-border-right w3-border-bottom w3-border-black overflow-auto" style="height: 754px;margin-left:0; padding:0">
+    <div class="w3-cell w3-mobile w3-border-top w3-border-bottom w3-border-black" style="width:100%;height:100vh;padding:0;overflow:auto;display:grid">
 
-        <h3 class="w3-border-bottom w3-border-black text-center mt-4" style="padding-bottom:25px">Dados da Entrega</h3>
+        <!--Google map-->
+        <!--<div id="map-container" class="z-depth-1-half map-container" style="height: 100vh">
+            <iframe src="https://maps.google.com/maps?q=aracaju&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                    style="border:0" allowfullscreen></iframe>
+        </div>-->
 
-        <form asp-action="Create">
+        <!--<div style="overflow: auto;height: 100vh">
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+            <h3>escrito algo</h3>
+        </div>-->
+
+        <h3 class="w3-border-bottom w3-border-black w3-middle text-center mt-4" style="padding-bottom:25px">Dados da Entrega</h3>
+            <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="container-fluid" style="padding:15px">
@@ -99,11 +120,17 @@
         </form>
     </div>
 
-    <div class="w3-rest w3-display-topright" style="position:fixed;">
-        <img src="~/imagens/mapa.jpg" style="width:100%;height:790px;"/>
+    <div class="w3-cell w3-mobile w3-border w3-border-black" style="width: 60%;padding:0;">
+        <!--Google map-->
+        <div id="map-container" class="z-depth-1-half map-container" style="height: 100vh">
+            <iframe src="https://maps.google.com/maps?q=itabaiana&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                    style="border:0" allowfullscreen></iframe>
+        </div>
     </div>
 
+
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

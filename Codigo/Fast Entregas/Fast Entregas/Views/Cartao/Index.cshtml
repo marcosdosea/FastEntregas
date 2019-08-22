@@ -1,65 +1,42 @@
 ﻿@model IEnumerable<Model.Cartao>
 
 @{
+    Layout = "_LayoutCliente";
     ViewData["Title"] = "Index";
 }
 
-<h1>Cartões Cadastrados</h1>
 
-<p>
-    <a asp-action="Create">Adicionar Novo Cartão</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CodCartao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeDono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataValidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cvv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodUsuario)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodCartao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeDono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataValidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cvv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodUsuario)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.CodCartao  }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.CodCartao  }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.CodCartao  })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="w3-container mt-1">
+    <h1>Cartões Cadastrados</h1>
+    <ul class="w3-ul w3-card-4 mt-5">
+        @foreach (var item in Model)
+        {
+            var numeroCartao = item.Numero.Substring(12);
+            <li class="w3-bar">
+                <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right" style="color:black;margin-top: 15px;">
+                    @Html.ActionLink("", "Delete", new { id = item.CodCartao }, new { @class = "fas fa-trash", @style = "color: red" })
+                </span>
+                <i class="fas fa-credit-card w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: black; margin-top: 20px;"></i>
+                <div class="w3-bar-item">
+                    <span class="w3-large">Terminado em @numeroCartao </span><br>
+                    <span style="color: darkgrey">Vencimento: @Html.DisplayFor(modelItem => item.DataValidade)</span><br />
+                    <span style="color: darkgrey">Dono: @Html.DisplayFor(modelItem => item.NomeDono)</span>
+                </div>
+            </li>
+
+        }
+    </ul>
+    <button class="btn mt-4" style="background-color: rgb(157,203,43)" onclick="document.getElementById('formCadastro').style.display='block'">
+        <a style="text-decoration:none;color:black">Adicionar Novo Cartão</a>
+    </button>
+</div>
+
+<div id="formCadastro" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <span onclick="document.getElementById('formCadastro').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+        <div class="w3-container">
+            
+        </div>
+    </div>
+</div>
