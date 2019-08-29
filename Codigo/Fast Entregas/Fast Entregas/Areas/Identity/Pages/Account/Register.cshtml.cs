@@ -40,6 +40,14 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            public string Nome { get; set; }
+
+            [Required]
+            [Phone]
+            [StringLength(15, ErrorMessage = "O {0} deve ter no minimo {2} e no máximo {1} caracteres.", MinimumLength = 11)]
+            public string Telefone { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -47,12 +55,12 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirme a senha")]
+            [Compare("Password", ErrorMessage = "A senha e a confirmação não são iguais.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -66,7 +74,7 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new IdentityUser { UserName = Input.Nome, PhoneNumber = Input.Telefone , Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
