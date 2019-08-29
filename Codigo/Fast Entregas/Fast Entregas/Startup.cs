@@ -38,8 +38,8 @@ namespace Fast_Entregas
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySQL(
+                    Configuration.GetConnectionString("FastEntregasConnection")));
             services.AddDbContext<fast_entregasContext>(options =>
                 options.UseMySQL(
                     Configuration.GetConnectionString("FastEntregasConnection")));
@@ -53,6 +53,7 @@ namespace Fast_Entregas
             services.AddTransient<IGerenciadorEntrega, GerenciadorEntrega>();
 
             services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 

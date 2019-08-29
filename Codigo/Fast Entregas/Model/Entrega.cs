@@ -22,7 +22,7 @@ namespace Model
         public string Destino { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
-        [Display(Name = "dtCorrida", ResourceType = typeof(Mensagem))]
+        [Display(Name = "dtEntrega", ResourceType = typeof(Mensagem))]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime Data { get; set; }
