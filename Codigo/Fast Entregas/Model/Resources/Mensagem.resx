@@ -135,8 +135,8 @@
   <data name="descricao" xml:space="preserve">
     <value>Descrição</value>
   </data>
-  <data name="dtCorrida" xml:space="preserve">
-    <value>Data da Corrida</value>
+  <data name="dtEntrega" xml:space="preserve">
+    <value>Data da Entrega</value>
   </data>
   <data name="dtNascimento" xml:space="preserve">
     <value>Data de Nascimento</value>
