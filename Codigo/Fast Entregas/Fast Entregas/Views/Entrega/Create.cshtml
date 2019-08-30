@@ -4,34 +4,15 @@
     Layout = "_LayoutCliente";
     ViewData["Title"] = "Create";
 }
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+
 <div class="w3-cell-row">
 
     <div class="w3-cell w3-mobile w3-border-top w3-border-bottom w3-border-black" style="width:100%;height:100vh;padding:0;overflow:auto;display:grid">
 
-        <!--Google map-->
-        <!--<div id="map-container" class="z-depth-1-half map-container" style="height: 100vh">
-            <iframe src="https://maps.google.com/maps?q=aracaju&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                    style="border:0" allowfullscreen></iframe>
-        </div>-->
-
-        <!--<div style="overflow: auto;height: 100vh">
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-        </div>-->
-
         <h3 class="w3-border-bottom w3-border-black w3-middle text-center mt-4" style="padding-bottom:25px">Dados da Entrega</h3>
-            <form asp-action="Create">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="container-fluid" style="padding:15px">
@@ -93,12 +74,12 @@
 
                 <div class="form-group">
                     <label asp-for="Origem" class="control-label"></label>
-                    <input asp-for="Origem" class="form-control" />
+                    <input asp-for="Origem" class="form-control" id="origem" onfocusout="MarkerPopup(document.getElementById('origem').value)" />
                     <span asp-validation-for="Origem" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Destino" class="control-label"></label>
-                    <input asp-for="Destino" class="form-control" />
+                    <input asp-for="Destino" class="form-control" id="destino" onfocusout="MarkerPopup(document.getElementById('destino').value)" />
                     <span asp-validation-for="Destino" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -121,15 +102,120 @@
     </div>
 
     <div class="w3-cell w3-mobile w3-border w3-border-black" style="width: 60%;padding:0;">
-        <!--Google map-->
-        <div id="map-container" class="z-depth-1-half map-container" style="height: 100vh">
-            <iframe src="https://maps.google.com/maps?q=itabaiana&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                    style="border:0" allowfullscreen></iframe>
+        <div id="map" class="z-depth-1-half map-container" style="height: 100vh">
         </div>
     </div>
 
-
 </div>
+
+<script type="text/javascript">
+    var token = 'pk.eyJ1IjoibGlwZTkxMTkiLCJhIjoiY2p6YmttbWVnMDAzMDNkczZmcWFmdjVxYyJ9.RC5ROZ1BnpgGwOp_NQylFg';
+
+    mapboxgl.accessToken = token;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        zoom: 8,
+        center: [
+            -37.38,
+            -10.59
+        ],
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+
+    async function MarkerPopup(endereco) {
+        const api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + endereco + ".json?access_token=" + token + "&autocomplete=true";
+
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const Latlong = data.features[0].center;
+        const text = data.features[0].text;
+
+        var popup = new mapboxgl.Popup({ closeOnClick: false })
+            .setLngLat(Latlong)
+            .setText(text);
+
+        var marker = new mapboxgl.Marker({ draggable: true })
+            .setLngLat(Latlong)
+            .setPopup(popup)
+            .addTo(map);
+
+        map.setCenter(Latlong);
+        map.setZoom(15);
+
+        if (document.getElementById('origem').value != "" && document.getElementById('destino').value != "") {
+            Route(document.getElementById('origem').value, document.getElementById('destino').value);
+        }
+    }
+
+    function Marker(LatLong) {
+        var marker = new mapboxgl.Marker({ draggable: true })
+            .setLngLat(LatLong)
+            .addTo(map);
+    }
+
+    async function Route(origem, destino) {
+        const api_origem = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + origem + ".json?access_token=" + token + "&autocomplete=true";
+        const api_destino = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + destino + ".json?access_token=" + token + "&autocomplete=true";
+
+        const response_origem = await fetch(api_origem);
+        const data_origem = await response_origem.json();
+        const Latlong_origem = data_origem.features[0].center;
+        //console.log(Latlong_origem);
+
+        const response_destino = await fetch(api_destino);
+        const data_destino = await response_destino.json();
+        const Latlong_destino = data_destino.features[0].center;
+        //console.log(Latlong_destino);
+
+        const api_route = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/" + Latlong_origem[0] + "%2C" + Latlong_origem[1] + "%3B" + Latlong_destino[0] + "%2C" + Latlong_destino[1] + ".json?access_token=" + token + "&steps=true&language=pt-br";
+        const response_route = await fetch(api_route);
+        const data_route = await response_route.json();
+
+        if (data_route.message == 'No route found') {
+            console.log("Rota não enontrada");
+            return;
+        }
+
+        const duration = data_route.routes[0].duration;
+        const distance = data_route.routes[0].distance;
+        const steps = data_route.routes[0].legs[0].steps;
+
+        const coordinates = [];
+        steps.forEach(step => {
+            //Marker(step.maneuver.location);
+            coordinates.push(step.maneuver.location);
+        });
+
+        map.addLayer({
+            "id": "route",
+            "type": "line",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "LineString",
+                            "properties": {},
+                            "coordinates": coordinates
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "line-join": "round",
+                "line-cap": "round"
+            },
+            "paint": {
+                "line-color": "#888",
+                "line-width": 8
+            }
+        });
+
+    }
+
+</script>
 
 
 @section Scripts {
