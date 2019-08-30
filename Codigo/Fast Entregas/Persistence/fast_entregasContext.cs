@@ -15,31 +15,236 @@ namespace Persistence
         {
         }
 
-        public virtual DbSet<TbBanco> TbBanco { get; set; }
-        public virtual DbSet<TbCartao> TbCartao { get; set; }
-        public virtual DbSet<TbContaBancaria> TbContaBancaria { get; set; }
-        public virtual DbSet<TbEntrega> TbEntrega { get; set; }
-        public virtual DbSet<TbFormaspagamento> TbFormaspagamento { get; set; }
-        public virtual DbSet<TbFormaspagamentoHasEntrega> TbFormaspagamentoHasEntrega { get; set; }
-        public virtual DbSet<TbSolicitacaoDeCadastro> TbSolicitacaoDeCadastro { get; set; }
-        public virtual DbSet<TbUsuario> TbUsuario { get; set; }
-        public virtual DbSet<TbUsuarioVeiculo> TbUsuarioVeiculo { get; set; }
-        public virtual DbSet<TbVeiculo> TbVeiculo { get; set; }
+        public virtual DbSet<Aspnetroleclaims> Aspnetroleclaims { get; set; }
+        public virtual DbSet<Aspnetroles> Aspnetroles { get; set; }
+        public virtual DbSet<Aspnetuserclaims> Aspnetuserclaims { get; set; }
+        public virtual DbSet<Aspnetuserlogins> Aspnetuserlogins { get; set; }
+        public virtual DbSet<Aspnetuserroles> Aspnetuserroles { get; set; }
+        public virtual DbSet<Aspnetusers> Aspnetusers { get; set; }
+        public virtual DbSet<Aspnetusertokens> Aspnetusertokens { get; set; }
+        public virtual DbSet<Banco> Banco { get; set; }
+        public virtual DbSet<Cartao> Cartao { get; set; }
+        public virtual DbSet<ContaBancaria> ContaBancaria { get; set; }
+        public virtual DbSet<Entrega> Entrega { get; set; }
+        public virtual DbSet<Formaspagamento> Formaspagamento { get; set; }
+        public virtual DbSet<FormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
+        public virtual DbSet<SolicitacaoDeCadastro> SolicitacaoDeCadastro { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<UsuarioVeiculo> UsuarioVeiculo { get; set; }
+        public virtual DbSet<Veiculo> Veiculo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /*if (!optionsBuilder.IsConfigured)
+            if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=fast_entregas");
-            }*/
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+            modelBuilder.Entity<Aspnetroleclaims>(entity =>
+            {
+                entity.ToTable("aspnetroleclaims", "fast_entregas");
 
-            modelBuilder.Entity<TbBanco>(entity =>
+                entity.HasIndex(e => e.RoleId)
+                    .HasName("IX_AspNetRoleClaims_RoleId");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("int(11)")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.ClaimType).IsUnicode(false);
+
+                entity.Property(e => e.ClaimValue).IsUnicode(false);
+
+                entity.Property(e => e.RoleId)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Aspnetroleclaims)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetRoleClaims_AspNetRoles_RoleId");
+            });
+
+            modelBuilder.Entity<Aspnetroles>(entity =>
+            {
+                entity.ToTable("aspnetroles", "fast_entregas");
+
+                entity.HasIndex(e => e.NormalizedName)
+                    .HasName("RoleNameIndex")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .IsUnicode(false)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.ConcurrencyStamp).IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NormalizedName)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Aspnetuserclaims>(entity =>
+            {
+                entity.ToTable("aspnetuserclaims", "fast_entregas");
+
+                entity.HasIndex(e => e.UserId)
+                    .HasName("IX_AspNetUserClaims_UserId");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("int(11)")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.ClaimType).IsUnicode(false);
+
+                entity.Property(e => e.ClaimValue).IsUnicode(false);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserclaims)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserClaims_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetuserlogins>(entity =>
+            {
+                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+
+                entity.ToTable("aspnetuserlogins", "fast_entregas");
+
+                entity.HasIndex(e => e.UserId)
+                    .HasName("IX_AspNetUserLogins_UserId");
+
+                entity.Property(e => e.LoginProvider)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProviderKey)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProviderDisplayName).IsUnicode(false);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserlogins)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserLogins_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetuserroles>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoleId });
+
+                entity.ToTable("aspnetuserroles", "fast_entregas");
+
+                entity.HasIndex(e => e.RoleId)
+                    .HasName("IX_AspNetUserRoles_RoleId");
+
+                entity.Property(e => e.UserId).IsUnicode(false);
+
+                entity.Property(e => e.RoleId).IsUnicode(false);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Aspnetuserroles)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetRoles_RoleId");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserroles)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetusers>(entity =>
+            {
+                entity.ToTable("aspnetusers", "fast_entregas");
+
+                entity.HasIndex(e => e.NormalizedEmail)
+                    .HasName("EmailIndex");
+
+                entity.HasIndex(e => e.NormalizedUserName)
+                    .HasName("UserNameIndex")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .IsUnicode(false)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.AccessFailedCount).HasColumnType("int(11)");
+
+                entity.Property(e => e.ConcurrencyStamp).IsUnicode(false);
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailConfirmed).HasColumnType("bit(1)");
+
+                entity.Property(e => e.LockoutEnabled).HasColumnType("bit(1)");
+
+                entity.Property(e => e.NormalizedEmail)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NormalizedUserName)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PasswordHash).IsUnicode(false);
+
+                entity.Property(e => e.PhoneNumber).IsUnicode(false);
+
+                entity.Property(e => e.PhoneNumberConfirmed).HasColumnType("bit(1)");
+
+                entity.Property(e => e.SecurityStamp).IsUnicode(false);
+
+                entity.Property(e => e.TwoFactorEnabled).HasColumnType("bit(1)");
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Aspnetusertokens>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
+
+                entity.ToTable("aspnetusertokens", "fast_entregas");
+
+                entity.Property(e => e.UserId).IsUnicode(false);
+
+                entity.Property(e => e.LoginProvider)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Value).IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetusertokens)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Banco>(entity =>
             {
                 entity.HasKey(e => e.CodBanco);
 
@@ -56,7 +261,7 @@ namespace Persistence
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<TbCartao>(entity =>
+            modelBuilder.Entity<Cartao>(entity =>
             {
                 entity.HasKey(e => e.CodCartao);
 
@@ -90,11 +295,9 @@ namespace Persistence
                     .IsUnicode(false);
 
                 entity.Property(e => e.Numero)
-                    .IsRequired()
                     .HasColumnName("numero")
                     .HasMaxLength(20)
                     .IsUnicode(false);
-
 
                 entity.HasOne(d => d.CodUsuarioNavigation)
                     .WithMany(p => p.Cartao)
@@ -103,7 +306,7 @@ namespace Persistence
                     .HasConstraintName("fk_Cartao_Usuario1");
             });
 
-            modelBuilder.Entity<TbContaBancaria>(entity =>
+            modelBuilder.Entity<ContaBancaria>(entity =>
             {
                 entity.HasKey(e => e.CodConta);
 
@@ -136,11 +339,8 @@ namespace Persistence
                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.Tipo)
-                    .IsRequired()
                     .HasColumnName("tipo")
-                    .HasMaxLength(10)
-                    .HasColumnType("enum('Conta Corrente','Poupança')")
-                    .IsUnicode(false);
+                    .HasColumnType("enum('Conta Corrente','Poupança')");
 
                 entity.HasOne(d => d.CodBancoNavigation)
                     .WithMany(p => p.ContaBancaria)
@@ -155,7 +355,7 @@ namespace Persistence
                     .HasConstraintName("fk_ContaBancaria_Usuario");
             });
 
-            modelBuilder.Entity<TbEntrega>(entity =>
+            modelBuilder.Entity<Entrega>(entity =>
             {
                 entity.HasKey(e => e.CodEntrega);
 
@@ -192,13 +392,13 @@ namespace Persistence
                 entity.Property(e => e.Destino)
                     .IsRequired()
                     .HasColumnName("destino")
-                    .HasMaxLength(150)
+                    .HasMaxLength(45)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Origem)
                     .IsRequired()
                     .HasColumnName("origem")
-                    .HasMaxLength(150)
+                    .HasMaxLength(45)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Status)
@@ -221,7 +421,7 @@ namespace Persistence
                     .HasConstraintName("fk_Corrida_Entrega_Usuario2");
             });
 
-            modelBuilder.Entity<TbFormaspagamento>(entity =>
+            modelBuilder.Entity<Formaspagamento>(entity =>
             {
                 entity.HasKey(e => e.CodFormaPagamento);
 
@@ -239,7 +439,7 @@ namespace Persistence
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<TbFormaspagamentoHasEntrega>(entity =>
+            modelBuilder.Entity<FormaspagamentoHasEntrega>(entity =>
             {
                 entity.HasKey(e => new { e.FormasPagamentoCodFormaPagamento, e.EntregaCodCorridaEntrega });
 
@@ -274,7 +474,7 @@ namespace Persistence
                     .HasConstraintName("fk_FormasPagamento_has_Entrega_FormasPagamento1");
             });
 
-            modelBuilder.Entity<TbSolicitacaoDeCadastro>(entity =>
+            modelBuilder.Entity<SolicitacaoDeCadastro>(entity =>
             {
                 entity.HasKey(e => e.CodSolicitacao);
 
@@ -332,7 +532,7 @@ namespace Persistence
                     .HasConstraintName("fk_Solicitacao_de_Cadastro_Usuario2");
             });
 
-            modelBuilder.Entity<TbUsuario>(entity =>
+            modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.CodUsuario);
 
@@ -348,24 +548,6 @@ namespace Persistence
                     .HasMaxLength(15)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasColumnName("email")
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Nome)
-                    .IsRequired()
-                    .HasColumnName("nome")
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Senha)
-                    .IsRequired()
-                    .HasColumnName("senha")
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.StatusCliente)
                     .HasColumnName("statusCliente")
                     .HasColumnType("enum('online','offline','inativo')")
@@ -375,20 +557,9 @@ namespace Persistence
                     .HasColumnName("statusEntregador")
                     .HasColumnType("enum('em analise','bloqueado','online','offline')")
                     .HasDefaultValueSql("offline");
-
-                entity.Property(e => e.Telefone)
-                    .IsRequired()
-                    .HasColumnName("telefone")
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Tipo)
-                    .HasColumnName("tipo")
-                    .HasColumnType("enum('Cliente', 'Entregador', 'Funcionario')")
-                    .HasDefaultValueSql("cliente");
             });
 
-            modelBuilder.Entity<TbUsuarioVeiculo>(entity =>
+            modelBuilder.Entity<UsuarioVeiculo>(entity =>
             {
                 entity.HasKey(e => new { e.CodUsuario, e.CodVeiculo });
 
@@ -421,7 +592,7 @@ namespace Persistence
                     .HasConstraintName("fk_Usuario_has_Veiculo_Veiculo1");
             });
 
-            modelBuilder.Entity<TbVeiculo>(entity =>
+            modelBuilder.Entity<Veiculo>(entity =>
             {
                 entity.HasKey(e => e.CodVeiculo);
 
@@ -450,8 +621,7 @@ namespace Persistence
 
                 entity.Property(e => e.EmUso)
                     .HasColumnName("emUso")
-                    .HasColumnType("enum('Sim','Nao')")
-                    .HasDefaultValueSql("Nao");
+                    .HasColumnType("enum('Sim','Nao')");
 
                 entity.Property(e => e.Placa)
                     .IsRequired()
