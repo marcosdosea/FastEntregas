@@ -6,72 +6,17 @@
 }
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+<script src="https://assets.pagar.me/checkout/1.1.0/checkout.js"></script>
 
 <div class="w3-cell-row">
 
     <div class="w3-cell w3-mobile w3-border-top w3-border-bottom w3-border-black" style="width:100%;height:100vh;padding:0;overflow:auto;display:grid">
 
-        <h3 class="w3-border-bottom w3-border-black w3-middle text-center mt-4" style="padding-bottom:25px">Dados da Entrega</h3>
-        <form asp-action="Create">
+        <h3 class="w3-border-bottom w3-border-black w3-middle text-center mt-4 mb-0" style="height: 100px;">Dados da Entrega</h3>
+        <form asp-action="Create" onsubmit="return false" id="form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="container-fluid" style="padding:15px">
-                <div class="container w3-border-bottom w3-border-black" style="padding:15px">
-                    <h3>Endereço de Retirada</h3>
-                    <div class="form-group">
-                        <label class="control-label">Rua</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Numero</label>
-                        <input class="form-control" type="number" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Complemento</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Bairro</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Cidade</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">O que o entregador deve fazer ?</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <div class="container w3-border-bottom w3-border-black" style="padding:15px">
-                    <h3>Endereço de Destino</h3>
-                    <div class="form-group">
-                        <label class="control-label">Rua</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Numero</label>
-                        <input class="form-control" type="number" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Complemento</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Bairro</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Cidade</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">O que o entregador deve fazer ?</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-
+            <div class="container">
                 <div class="form-group">
                     <label asp-for="Origem" class="control-label"></label>
                     <input asp-for="Origem" class="form-control" id="origem" onfocusout="MarkerPopup(document.getElementById('origem').value)" />
@@ -84,17 +29,35 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Descricao" class="control-label"></label>
-                    <input asp-for="Descricao" class="form-control" />
+                    <input asp-for="Descricao" class="form-control" id="descricao" />
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CodUsuarioCliente" class="control-label"></label>
-                    <input asp-for="CodUsuarioCliente" class="form-control" />
+                    <input asp-for="CodUsuarioCliente" class="form-control" id="codUsuario" />
                     <span asp-validation-for="CodUsuarioCliente" class="text-danger"></span>
                 </div>
 
+                <div class="form-group mt-5 border-top text-center">
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <label class="col-12 text-center">Duração</label>
+                            <strong id="duracao" class="col-12 text-center">-</strong>
+                        </div>
+                        <div class="col-4">
+                            <label class="col-12 text-center">Distância</label>
+                            <strong id="distancia" class="col-12 text-center">-</strong>
+                        </div>
+                        <div class="col-4">
+                            <label class="col-12 text-center">Valor</label>
+                            <strong id="valor" class="col-12 text-center">-</strong>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" style="background-color:black; border-color:black" />
+                    <input type="submit" value="Solicitar" class="btn btn-primary" style="background-color:black; border-color:black; width: 100%" />
+                    <button class="btn btn-primary" style="background-color:black; border-color:black; width: 100%" id="pay-button">pagamento</button>
                 </div>
             </div>
 
@@ -105,10 +68,13 @@
         <div id="map" class="z-depth-1-half map-container" style="height: 100vh">
         </div>
     </div>
-
 </div>
 
 <script type="text/javascript">
+    var requests = 0;
+    var distance;
+    var duration;
+    var valor;
     var token = 'pk.eyJ1IjoibGlwZTkxMTkiLCJhIjoiY2p6YmttbWVnMDAzMDNkczZmcWFmdjVxYyJ9.RC5ROZ1BnpgGwOp_NQylFg';
 
     mapboxgl.accessToken = token;
@@ -160,60 +126,187 @@
         const response_origem = await fetch(api_origem);
         const data_origem = await response_origem.json();
         const Latlong_origem = data_origem.features[0].center;
-        //console.log(Latlong_origem);
 
         const response_destino = await fetch(api_destino);
         const data_destino = await response_destino.json();
         const Latlong_destino = data_destino.features[0].center;
-        //console.log(Latlong_destino);
 
         const api_route = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/" + Latlong_origem[0] + "%2C" + Latlong_origem[1] + "%3B" + Latlong_destino[0] + "%2C" + Latlong_destino[1] + ".json?access_token=" + token + "&steps=true&language=pt-br";
         const response_route = await fetch(api_route);
         const data_route = await response_route.json();
 
         if (data_route.message == 'No route found') {
-            console.log("Rota não enontrada");
+            alert("Rota não enontrada");
             return;
         }
 
-        const duration = data_route.routes[0].duration;
-        const distance = data_route.routes[0].distance;
+        duration = data_route.routes[0].duration;
+        distance = data_route.routes[0].distance;
         const steps = data_route.routes[0].legs[0].steps;
+        valor = (distance / 1000) * 2;
+
+        if (valor < 4.50) {
+            valor = 4.50;
+        }
 
         const coordinates = [];
         steps.forEach(step => {
-            //Marker(step.maneuver.location);
             coordinates.push(step.maneuver.location);
         });
 
-        map.addLayer({
-            "id": "route",
-            "type": "line",
-            "source": {
-                "type": "geojson",
-                "data": {
-                    "type": "FeatureCollection",
-                    "features": [{
-                        "type": "Feature",
-                        "geometry": {
-                            "type": "LineString",
-                            "properties": {},
-                            "coordinates": coordinates
-                        }
-                    }]
+
+        if (map.getLayer('route') == undefined) {
+            map.addLayer({
+                "id": "route",
+                "type": "line",
+                "source": {
+                    "type": "geojson",
+                    "data": {
+                        "type": "FeatureCollection",
+                        "features": [{
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "LineString",
+                                "properties": {},
+                                "coordinates": coordinates
+                            }
+                        }]
+                    }
+                },
+                "layout": {
+                    "line-join": "round",
+                    "line-cap": "round"
+                },
+                "paint": {
+                    "line-color": "#888",
+                    "line-width": 8
                 }
-            },
-            "layout": {
-                "line-join": "round",
-                "line-cap": "round"
-            },
-            "paint": {
-                "line-color": "#888",
-                "line-width": 8
-            }
-        });
+            });
+        } else {
+            map.removeLayer('route');
+            map.addLayer({
+                "id": "route",
+                "type": "line",
+                "source": {
+                    "type": "geojson",
+                    "data": {
+                        "type": "FeatureCollection",
+                        "features": [{
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "LineString",
+                                "properties": {},
+                                "coordinates": coordinates
+                            }
+                        }]
+                    }
+                },
+                "layout": {
+                    "line-join": "round",
+                    "line-cap": "round"
+                },
+                "paint": {
+                    "line-color": "#888",
+                    "line-width": 8
+                }
+            }, 'route');
+        }
+
+        if (duration < 60) {
+            document.getElementById('duracao').innerHTML = duration.toFixed(2) + " sec";
+        } else if (duration >= 60 && duration < 3600) {
+            var min = (duration / 60);
+            document.getElementById('duracao').innerHTML = Math.ceil(min) + " min";
+        } else {
+            var h = (duration / 60) / 60;
+            var min = ((duration / 60) % 60) * 60;
+            document.getElementById('duracao').innerHTML = Math.floor(h) + " h e " + Math.ceil(min) + " min";
+        }
+
+        if (distance < 1000) {
+            document.getElementById('distancia').innerHTML = distance.toFixed(2) + " m";
+        }
+        else {
+            document.getElementById('distancia').innerHTML = (distance / 1000).toFixed(2) + " Km";
+        }
+
+        document.getElementById('valor').innerText = "R$ " + valor.toFixed(2);
 
     }
+
+
+    var button = document.querySelector('#pay-button');
+
+    // Abrir o modal ao clicar no botão
+    button.addEventListener('click', function () {
+        var origem = document.getElementById('origem').value;
+        var destino = document.getElementById('destino').value;
+
+        // inicia a instância do checkout
+        if (origem && destino) {
+
+            var checkout = new PagarMeCheckout.Checkout({
+                encryption_key: 'ek_test_sbHErSSo91fBExfrGhro8IdqB1IJmH',
+                success: function (data) {
+                    document.getElementById('form').submit();
+                },
+                error: function (err) {
+                    console.log(err);
+                },
+                close: function () {
+                    console.log('The modal has been closed.');
+                }
+            });
+
+            // Obs.: é necessário passar os valores boolean como string
+            response = checkout.open({
+                amount: valor * 100,
+                buttonText: 'Pagar',
+                buttonClass: 'botao-pagamento',
+                customerData: 'false',
+                createToken: 'true',
+                paymentMethods: 'credit_card',
+                customer: {
+                    external_id: '#123456789',
+                    name: 'Fulano',
+                    type: 'individual',
+                    country: 'br',
+                    email: 'fulano@email.com',
+                    documents: [
+                        {
+                            type: 'cpf',
+                            number: '71404665560',
+                        },
+                    ],
+                    phone_numbers: ['+5511999998888', '+5511888889999'],
+                    birthday: '1985-01-01'
+                },
+                billing: {
+                    name: 'Ciclano de Tal',
+                    address: {
+                        country: 'br',
+                        state: 'SP',
+                        city: 'São Paulo',
+                        neighborhood: 'Fulanos bairro',
+                        street: origem,
+                        street_number: '123',
+                        zipcode: '05170060'
+                    }
+                },
+                items: [
+                    {
+                        id: '1',
+                        title: 'Entrega',
+                        unit_price: parseInt(valor),
+                        quantity: 1,
+                        tangible: false
+                    }
+                ]
+            });
+
+        }
+    });
+
 
 </script>
 
