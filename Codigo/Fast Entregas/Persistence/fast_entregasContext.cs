@@ -248,7 +248,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodBanco);
 
-                entity.ToTable("banco", "fast_entregas");
+                entity.ToTable("tbbanco", "fast_entregas");
 
                 entity.Property(e => e.CodBanco)
                     .HasColumnName("codBanco")
@@ -265,7 +265,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodCartao);
 
-                entity.ToTable("cartao", "fast_entregas");
+                entity.ToTable("tbcartao", "fast_entregas");
 
                 entity.HasIndex(e => e.CodUsuario)
                     .HasName("fk_Cartao_Usuario1_idx");
@@ -310,7 +310,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodConta);
 
-                entity.ToTable("conta_bancaria", "fast_entregas");
+                entity.ToTable("tbconta_bancaria", "fast_entregas");
 
                 entity.HasIndex(e => e.CodBanco)
                     .HasName("fk_Conta_Bancaria_Banco1_idx");
@@ -359,7 +359,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodEntrega);
 
-                entity.ToTable("entrega", "fast_entregas");
+                entity.ToTable("tbentrega", "fast_entregas");
 
                 entity.HasIndex(e => e.CodUsuarioCliente)
                     .HasName("fk_Corrida_Entrega_Usuario1_idx");
@@ -431,7 +431,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodFormaPagamento);
 
-                entity.ToTable("formaspagamento", "fast_entregas");
+                entity.ToTable("tbformaspagamento", "fast_entregas");
 
                 entity.Property(e => e.CodFormaPagamento)
                     .HasColumnName("codFormaPagamento")
@@ -449,7 +449,7 @@ namespace Persistence
             {
                 entity.HasKey(e => new { e.FormasPagamentoCodFormaPagamento, e.EntregaCodCorridaEntrega });
 
-                entity.ToTable("formaspagamento_has_entrega", "fast_entregas");
+                entity.ToTable("tbformaspagamento_has_entrega", "fast_entregas");
 
                 entity.HasIndex(e => e.EntregaCodCorridaEntrega)
                     .HasName("fk_FormasPagamento_has_Entrega_Entrega1_idx");
@@ -484,7 +484,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodSolicitacao);
 
-                entity.ToTable("solicitacao_de_cadastro", "fast_entregas");
+                entity.ToTable("tbsolicitacao_de_cadastro", "fast_entregas");
 
                 entity.HasIndex(e => e.CodUsuarioEntregador)
                     .HasName("fk_Solicitacao_de_Cadastro_Usuario1_idx");
@@ -542,7 +542,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodUsuario);
 
-                entity.ToTable("usuario", "fast_entregas");
+                entity.ToTable("tbusuario", "fast_entregas");
 
                 entity.Property(e => e.CodUsuario)
                     .HasColumnName("codUsuario")
@@ -569,7 +569,7 @@ namespace Persistence
             {
                 entity.HasKey(e => new { e.CodUsuario, e.CodVeiculo });
 
-                entity.ToTable("usuario_veiculo", "fast_entregas");
+                entity.ToTable("tbusuario_veiculo", "fast_entregas");
 
                 entity.HasIndex(e => e.CodUsuario)
                     .HasName("fk_Usuario_has_Veiculo_Usuario1_idx");
@@ -602,7 +602,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodVeiculo);
 
-                entity.ToTable("veiculo", "fast_entregas");
+                entity.ToTable("tbveiculo", "fast_entregas");
 
                 entity.HasIndex(e => e.CodDono)
                     .HasName("fk_Veiculo_Usuario1_idx");

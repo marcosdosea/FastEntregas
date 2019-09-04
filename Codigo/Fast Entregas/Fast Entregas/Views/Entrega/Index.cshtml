@@ -5,81 +5,6 @@
     ViewData["Title"] = "Index";
 }
 
-<!--<div class="w3-container mt-3">
-    <table class="w3-table-all" id="tabela">
-        <thead>
-            <tr>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(1)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.CodEntrega)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(2)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.Origem)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(3)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.Destino)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(4)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.Data)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(5)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.Status)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(6)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.Valor)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(7)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(8)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.CodUsuarioCliente)
-                </th>
-                <th onclick="w3.sortHTML('#tabela', '.item', 'td:nth-child(9)')" style="cursor:pointer">
-                    @Html.DisplayNameFor(model => model.CodUsuarioEntregador)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr class="item">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodEntrega)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Origem)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Destino)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Data)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Valor)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descricao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodUsuarioCliente)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodUsuarioEntregador)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CodEntrega }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.CodEntrega }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CodEntrega })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>-->
 
 <div class="w3-container mt-3 mb-5">
     <button onclick="w3.sortHTML('#lista', 'li')">organizar por status</button>
@@ -153,7 +78,8 @@
                             <h3>Data da Entrega: @Html.DisplayFor(modelItem => item.Data);</h3>
                             <h3>Status da Entrega: @Html.DisplayFor(modelItem => item.Status);</h3>
                             <h3>Valor: @Html.DisplayFor(modelItem => item.Valor);</h3>
-                            <h3>Descrição: @Html.DisplayFor(modelItem => item.Descricao);</h3>
+                            <h3>Descrição: @Html.DisplayFor(modelItem => item.Descricao_origem);</h3>
+                            <h3>Descrição: @Html.DisplayFor(modelItem => item.Descricao_destino);</h3>
                         </div>
                     </div>
                 </div>

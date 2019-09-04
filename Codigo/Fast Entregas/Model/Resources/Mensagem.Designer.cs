@@ -106,11 +106,20 @@ namespace Model.Resources {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição Destino.
         /// </summary>
-        public static string descricao {
+        public static string descricao_destino {
             get {
-                return ResourceManager.GetString("descricao", resourceCulture);
+                return ResourceManager.GetString("descricao_destino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição Origem.
+        /// </summary>
+        public static string descricao_origem {
+            get {
+                return ResourceManager.GetString("descricao_origem", resourceCulture);
             }
         }
         
