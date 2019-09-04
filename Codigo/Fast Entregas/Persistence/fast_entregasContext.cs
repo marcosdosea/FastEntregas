@@ -383,9 +383,15 @@ namespace Persistence
                     .HasColumnName("data")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Descricao)
+                entity.Property(e => e.Descricao_origem)
                     .IsRequired()
-                    .HasColumnName("descricao")
+                    .HasColumnName("descricao_origem")
+                    .HasMaxLength(300)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descricao_destino)
+                    .IsRequired()
+                    .HasColumnName("descricao_destino")
                     .HasMaxLength(300)
                     .IsUnicode(false);
 
