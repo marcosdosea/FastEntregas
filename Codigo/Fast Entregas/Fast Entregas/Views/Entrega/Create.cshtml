@@ -23,19 +23,32 @@
                     <span asp-validation-for="Origem" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Descricao_origem" class="control-label"></label>
+                    <input asp-for="Descricao_origem" class="form-control" id="descricao" />
+                    <span asp-validation-for="Descricao_origem" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="Destino" class="control-label"></label>
                     <input asp-for="Destino" class="form-control" id="destino" onfocusout="MarkerPopup(document.getElementById('destino').value)" />
                     <span asp-validation-for="Destino" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Descricao" class="control-label"></label>
-                    <input asp-for="Descricao" class="form-control" id="descricao" />
-                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                    <label asp-for="Descricao_destino" class="control-label"></label>
+                    <input asp-for="Descricao_destino" class="form-control" id="descricao" />
+                    <span asp-validation-for="Descricao_destino" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CodUsuarioCliente" class="control-label"></label>
                     <input asp-for="CodUsuarioCliente" class="form-control" id="codUsuario" />
                     <span asp-validation-for="CodUsuarioCliente" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Forma de Pagamento</label>
+                    <select class="form-control" id="formaPagamento">
+                        <option>Dinheiro</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
+                    <span class="text-danger"></span>
                 </div>
 
                 <div class="form-group mt-5 border-top text-center">
@@ -56,8 +69,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Solicitar" class="btn btn-primary" style="background-color:black; border-color:black; width: 100%" />
-                    <button class="btn btn-primary" style="background-color:black; border-color:black; width: 100%" id="pay-button">pagamento</button>
+                    <button class="btn btn-primary" style="background-color:black; border-color:black; width: 100%" id="pay-button">Solicitar</button>
                 </div>
             </div>
 
@@ -71,11 +83,10 @@
 </div>
 
 <script type="text/javascript">
-    var requests = 0;
     var distance;
     var duration;
     var valor;
-    var token = 'pk.eyJ1IjoibGlwZTkxMTkiLCJhIjoiY2p6YmttbWVnMDAzMDNkczZmcWFmdjVxYyJ9.RC5ROZ1BnpgGwOp_NQylFg';
+    const token = 'pk.eyJ1IjoibGlwZTkxMTkiLCJhIjoiY2p6YmttbWVnMDAzMDNkczZmcWFmdjVxYyJ9.RC5ROZ1BnpgGwOp_NQylFg';
 
     mapboxgl.accessToken = token;
     var map = new mapboxgl.Map({
@@ -241,68 +252,73 @@
     button.addEventListener('click', function () {
         var origem = document.getElementById('origem').value;
         var destino = document.getElementById('destino').value;
+        var formaPagamento = document.getElementById('formaPagamento').value;
+        if (formaPagamento == "Dinheiro") {
+            document.getElementById('form').submit();
+        } else {
+            // inicia a instância do checkout
+            if (origem && destino) {
 
-        // inicia a instância do checkout
-        if (origem && destino) {
+                var checkout = new PagarMeCheckout.Checkout({
+                    encryption_key: 'ek_test_sbHErSSo91fBExfrGhro8IdqB1IJmH',
+                    success: function (data) {
+                        document.getElementById('form').submit();
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    close: function () {
+                        console.log('The modal has been closed.');
+                    }
+                });
 
-            var checkout = new PagarMeCheckout.Checkout({
-                encryption_key: 'ek_test_sbHErSSo91fBExfrGhro8IdqB1IJmH',
-                success: function (data) {
-                    document.getElementById('form').submit();
-                },
-                error: function (err) {
-                    console.log(err);
-                },
-                close: function () {
-                    console.log('The modal has been closed.');
-                }
-            });
-
-            // Obs.: é necessário passar os valores boolean como string
-            response = checkout.open({
-                amount: valor * 100,
-                buttonText: 'Pagar',
-                buttonClass: 'botao-pagamento',
-                customerData: 'false',
-                createToken: 'true',
-                paymentMethods: 'credit_card',
-                customer: {
-                    external_id: '#123456789',
-                    name: 'Fulano',
-                    type: 'individual',
-                    country: 'br',
-                    email: 'fulano@email.com',
-                    documents: [
-                        {
-                            type: 'cpf',
-                            number: '71404665560',
-                        },
-                    ],
-                    phone_numbers: ['+5511999998888', '+5511888889999'],
-                    birthday: '1985-01-01'
-                },
-                billing: {
-                    name: 'Ciclano de Tal',
-                    address: {
+                // Obs.: é necessário passar os valores boolean como string
+                response = checkout.open({
+                    amount: valor * 100,
+                    buttonText: 'Pagar',
+                    buttonClass: 'botao-pagamento',
+                    customerData: 'false',
+                    createToken: 'false',
+                    paymentMethods: 'credit_card',
+                    customer: {
+                        external_id: '#123456789',
+                        name: 'Fulano',
+                        type: 'individual',
                         country: 'br',
-                        state: 'SP',
-                        city: 'São Paulo',
-                        neighborhood: 'Fulanos bairro',
-                        street: origem,
-                        street_number: '123',
-                        zipcode: '05170060'
-                    }
-                },
-                items: [
-                    {
-                        id: '1',
-                        title: 'Entrega',
-                        unit_price: parseInt(valor),
-                        quantity: 1,
-                        tangible: false
-                    }
-                ]
-            });
+                        email: 'fulano@email.com',
+                        documents: [
+                            {
+                                type: 'cpf',
+                                number: '71404665560',
+                            },
+                        ],
+                        phone_numbers: ['+5511999998888', '+5511888889999'],
+                        birthday: '1985-01-01'
+                    },
+                    billing: {
+                        name: 'Ciclano de Tal',
+                        address: {
+                            country: 'br',
+                            state: 'SP',
+                            city: 'São Paulo',
+                            neighborhood: 'Fulanos bairro',
+                            street: origem,
+                            street_number: '123',
+                            zipcode: '05170060'
+                        }
+                    },
+                    items: [
+                        {
+                            id: '1',
+                            title: 'Entrega',
+                            unit_price: parseInt(valor),
+                            quantity: 1,
+                            tangible: false
+                        }
+                    ]
+                });
+
+            }
 
         }
     });

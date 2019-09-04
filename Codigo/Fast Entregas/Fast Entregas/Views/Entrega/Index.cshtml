@@ -31,7 +31,10 @@
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                @Html.DisplayNameFor(model => model.Descricao_origem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao_destino)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CodUsuarioCliente)
@@ -64,7 +67,10 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
+                @Html.DisplayFor(modelItem => item.Descricao_origem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao_destino)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodUsuarioCliente)
@@ -73,9 +79,9 @@
                 @Html.DisplayFor(modelItem => item.CodUsuarioEntregador)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id =item.CodEntrega }) |
-                @Html.ActionLink("Details", "Details", new { id =item.CodEntrega }) |
-                @Html.ActionLink("Delete", "Delete", new { id =item.CodEntrega })
+                @Html.ActionLink("Edit", "Edit", new { id = item.CodEntrega }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CodEntrega }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CodEntrega })
             </td>
         </tr>
 }
