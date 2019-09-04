@@ -22,24 +22,24 @@ namespace Persistence
         public virtual DbSet<Aspnetuserroles> Aspnetuserroles { get; set; }
         public virtual DbSet<Aspnetusers> Aspnetusers { get; set; }
         public virtual DbSet<Aspnetusertokens> Aspnetusertokens { get; set; }
-        public virtual DbSet<Banco> Banco { get; set; }
-        public virtual DbSet<Cartao> Cartao { get; set; }
-        public virtual DbSet<ContaBancaria> ContaBancaria { get; set; }
-        public virtual DbSet<Entrega> Entrega { get; set; }
-        public virtual DbSet<Formaspagamento> Formaspagamento { get; set; }
-        public virtual DbSet<FormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
-        public virtual DbSet<SolicitacaoDeCadastro> SolicitacaoDeCadastro { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<UsuarioVeiculo> UsuarioVeiculo { get; set; }
-        public virtual DbSet<Veiculo> Veiculo { get; set; }
+        public virtual DbSet<TbBanco> TbBanco { get; set; }
+        public virtual DbSet<TbCartao> TbCartao { get; set; }
+        public virtual DbSet<TbContaBancaria> TbContaBancaria { get; set; }
+        public virtual DbSet<TbEntrega> TbEntrega { get; set; }
+        public virtual DbSet<TbFormaspagamento> TbFormaspagamento { get; set; }
+        public virtual DbSet<TbFormaspagamentoHasEntrega> TbFormaspagamentoHasEntrega { get; set; }
+        public virtual DbSet<TbSolicitacaoDeCadastro> TbSolicitacaoDeCadastro { get; set; }
+        public virtual DbSet<TbUsuario> TbUsuario { get; set; }
+        public virtual DbSet<TbUsuarioVeiculo> TbUsuarioVeiculo { get; set; }
+        public virtual DbSet<TbVeiculo> TbVeiculo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
+           /* if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=fast_entregas");
-            }
+            }*/
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -244,7 +244,7 @@ namespace Persistence
                     .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
             });
 
-            modelBuilder.Entity<Banco>(entity =>
+            modelBuilder.Entity<TbBanco>(entity =>
             {
                 entity.HasKey(e => e.CodBanco);
 
@@ -261,7 +261,7 @@ namespace Persistence
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Cartao>(entity =>
+            modelBuilder.Entity<TbCartao>(entity =>
             {
                 entity.HasKey(e => e.CodCartao);
 
@@ -306,7 +306,7 @@ namespace Persistence
                     .HasConstraintName("fk_Cartao_Usuario1");
             });
 
-            modelBuilder.Entity<ContaBancaria>(entity =>
+            modelBuilder.Entity<TbContaBancaria>(entity =>
             {
                 entity.HasKey(e => e.CodConta);
 
@@ -355,7 +355,7 @@ namespace Persistence
                     .HasConstraintName("fk_ContaBancaria_Usuario");
             });
 
-            modelBuilder.Entity<Entrega>(entity =>
+            modelBuilder.Entity<TbEntrega>(entity =>
             {
                 entity.HasKey(e => e.CodEntrega);
 
@@ -421,7 +421,7 @@ namespace Persistence
                     .HasConstraintName("fk_Corrida_Entrega_Usuario2");
             });
 
-            modelBuilder.Entity<Formaspagamento>(entity =>
+            modelBuilder.Entity<TbFormaspagamento>(entity =>
             {
                 entity.HasKey(e => e.CodFormaPagamento);
 
@@ -439,7 +439,7 @@ namespace Persistence
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<FormaspagamentoHasEntrega>(entity =>
+            modelBuilder.Entity<TbFormaspagamentoHasEntrega>(entity =>
             {
                 entity.HasKey(e => new { e.FormasPagamentoCodFormaPagamento, e.EntregaCodCorridaEntrega });
 
@@ -474,7 +474,7 @@ namespace Persistence
                     .HasConstraintName("fk_FormasPagamento_has_Entrega_FormasPagamento1");
             });
 
-            modelBuilder.Entity<SolicitacaoDeCadastro>(entity =>
+            modelBuilder.Entity<TbSolicitacaoDeCadastro>(entity =>
             {
                 entity.HasKey(e => e.CodSolicitacao);
 
@@ -532,7 +532,7 @@ namespace Persistence
                     .HasConstraintName("fk_Solicitacao_de_Cadastro_Usuario2");
             });
 
-            modelBuilder.Entity<Usuario>(entity =>
+            modelBuilder.Entity<TbUsuario>(entity =>
             {
                 entity.HasKey(e => e.CodUsuario);
 
@@ -559,7 +559,7 @@ namespace Persistence
                     .HasDefaultValueSql("offline");
             });
 
-            modelBuilder.Entity<UsuarioVeiculo>(entity =>
+            modelBuilder.Entity<TbUsuarioVeiculo>(entity =>
             {
                 entity.HasKey(e => new { e.CodUsuario, e.CodVeiculo });
 
@@ -592,7 +592,7 @@ namespace Persistence
                     .HasConstraintName("fk_Usuario_has_Veiculo_Veiculo1");
             });
 
-            modelBuilder.Entity<Veiculo>(entity =>
+            modelBuilder.Entity<TbVeiculo>(entity =>
             {
                 entity.HasKey(e => e.CodVeiculo);
 
