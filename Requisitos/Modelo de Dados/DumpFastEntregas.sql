@@ -1,3 +1,4 @@
+
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fast_entregas
@@ -247,7 +248,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `banco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `banco` (
+CREATE TABLE `tbbanco` (
   `codBanco` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`codBanco`)
@@ -255,13 +256,13 @@ CREATE TABLE `banco` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `banco`
+-- Dumping data for table `tbbanco`
 --
 
-LOCK TABLES `banco` WRITE;
-/*!40000 ALTER TABLE `banco` DISABLE KEYS */;
-INSERT INTO `banco` VALUES (1,'Banco do Brasil'),(2,'Bradesco'),(3,'Santander'),(4,'Itaú'),(5,'Banese'),(6,'Caixa');
-/*!40000 ALTER TABLE `banco` ENABLE KEYS */;
+LOCK TABLES `tbbanco` WRITE;
+/*!40000 ALTER TABLE `tbbanco` DISABLE KEYS */;
+INSERT INTO `tbbanco` VALUES (1,'Banco do Brasil'),(2,'Bradesco'),(3,'Santander'),(4,'Itaú'),(5,'Banese'),(6,'Caixa');
+/*!40000 ALTER TABLE `tbbanco` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -271,7 +272,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `cartao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `cartao` (
+CREATE TABLE `tbcartao` (
   `codCartao` int(11) NOT NULL AUTO_INCREMENT,
   `numero` varchar(20) DEFAULT NULL,
   `nomeDono` varchar(50) NOT NULL,
@@ -280,7 +281,7 @@ CREATE TABLE `cartao` (
   `codUsuario` int(11) NOT NULL,
   PRIMARY KEY (`codCartao`),
   KEY `fk_Cartao_Usuario1_idx` (`codUsuario`),
-  CONSTRAINT `fk_Cartao_Usuario1` FOREIGN KEY (`codUsuario`) REFERENCES `usuario` (`codUsuario`)
+  CONSTRAINT `fk_Cartao_Usuario1` FOREIGN KEY (`codUsuario`) REFERENCES `tbusuario` (`codUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -288,10 +289,10 @@ CREATE TABLE `cartao` (
 -- Dumping data for table `cartao`
 --
 
-LOCK TABLES `cartao` WRITE;
-/*!40000 ALTER TABLE `cartao` DISABLE KEYS */;
-INSERT INTO `cartao` VALUES (102,'1234567891236547','natan','2019-08-10',789,5);
-/*!40000 ALTER TABLE `cartao` ENABLE KEYS */;
+LOCK TABLES `tbcartao` WRITE;
+/*!40000 ALTER TABLE `tbcartao` DISABLE KEYS */;
+INSERT INTO `tbcartao` VALUES (102,'1234567891236547','natan','2019-08-10',789,5);
+/*!40000 ALTER TABLE `tbcartao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -301,7 +302,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `conta_bancaria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `conta_bancaria` (
+CREATE TABLE `tbconta_bancaria` (
   `codConta` int(11) NOT NULL AUTO_INCREMENT,
   `numero` int(11) NOT NULL,
   `agencia` int(11) NOT NULL,
@@ -311,8 +312,8 @@ CREATE TABLE `conta_bancaria` (
   PRIMARY KEY (`codConta`),
   KEY `fk_ContaBancaria_Usuario_idx` (`codUsuario`),
   KEY `fk_Conta_Bancaria_Banco1_idx` (`codBanco`),
-  CONSTRAINT `fk_ContaBancaria_Usuario` FOREIGN KEY (`codUsuario`) REFERENCES `usuario` (`codUsuario`),
-  CONSTRAINT `fk_Conta_Bancaria_Banco1` FOREIGN KEY (`codBanco`) REFERENCES `banco` (`codBanco`)
+  CONSTRAINT `fk_ContaBancaria_Usuario` FOREIGN KEY (`codUsuario`) REFERENCES `tbusuario` (`codUsuario`),
+  CONSTRAINT `fk_Conta_Bancaria_Banco1` FOREIGN KEY (`codBanco`) REFERENCES `tbbanco` (`codBanco`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -320,10 +321,10 @@ CREATE TABLE `conta_bancaria` (
 -- Dumping data for table `conta_bancaria`
 --
 
-LOCK TABLES `conta_bancaria` WRITE;
-/*!40000 ALTER TABLE `conta_bancaria` DISABLE KEYS */;
-INSERT INTO `conta_bancaria` VALUES (1,789546,5,'Conta Corrente',1,2);
-/*!40000 ALTER TABLE `conta_bancaria` ENABLE KEYS */;
+LOCK TABLES `tbconta_bancaria` WRITE;
+/*!40000 ALTER TABLE `tbconta_bancaria` DISABLE KEYS */;
+INSERT INTO `tbconta_bancaria` VALUES (1,789546,5,'Conta Corrente',1,2);
+/*!40000 ALTER TABLE `tbconta_bancaria` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -333,7 +334,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `entrega`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `entrega` (
+CREATE TABLE `tbentrega` (
   `codEntrega` int(11) NOT NULL AUTO_INCREMENT,
   `origem` varchar(45) NOT NULL,
   `destino` varchar(45) NOT NULL,
@@ -347,8 +348,8 @@ CREATE TABLE `entrega` (
   PRIMARY KEY (`codEntrega`),
   KEY `fk_Corrida_Entrega_Usuario1_idx` (`codUsuarioCliente`),
   KEY `fk_Corrida_Entrega_Usuario2_idx` (`codUsuarioEntregador`),
-  CONSTRAINT `fk_Corrida_Entrega_Usuario1` FOREIGN KEY (`codUsuarioCliente`) REFERENCES `usuario` (`codUsuario`),
-  CONSTRAINT `fk_Corrida_Entrega_Usuario2` FOREIGN KEY (`codUsuarioEntregador`) REFERENCES `usuario` (`codUsuario`)
+  CONSTRAINT `fk_Corrida_Entrega_Usuario1` FOREIGN KEY (`codUsuarioCliente`) REFERENCES `tbusuario` (`codUsuario`),
+  CONSTRAINT `fk_Corrida_Entrega_Usuario2` FOREIGN KEY (`codUsuarioEntregador`) REFERENCES `tbusuario` (`codUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -356,10 +357,10 @@ CREATE TABLE `entrega` (
 -- Dumping data for table `entrega`
 --
 
-LOCK TABLES `entrega` WRITE;
-/*!40000 ALTER TABLE `entrega` DISABLE KEYS */;
-INSERT INTO `entrega` VALUES (7,'rua s, numero 2','rua c, numero 50','2019-08-16','solicitada',0,'','',1,NULL),(10,'rua 1, numero 10','rua 2, numero 20','2019-08-25','em andamento',0,'','',1,NULL),(13,'rua prof lima jr, numero 438','av. olimpio campos, s/n','2019-08-25','atendida',0,'','',1,NULL);
-/*!40000 ALTER TABLE `entrega` ENABLE KEYS */;
+LOCK TABLES `tbentrega` WRITE;
+/*!40000 ALTER TABLE `tbentrega` DISABLE KEYS */;
+INSERT INTO `tbentrega` VALUES (7,'rua s, numero 2','rua c, numero 50','2019-08-16','solicitada',0,'','',1,NULL),(10,'rua 1, numero 10','rua 2, numero 20','2019-08-25','em andamento',0,'','',1,NULL),(13,'rua prof lima jr, numero 438','av. olimpio campos, s/n','2019-08-25','atendida',0,'','',1,NULL);
+/*!40000 ALTER TABLE `tbentrega` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -369,7 +370,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `formaspagamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `formaspagamento` (
+CREATE TABLE `tbformaspagamento` (
   `codFormaPagamento` int(11) NOT NULL,
   `descricao` varchar(45) NOT NULL,
   PRIMARY KEY (`codFormaPagamento`)
@@ -380,9 +381,9 @@ CREATE TABLE `formaspagamento` (
 -- Dumping data for table `formaspagamento`
 --
 
-LOCK TABLES `formaspagamento` WRITE;
-/*!40000 ALTER TABLE `formaspagamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `formaspagamento` ENABLE KEYS */;
+LOCK TABLES `tbformaspagamento` WRITE;
+/*!40000 ALTER TABLE `tbformaspagamento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbformaspagamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -392,15 +393,15 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `formaspagamento_has_entrega`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `formaspagamento_has_entrega` (
+CREATE TABLE `tbformaspagamento_has_entrega` (
   `FormasPagamento_codFormaPagamento` int(11) NOT NULL,
   `Entrega_codCorrida_Entrega` int(11) NOT NULL,
   `valor` float NOT NULL,
   PRIMARY KEY (`FormasPagamento_codFormaPagamento`,`Entrega_codCorrida_Entrega`),
   KEY `fk_FormasPagamento_has_Entrega_Entrega1_idx` (`Entrega_codCorrida_Entrega`),
   KEY `fk_FormasPagamento_has_Entrega_FormasPagamento1_idx` (`FormasPagamento_codFormaPagamento`),
-  CONSTRAINT `fk_FormasPagamento_has_Entrega_Entrega1` FOREIGN KEY (`Entrega_codCorrida_Entrega`) REFERENCES `entrega` (`codEntrega`),
-  CONSTRAINT `fk_FormasPagamento_has_Entrega_FormasPagamento1` FOREIGN KEY (`FormasPagamento_codFormaPagamento`) REFERENCES `formaspagamento` (`codFormaPagamento`)
+  CONSTRAINT `fk_FormasPagamento_has_Entrega_Entrega1` FOREIGN KEY (`Entrega_codCorrida_Entrega`) REFERENCES `tbentrega` (`codEntrega`),
+  CONSTRAINT `fk_FormasPagamento_has_Entrega_FormasPagamento1` FOREIGN KEY (`FormasPagamento_codFormaPagamento`) REFERENCES `tbformaspagamento` (`codFormaPagamento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -408,9 +409,9 @@ CREATE TABLE `formaspagamento_has_entrega` (
 -- Dumping data for table `formaspagamento_has_entrega`
 --
 
-LOCK TABLES `formaspagamento_has_entrega` WRITE;
-/*!40000 ALTER TABLE `formaspagamento_has_entrega` DISABLE KEYS */;
-/*!40000 ALTER TABLE `formaspagamento_has_entrega` ENABLE KEYS */;
+LOCK TABLES `tbformaspagamento_has_entrega` WRITE;
+/*!40000 ALTER TABLE `tbformaspagamento_has_entrega` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbformaspagamento_has_entrega` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -420,7 +421,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `solicitacao_de_cadastro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `solicitacao_de_cadastro` (
+CREATE TABLE `tbsolicitacao_de_cadastro` (
   `codSolicitacao` int(11) NOT NULL AUTO_INCREMENT,
   `numRegistro` varchar(15) NOT NULL,
   `numCnh` varchar(15) NOT NULL,
@@ -434,8 +435,8 @@ CREATE TABLE `solicitacao_de_cadastro` (
   UNIQUE KEY `codSolicitacao_UNIQUE` (`codSolicitacao`),
   KEY `fk_Solicitacao_de_Cadastro_Usuario1_idx` (`codUsuarioEntregador`),
   KEY `fk_Solicitacao_de_Cadastro_Usuario2_idx` (`codUsuarioFuncionario`),
-  CONSTRAINT `fk_Solicitacao_de_Cadastro_Usuario1` FOREIGN KEY (`codUsuarioEntregador`) REFERENCES `usuario` (`codUsuario`),
-  CONSTRAINT `fk_Solicitacao_de_Cadastro_Usuario2` FOREIGN KEY (`codUsuarioFuncionario`) REFERENCES `usuario` (`codUsuario`)
+  CONSTRAINT `fk_Solicitacao_de_Cadastro_Usuario1` FOREIGN KEY (`codUsuarioEntregador`) REFERENCES `tbusuario` (`codUsuario`),
+  CONSTRAINT `fk_Solicitacao_de_Cadastro_Usuario2` FOREIGN KEY (`codUsuarioFuncionario`) REFERENCES `tbusuario` (`codUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -443,9 +444,9 @@ CREATE TABLE `solicitacao_de_cadastro` (
 -- Dumping data for table `solicitacao_de_cadastro`
 --
 
-LOCK TABLES `solicitacao_de_cadastro` WRITE;
-/*!40000 ALTER TABLE `solicitacao_de_cadastro` DISABLE KEYS */;
-/*!40000 ALTER TABLE `solicitacao_de_cadastro` ENABLE KEYS */;
+LOCK TABLES `tbsolicitacao_de_cadastro` WRITE;
+/*!40000 ALTER TABLE `tbsolicitacao_de_cadastro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbsolicitacao_de_cadastro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -455,7 +456,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `usuario` (
+CREATE TABLE `tbusuario` (
   `codUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `cpf` varchar(15) NOT NULL,
   `statusCliente` enum('online','offline','inativo') DEFAULT 'offline',
@@ -471,10 +472,10 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'06447692548',NULL,NULL,'1e43005d-fa18-4fae-a4f4-7775a9f1518f'),(5,'57438773515','offline','online','4f3515ca-5266-43bf-9a10-38eb3a0203eb'),(8,'78945612323','offline','offline','6e7c1c12-74f7-4de0-8db3-47e8db6d7ea7');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `tbusuario` WRITE;
+/*!40000 ALTER TABLE `tbusuario` DISABLE KEYS */;
+INSERT INTO `tbusuario` VALUES (1,'06447692548',NULL,NULL,'1e43005d-fa18-4fae-a4f4-7775a9f1518f'),(5,'57438773515','offline','online','4f3515ca-5266-43bf-9a10-38eb3a0203eb'),(8,'78945612323','offline','offline','6e7c1c12-74f7-4de0-8db3-47e8db6d7ea7');
+/*!40000 ALTER TABLE `tbusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -484,14 +485,14 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `usuario_veiculo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `usuario_veiculo` (
+CREATE TABLE `tbusuario_veiculo` (
   `codUsuario` int(11) NOT NULL,
   `codVeiculo` int(11) NOT NULL,
   PRIMARY KEY (`codUsuario`,`codVeiculo`),
   KEY `fk_Usuario_has_Veiculo_Veiculo1_idx` (`codVeiculo`),
   KEY `fk_Usuario_has_Veiculo_Usuario1_idx` (`codUsuario`),
-  CONSTRAINT `fk_Usuario_has_Veiculo_Usuario1` FOREIGN KEY (`codUsuario`) REFERENCES `usuario` (`codUsuario`),
-  CONSTRAINT `fk_Usuario_has_Veiculo_Veiculo1` FOREIGN KEY (`codVeiculo`) REFERENCES `veiculo` (`codVeiculo`)
+  CONSTRAINT `fk_Usuario_has_Veiculo_Usuario1` FOREIGN KEY (`codUsuario`) REFERENCES `tbusuario` (`codUsuario`),
+  CONSTRAINT `fk_Usuario_has_Veiculo_Veiculo1` FOREIGN KEY (`codVeiculo`) REFERENCES `tbveiculo` (`codVeiculo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -499,9 +500,9 @@ CREATE TABLE `usuario_veiculo` (
 -- Dumping data for table `usuario_veiculo`
 --
 
-LOCK TABLES `usuario_veiculo` WRITE;
-/*!40000 ALTER TABLE `usuario_veiculo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario_veiculo` ENABLE KEYS */;
+LOCK TABLES `tbusuario_veiculo` WRITE;
+/*!40000 ALTER TABLE `tbusuario_veiculo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbusuario_veiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -511,7 +512,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `veiculo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `veiculo` (
+CREATE TABLE `tbveiculo` (
   `codVeiculo` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(20) NOT NULL,
   `placa` varchar(10) NOT NULL,
@@ -522,7 +523,7 @@ CREATE TABLE `veiculo` (
   `codDono` int(11) NOT NULL,
   PRIMARY KEY (`codVeiculo`),
   KEY `fk_Veiculo_Usuario1_idx` (`codDono`),
-  CONSTRAINT `fk_Veiculo_Usuario1` FOREIGN KEY (`codDono`) REFERENCES `usuario` (`codUsuario`)
+  CONSTRAINT `fk_Veiculo_Usuario1` FOREIGN KEY (`codDono`) REFERENCES `tbusuario` (`codUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -530,10 +531,10 @@ CREATE TABLE `veiculo` (
 -- Dumping data for table `veiculo`
 --
 
-LOCK TABLES `veiculo` WRITE;
-/*!40000 ALTER TABLE `veiculo` DISABLE KEYS */;
-INSERT INTO `veiculo` VALUES (1,'carro','iae-8730','789546463',2010,'disponivel','Nao',1),(6,'carro','iae-8730','78654963',2019,'disponivel','Nao',1);
-/*!40000 ALTER TABLE `veiculo` ENABLE KEYS */;
+LOCK TABLES `tbveiculo` WRITE;
+/*!40000 ALTER TABLE `tbveiculo` DISABLE KEYS */;
+INSERT INTO `tbveiculo` VALUES (1,'carro','iae-8730','789546463',2010,'disponivel','Nao',1),(6,'carro','iae-8730','78654963',2019,'disponivel','Nao',1);
+/*!40000 ALTER TABLE `tbveiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -16,6 +16,8 @@ namespace Persistence
         public DateTime Data { get; set; }
         public string Status { get; set; }
         public float Valor { get; set; }
+        public string Duracao { get; set;}
+        public string Distancia { get; set; }
         public string Descricao_origem { get; set; }
         public string Descricao_destino { get; set; }
         public int CodUsuarioCliente { get; set; }

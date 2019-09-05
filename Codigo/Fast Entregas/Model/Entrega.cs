@@ -33,6 +33,12 @@ namespace Model
         public float Valor { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        public string Duracao { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        public string Distancia { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Display(Name = "descricao_origem", ResourceType = typeof(Mensagem))]
         [StringLength(300)]
         public string Descricao_origem { get; set; }
