@@ -87,7 +87,7 @@ namespace Services
         /// <returns></returns>
         public Formaspagamento Obter(int codFormaPagamento)
         {
-            IEnumerable<Formaspagamento> formaPagamento = GetQuery().Where(veiculoModel => veiculoModel.CodFormaPagamento.Equals(codFormaPagamento));
+            IEnumerable<Formaspagamento> formaPagamento = GetQuery().Where(formaPagamentoModel => formaPagamentoModel.CodFormaPagamento.Equals(codFormaPagamento));
 
             return formaPagamento.ElementAtOrDefault(0);
         }
