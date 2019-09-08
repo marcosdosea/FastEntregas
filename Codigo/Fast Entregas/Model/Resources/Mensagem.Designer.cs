@@ -88,6 +88,15 @@ namespace Model.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Categoria do Veículo que deseja.
+        /// </summary>
+        public static string catVeiculo {
+            get {
+                return ResourceManager.GetString("catVeiculo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Código de Segurança.
         /// </summary>
         public static string cdSegurança {

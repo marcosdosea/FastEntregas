@@ -426,6 +426,11 @@ namespace Persistence
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
+                entity.Property(e => e.categoriaVeiculo)
+                    .HasColumnName("categoriaVeiculo")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.CodUsuarioClienteNavigation)
                     .WithMany(p => p.EntregaCodUsuarioClienteNavigation)
                     .HasForeignKey(d => d.CodUsuarioCliente)
