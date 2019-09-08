@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Model.Resources;
 
 namespace Fast_Entregas.Areas.Identity.Pages.Account.Manage
 {
@@ -27,6 +28,7 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account.Manage
             _emailSender = emailSender;
         }
 
+        [Display(Name = "usuario", ResourceType = typeof(Mensagem))]
         public string Username { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
@@ -39,12 +41,12 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
             [EmailAddress]
             public string Email { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "telefone", ResourceType = typeof(Mensagem))]
             public string PhoneNumber { get; set; }
         }
 

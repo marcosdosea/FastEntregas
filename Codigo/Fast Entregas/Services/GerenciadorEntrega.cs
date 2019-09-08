@@ -31,7 +31,10 @@ namespace Services
             tbEntrega.Data = entregaModel.Data;
             tbEntrega.Status = entregaModel.Status;
             tbEntrega.Valor = entregaModel.Valor;
-            tbEntrega.Descricao = entregaModel.Descricao;
+            tbEntrega.Distancia = entregaModel.Distancia;
+            tbEntrega.Duracao = entregaModel.Duracao;
+            tbEntrega.Descricao_origem = entregaModel.Descricao_origem;
+            tbEntrega.Descricao_destino = entregaModel.Descricao_destino;
             tbEntrega.CodUsuarioCliente = entregaModel.CodUsuarioCliente;
             tbEntrega.CodUsuarioEntregador = entregaModel.CodUsuarioEntregador;
 
@@ -79,7 +82,10 @@ namespace Services
                             Data = entrega.Data,
                             Status = entrega.Status,
                             Valor = entrega.Valor,
-                            Descricao = entrega.Descricao,
+                            Distancia = entrega.Distancia,
+                            Duracao = entrega.Duracao,
+                            Descricao_origem = entrega.Descricao_origem,
+                            Descricao_destino = entrega.Descricao_destino,
                             CodUsuarioCliente = entrega.CodUsuarioCliente,
                             CodUsuarioEntregador = entrega.CodUsuarioEntregador
                         };
@@ -137,7 +143,10 @@ namespace Services
             tbEntrega.Data = entregaModel.Data;
             tbEntrega.Status = entregaModel.Status;
             tbEntrega.Valor = entregaModel.Valor;
-            tbEntrega.Descricao = entregaModel.Descricao;
+            tbEntrega.Duracao = entregaModel.Duracao;
+            tbEntrega.Distancia = entregaModel.Distancia;
+            tbEntrega.Descricao_origem = entregaModel.Descricao_origem;
+            tbEntrega.Descricao_destino = entregaModel.Descricao_destino;
             tbEntrega.CodUsuarioCliente = entregaModel.CodUsuarioCliente;
             tbEntrega.CodUsuarioEntregador = entregaModel.CodUsuarioEntregador;
         }

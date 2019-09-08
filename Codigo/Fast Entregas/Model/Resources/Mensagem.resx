@@ -132,8 +132,11 @@
   <data name="cdUsuario" xml:space="preserve">
     <value>Código do Usuário</value>
   </data>
-  <data name="descricao" xml:space="preserve">
-    <value>Descrição</value>
+  <data name="descricao_destino" xml:space="preserve">
+    <value>Descrição Destino</value>
+  </data>
+  <data name="descricao_origem" xml:space="preserve">
+    <value>Descrição Origem</value>
   </data>
   <data name="dtEntrega" xml:space="preserve">
     <value>Data da Entrega</value>
@@ -167,5 +170,11 @@
   </data>
   <data name="numRenavam" xml:space="preserve">
     <value>Número do Renavam</value>
+  </data>
+  <data name="telefone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="usuario" xml:space="preserve">
+    <value>Nome do usuário</value>
   </data>
 </root>

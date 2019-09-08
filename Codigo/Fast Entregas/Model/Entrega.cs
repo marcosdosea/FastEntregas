@@ -20,7 +20,7 @@ namespace Model
         [Display(Name = "endDestino", ResourceType = typeof(Mensagem))]
         [StringLength(100)]
         public string Destino { get; set; }
-
+        
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Display(Name = "dtEntrega", ResourceType = typeof(Mensagem))]
         [DataType(DataType.Date)]
@@ -33,9 +33,20 @@ namespace Model
         public float Valor { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
-        [Display(Name = "descricao", ResourceType = typeof(Mensagem))]
+        public string Duracao { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        public string Distancia { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "descricao_origem", ResourceType = typeof(Mensagem))]
         [StringLength(300)]
-        public string Descricao { get; set; }
+        public string Descricao_origem { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "descricao_destino", ResourceType = typeof(Mensagem))]
+        [StringLength(300)]
+        public string Descricao_destino { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public int CodUsuarioCliente { get; set; }

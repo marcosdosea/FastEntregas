@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,23 +26,23 @@
 
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
 
-        <a asp-area="" asp-controller="Home" asp-action="Index">
+        <a asp-area="" asp-controller="Entrega" asp-action="Create">
             <img src="~/imagens/Slogan.png" alt="Logo" class="w3-bar-item w3-border-bottom" />
         </a>
 
         <a href="~/Entrega/Create" class="w3-bar-item w3-button w3-border-bottom">
             <i class="fas fa-shipping-fast" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
-            Novo Pedido
+            Nova Entrega
         </a>
 
-        <a href="~/Cartao/Index" class="w3-bar-item w3-button w3-border-bottom">    
+        <a href="~/Entrega/Index" class="w3-bar-item w3-button w3-border-bottom">
+            <i class="fas fa-history" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
+            Minhas Entregas
+        </a>
+
+        <a href="~/Cartao/Index" class="w3-bar-item w3-button w3-border-bottom">
             <i class="fas fa-wallet" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
             Formas de Pagamento
-        </a>
-
-        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
-            <i class="fas fa-history" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
-            Histórico
         </a>
 
         <a href="#" class="w3-bar-item w3-button w3-border-bottom">
@@ -63,12 +64,12 @@
 
     </div>
 
-    <div class="w3-main" style="margin-left:230px;">
+    <div class="w3-main" style="margin-left:230px;height:100%">
         <partial name="_CookieConsentPartial" />
         <div class="w3-black">
             <button class="w3-button w3-black w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
         </div>
-        <div class="w3-container" style="padding:0px">
+        <div class="w3-container" style="padding:0px;height:100%">
             @RenderBody()
         </div>
     </div>

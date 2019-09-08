@@ -4,132 +4,260 @@
     Layout = "_LayoutCliente";
     ViewData["Title"] = "Create";
 }
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css' type='text/css' />
+
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+<script src="https://assets.pagar.me/checkout/1.1.0/checkout.js"></script>
+
 <div class="w3-cell-row">
 
     <div class="w3-cell w3-mobile w3-border-top w3-border-bottom w3-border-black" style="width:100%;height:100vh;padding:0;overflow:auto;display:grid">
 
-        <!--Google map-->
-        <!--<div id="map-container" class="z-depth-1-half map-container" style="height: 100vh">
-            <iframe src="https://maps.google.com/maps?q=aracaju&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                    style="border:0" allowfullscreen></iframe>
-        </div>-->
-
-        <!--<div style="overflow: auto;height: 100vh">
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-            <h3>escrito algo</h3>
-        </div>-->
-
-        <h3 class="w3-border-bottom w3-border-black w3-middle text-center mt-4" style="padding-bottom:25px">Dados da Entrega</h3>
-            <form asp-action="Create">
+        <h3 class="w3-border-bottom w3-border-black w3-middle text-center" style="margin-top:5%; padding-bottom:5%">Dados da Entrega</h3>
+        <form asp-action="Create" onsubmit="return false" id="form" onclick="Route()">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="container-fluid" style="padding:15px">
-                <div class="container w3-border-bottom w3-border-black" style="padding:15px">
-                    <h3>Endereço de Retirada</h3>
-                    <div class="form-group">
-                        <label class="control-label">Rua</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Numero</label>
-                        <input class="form-control" type="number" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Complemento</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Bairro</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Cidade</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">O que o entregador deve fazer ?</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <div class="container w3-border-bottom w3-border-black" style="padding:15px">
-                    <h3>Endereço de Destino</h3>
-                    <div class="form-group">
-                        <label class="control-label">Rua</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Numero</label>
-                        <input class="form-control" type="number" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Complemento</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Bairro</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Cidade</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">O que o entregador deve fazer ?</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-
+            <div class="container">
                 <div class="form-group">
                     <label asp-for="Origem" class="control-label"></label>
-                    <input asp-for="Origem" class="form-control" />
+                    <input asp-for="Origem" class="form-control" id="origem" onfocusout="//MarkerPopup(document.getElementById('origem').value)" readonly />
                     <span asp-validation-for="Origem" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Descricao_origem" class="control-label"></label>
+                    <input asp-for="Descricao_origem" class="form-control" id="descricao" />
+                    <span asp-validation-for="Descricao_origem" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="Destino" class="control-label"></label>
-                    <input asp-for="Destino" class="form-control" />
+                    <input asp-for="Destino" class="form-control" id="destino" onfocusout="//MarkerPopup(document.getElementById('destino').value)" readonly />
                     <span asp-validation-for="Destino" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Descricao" class="control-label"></label>
-                    <input asp-for="Descricao" class="form-control" />
-                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                    <label asp-for="Descricao_destino" class="control-label"></label>
+                    <input asp-for="Descricao_destino" class="form-control" id="descricao" />
+                    <span asp-validation-for="Descricao_destino" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CodUsuarioCliente" class="control-label"></label>
-                    <input asp-for="CodUsuarioCliente" class="form-control" />
+                    <input asp-for="CodUsuarioCliente" class="form-control" id="codUsuario" />
                     <span asp-validation-for="CodUsuarioCliente" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Forma de Pagamento</label>
+                    <select class="form-control" id="formaPagamento">
+                        <option>Dinheiro</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-5 border-top text-center">
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <label asp-for="Duracao" class="col-12 text-center"></label>
+                            <strong id="duracao" class="col-12 text-center">-</strong>
+                            <input asp-for="Duracao" id="duracaoI" type="hidden" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Distancia" class="col-12 text-center"></label>
+                            <strong id="distancia" class="col-12 text-center">-</strong>
+                            <input asp-for="Distancia" id="distanciaI" type="hidden" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Valor" class="col-12 text-center control-label" ></label>
+                            <strong id="valor" class="col-12 text-center">-</strong>
+                            <input asp-for="Valor" id="valorI" type="hidden" />
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" style="background-color:black; border-color:black" />
+                    <button class="btn btn-primary" style="background-color:black; border-color:black; width: 100%" id="pay-button">Solicitar</button>
                 </div>
             </div>
 
         </form>
     </div>
 
-    <div class="w3-cell w3-mobile w3-border w3-border-black" style="width: 60%;padding:0;">
-        <!--Google map-->
-        <div id="map-container" class="z-depth-1-half map-container" style="height: 100vh">
-            <iframe src="https://maps.google.com/maps?q=itabaiana&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                    style="border:0" allowfullscreen></iframe>
+    <div class="w3-cell w3-mobile w3-border w3-border-black" style="width: 57%;padding:0;">
+        <div id="map" class="z-depth-1-half map-container" style="height: 100vh">
         </div>
     </div>
-
-
 </div>
+
+<script type="text/javascript">
+    var distance;
+    var duration;
+    var valor;
+    const token = 'pk.eyJ1IjoibGlwZTkxMTkiLCJhIjoiY2p6YmttbWVnMDAzMDNkczZmcWFmdjVxYyJ9.RC5ROZ1BnpgGwOp_NQylFg';
+
+    mapboxgl.accessToken = token;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        zoom: 8,
+        center: [
+            -37.38,
+            -10.59
+        ],
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+
+    const x = map.addControl(new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric'
+    }), 'top-left');
+
+    async function MarkerPopup(endereco) {
+        const api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + endereco + ".json?access_token=" + token + "&autocomplete=true";
+
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const Latlong = data.features[0].center;
+        const text = data.features[0].text;
+
+        var popup = new mapboxgl.Popup({ closeOnClick: false })
+            .setLngLat(Latlong)
+            .setText(text);
+
+        var marker = new mapboxgl.Marker({ draggable: true })
+            .setLngLat(Latlong)
+            .setPopup(popup)
+            .addTo(map);
+
+        map.setCenter(Latlong);
+        map.setZoom(15);
+
+        if (document.getElementById('origem').value != "" && document.getElementById('destino').value != "") {
+            Route(document.getElementById('origem').value, document.getElementById('destino').value);
+        }
+    }
+
+    function Marker(LatLong) {
+        var marker = new mapboxgl.Marker({ draggable: true })
+            .setLngLat(LatLong)
+            .addTo(map);
+    }
+
+        document.getElementsByClassName('mapbox-directions-profile mapbox-directions-component-keyline mapbox-directions-clearfix')[0].style.display = 'none';
+    async function Route() {
+
+        var origem = document.getElementsByClassName('mapboxgl-ctrl-geocoder')[0].children[1].value;
+        var destino = document.getElementsByClassName('mapboxgl-ctrl-geocoder')[1].children[1].value;
+
+        if (origem && destino) {
+            document.getElementById('origem').value = origem;
+            document.getElementById('destino').value = destino;
+            document.getElementsByClassName('mapbox-directions-component mapbox-directions-route-summary')[0].style.display = "none";
+            document.getElementsByClassName('mapbox-directions-instructions')[0].style.display = "none";
+            document.getElementsByClassName('mapbox-directions-profile mapbox-directions-component-keyline mapbox-directions-clearfix')[0].style.display = 'none';
+
+            duration = document.getElementsByClassName('mapbox-directions-component mapbox-directions-route-summary')[0].children[1].innerText;;
+            distance = document.getElementsByClassName('mapbox-directions-component mapbox-directions-route-summary')[0].children[0].innerText;;
+
+            valor = ((parseFloat(distance.replace('km', '')))) * 2;
+
+            if (valor < 4.50) {
+                valor = 4.50;
+            }
+
+            document.getElementById('distancia').innerHTML = distance;
+            document.getElementById('duracao').innerHTML = duration;
+            document.getElementById('valor').innerText = "R$ " + valor.toFixed(2);
+
+            document.getElementById('valorI').value = valor.toFixed(2);
+            document.getElementById('distanciaI').value = distance;
+            document.getElementById('duracaoI').value = duration;
+
+        }
+
+    }
+
+
+    var button = document.querySelector('#pay-button');
+
+    // Abrir o modal ao clicar no botão
+    button.addEventListener('click', function () {
+        var origem = document.getElementById('origem').value;
+        var destino = document.getElementById('destino').value;
+        var formaPagamento = document.getElementById('formaPagamento').value;
+        if (formaPagamento == "Dinheiro") {
+            document.getElementById('form').submit();
+        } else {
+            // inicia a instância do checkout
+            if (origem && destino) {
+
+                var checkout = new PagarMeCheckout.Checkout({
+                    encryption_key: 'ek_test_sbHErSSo91fBExfrGhro8IdqB1IJmH',
+                    success: function (data) {
+                        document.getElementById('form').submit();
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    close: function () {
+                        console.log('The modal has been closed.');
+                    }
+                });
+
+                // Obs.: é necessário passar os valores boolean como string
+                response = checkout.open({
+                    amount: valor.toFixed(2) * 100,
+                    buttonText: 'Pagar',
+                    buttonClass: 'botao-pagamento',
+                    customerData: 'false',
+                    createToken: 'false',
+                    paymentMethods: 'credit_card',
+                    customer: {
+                        external_id: '#123456789',
+                        name: 'Fulano',
+                        type: 'individual',
+                        country: 'br',
+                        email: 'fulano@email.com',
+                        documents: [
+                            {
+                                type: 'cpf',
+                                number: '71404665560',
+                            },
+                        ],
+                        phone_numbers: ['+5511999998888', '+5511888889999'],
+                        birthday: '1985-01-01'
+                    },
+                    billing: {
+                        name: 'Ciclano de Tal',
+                        address: {
+                            country: 'br',
+                            state: 'SP',
+                            city: 'São Paulo',
+                            neighborhood: 'Fulanos bairro',
+                            street: origem,
+                            street_number: '123',
+                            zipcode: '05170060'
+                        }
+                    },
+                    items: [
+                        {
+                            id: '1',
+                            title: 'Entrega',
+                            unit_price: parseInt(valor),
+                            quantity: 1,
+                            tangible: false
+                        }
+                    ]
+                });
+
+            }
+
+        }
+    });
+
+
+</script>
 
 
 @section Scripts {
