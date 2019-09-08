@@ -221,5 +221,23 @@ namespace Model.Resources {
                 return ResourceManager.GetString("numRenavam", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Telefone.
+        /// </summary>
+        public static string telefone {
+            get {
+                return ResourceManager.GetString("telefone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nome do usuário.
+        /// </summary>
+        public static string usuario {
+            get {
+                return ResourceManager.GetString("usuario", resourceCulture);
+            }
+        }
     }
 }

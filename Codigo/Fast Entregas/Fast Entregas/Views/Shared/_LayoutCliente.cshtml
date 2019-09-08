@@ -26,7 +26,7 @@
 
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
 
-        <a asp-area="" asp-controller="Home" asp-action="Index">
+        <a asp-area="" asp-controller="Entrega" asp-action="Create">
             <img src="~/imagens/Slogan.png" alt="Logo" class="w3-bar-item w3-border-bottom" />
         </a>
 
@@ -64,12 +64,12 @@
 
     </div>
 
-    <div class="w3-main" style="margin-left:230px;">
+    <div class="w3-main" style="margin-left:230px;height:100%">
         <partial name="_CookieConsentPartial" />
         <div class="w3-black">
             <button class="w3-button w3-black w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
         </div>
-        <div class="w3-container" style="padding:0px">
+        <div class="w3-container" style="padding:0px;height:100%">
             @RenderBody()
         </div>
     </div>

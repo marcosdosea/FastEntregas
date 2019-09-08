@@ -171,4 +171,10 @@
   <data name="numRenavam" xml:space="preserve">
     <value>Número do Renavam</value>
   </data>
+  <data name="telefone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="usuario" xml:space="preserve">
+    <value>Nome do usuário</value>
+  </data>
 </root>

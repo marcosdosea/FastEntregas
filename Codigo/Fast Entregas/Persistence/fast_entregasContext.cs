@@ -495,7 +495,7 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodSolicitacao);
 
-                entity.ToTable("tbsolicitacao_de_cadastro", "fast_entregas");
+                entity.ToTable("tbsolicitacaodecadastro", "fast_entregas");
 
                 entity.HasIndex(e => e.CodUsuarioEntregador)
                     .HasName("fk_Solicitacao_de_Cadastro_Usuario1_idx");
