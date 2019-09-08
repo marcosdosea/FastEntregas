@@ -49,6 +49,11 @@ namespace Model
         public string Descricao_destino { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        [Display(Name = "catVeiculo", ResourceType = typeof(Mensagem))]
+        [StringLength(30)]
+        public string Categoria_veiculo { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public int CodUsuarioCliente { get; set; }
 
         public int? CodUsuarioEntregador { get; set; }

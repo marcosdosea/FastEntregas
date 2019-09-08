@@ -48,6 +48,17 @@
                     <input asp-for="CodUsuarioCliente" class="form-control" id="codUsuario" />
                     <span asp-validation-for="CodUsuarioCliente" class="text-danger"></span>
                 </div>
+
+                <div class="form-group">
+                    <label asp-for="Categoria_veiculo" class="control-label">Categoria do Veículo Esperado</label>
+                    <select asp-for="Categoria_veiculo" class="form-control" id="catVeiculo">
+                        <option>Carro</option>
+                        <option>Moto</option>
+                        <option>Caminhão</option>
+                    </select>
+                    <span class="text-danger"></span>
+                </div>
+
                 <div class="form-group">
                     <label class="control-label">Forma de Pagamento</label>
                     <select class="form-control" id="formaPagamento">
@@ -70,7 +81,7 @@
                             <input asp-for="Distancia" id="distanciaI" type="hidden" />
                         </div>
                         <div class="col-4">
-                            <label asp-for="Valor" class="col-12 text-center control-label" ></label>
+                            <label asp-for="Valor" class="col-12 text-center control-label"></label>
                             <strong id="valor" class="col-12 text-center">-</strong>
                             <input asp-for="Valor" id="valorI" type="hidden" />
                         </div>

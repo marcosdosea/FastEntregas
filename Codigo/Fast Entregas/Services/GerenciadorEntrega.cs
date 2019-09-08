@@ -35,6 +35,7 @@ namespace Services
             tbEntrega.Duracao = entregaModel.Duracao;
             tbEntrega.Descricao_origem = entregaModel.Descricao_origem;
             tbEntrega.Descricao_destino = entregaModel.Descricao_destino;
+            tbEntrega.categoriaVeiculo = entregaModel.Categoria_veiculo;
             tbEntrega.CodUsuarioCliente = entregaModel.CodUsuarioCliente;
             tbEntrega.CodUsuarioEntregador = entregaModel.CodUsuarioEntregador;
 
@@ -86,6 +87,7 @@ namespace Services
                             Duracao = entrega.Duracao,
                             Descricao_origem = entrega.Descricao_origem,
                             Descricao_destino = entrega.Descricao_destino,
+                            Categoria_veiculo = entrega.categoriaVeiculo,
                             CodUsuarioCliente = entrega.CodUsuarioCliente,
                             CodUsuarioEntregador = entrega.CodUsuarioEntregador
                         };
@@ -135,6 +137,18 @@ namespace Services
             return entregas;
         }
 
+        /// <summary>
+        /// Obtém entregas que estão com status solicitada para uma cateoria de veiculo
+        /// </summary>
+        /// <param name="cateoriaVeiculo">cateoria de veiculos que está sendo requisitada</param>
+        /// <returns></returns>
+        public IEnumerable<Entrega> ObterPorTipoVeiculo(string cateoriaVeiculo)
+        {
+            IEnumerable<Entrega> entregas = GetQuery().Where(entregaModel => entregaModel.Status.Equals("solicitada") && 
+                                                                             entregaModel.Categoria_veiculo.Equals(cateoriaVeiculo));
+            return entregas;
+        }
+
         private void Atribuir(Entrega entregaModel, TbEntrega tbEntrega)
         {
             tbEntrega.CodEntrega = entregaModel.CodEntrega;
@@ -147,6 +161,7 @@ namespace Services
             tbEntrega.Distancia = entregaModel.Distancia;
             tbEntrega.Descricao_origem = entregaModel.Descricao_origem;
             tbEntrega.Descricao_destino = entregaModel.Descricao_destino;
+            tbEntrega.categoriaVeiculo = entregaModel.Categoria_veiculo;
             tbEntrega.CodUsuarioCliente = entregaModel.CodUsuarioCliente;
             tbEntrega.CodUsuarioEntregador = entregaModel.CodUsuarioEntregador;
         }

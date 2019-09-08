@@ -22,6 +22,7 @@ namespace Persistence
         public string Descricao_destino { get; set; }
         public int CodUsuarioCliente { get; set; }
         public int? CodUsuarioEntregador { get; set; }
+        public string categoriaVeiculo { get; set; }
 
         public virtual TbUsuario CodUsuarioClienteNavigation { get; set; }
         public virtual TbUsuario CodUsuarioEntregadorNavigation { get; set; }
