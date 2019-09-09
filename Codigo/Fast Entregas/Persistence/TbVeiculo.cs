@@ -7,7 +7,8 @@ namespace Persistence
     {
         public TbVeiculo()
         {
-            UsuarioVeiculo = new HashSet<TbUsuarioVeiculo>();
+            Tbentrega = new HashSet<TbEntrega>();
+            TbusuarioVeiculo = new HashSet<TbUsuarioVeiculo>();
         }
 
         public int CodVeiculo { get; set; }
@@ -19,7 +20,8 @@ namespace Persistence
         public string EmUso { get; set; }
         public int CodDono { get; set; }
 
-        public virtual TbUsuario CodDonoNavigation { get; set; }
-        public virtual ICollection<TbUsuarioVeiculo> UsuarioVeiculo { get; set; }
+        public TbUsuario CodDonoNavigation { get; set; }
+        public ICollection<TbEntrega> Tbentrega { get; set; }
+        public ICollection<TbUsuarioVeiculo> TbusuarioVeiculo { get; set; }
     }
 }

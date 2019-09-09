@@ -76,7 +76,6 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account
             {
                 var user = new IdentityUser { UserName = Input.Nome, PhoneNumber = Input.Telefone , Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
@@ -92,7 +91,7 @@ namespace Fast_Entregas.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("Create", "Usuario", new { id = user.UserName });
                 }
                 foreach (var error in result.Errors)
                 {

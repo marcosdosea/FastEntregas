@@ -9,7 +9,7 @@ namespace Persistence
         public int EntregaCodCorridaEntrega { get; set; }
         public float Valor { get; set; }
 
-        public virtual TbEntrega EntregaCodCorridaEntregaNavigation { get; set; }
-        public virtual TbFormaspagamento FormasPagamentoCodFormaPagamentoNavigation { get; set; }
+        public TbEntrega EntregaCodCorridaEntregaNavigation { get; set; }
+        public TbFormaspagamento FormasPagamentoCodFormaPagamentoNavigation { get; set; }
     }
 }

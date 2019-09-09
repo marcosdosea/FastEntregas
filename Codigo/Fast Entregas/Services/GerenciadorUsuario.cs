@@ -26,14 +26,10 @@ namespace Services
             TbUsuario tb_usuario = new TbUsuario();
 
             tb_usuario.CodUsuario = usuarioModel.CodUsuario;
-            tb_usuario.Nome = usuarioModel.Nome;
             tb_usuario.Cpf = usuarioModel.Cpf;
-            tb_usuario.Telefone = usuarioModel.Telefone;
-            tb_usuario.Email = usuarioModel.Email;
-            tb_usuario.Senha = usuarioModel.Senha;
-            tb_usuario.Tipo = usuarioModel.Tipo;
             tb_usuario.StatusCliente = usuarioModel.StatusCliente;
             tb_usuario.StatusEntregador = usuarioModel.StatusEntregador;
+            tb_usuario.UserName = usuarioModel.UserName;
 
             _context.Add(tb_usuario);
             _context.SaveChanges();
@@ -75,14 +71,10 @@ namespace Services
                         select new Usuario
                         {
                             CodUsuario = usuario.CodUsuario,
-                            Nome = usuario.Nome,
                             Cpf = usuario.Cpf,
-                            Telefone = usuario.Telefone,
-                            Email = usuario.Email,
-                            Senha = usuario.Senha,
-                            Tipo = usuario.Tipo,
                             StatusCliente = usuario.StatusCliente,
-                            StatusEntregador = usuario.StatusEntregador
+                            StatusEntregador = usuario.StatusEntregador,
+                            UserName = usuario.UserName
                         };
             return query;
         }
@@ -119,6 +111,12 @@ namespace Services
             return usuarios;
         }
 
+        public Usuario ObterPorUserName(string userName)
+        {
+            IEnumerable<Usuario> usuarios = GetQuery().Where(usuarioModel => usuarioModel.UserName.Equals(userName));
+            return usuarios.ElementAtOrDefault(0);
+        }
+
         /// <summary>
         /// Atribui dados entre objetos do model e entity
         /// </summary>
@@ -127,14 +125,10 @@ namespace Services
         private void Atribuir(Usuario usuarioModel, TbUsuario tb_usuario)
         {
             tb_usuario.CodUsuario = usuarioModel.CodUsuario;
-            tb_usuario.Nome = usuarioModel.Nome;
             tb_usuario.Cpf = usuarioModel.Cpf;
-            tb_usuario.Telefone = usuarioModel.Telefone;
-            tb_usuario.Email = usuarioModel.Email;
-            tb_usuario.Senha = usuarioModel.Senha;
-            tb_usuario.Tipo = usuarioModel.Tipo;
             tb_usuario.StatusCliente = usuarioModel.StatusCliente;
             tb_usuario.StatusEntregador = usuarioModel.StatusEntregador;
+            tb_usuario.UserName = usuarioModel.UserName;
         }
     }
 }

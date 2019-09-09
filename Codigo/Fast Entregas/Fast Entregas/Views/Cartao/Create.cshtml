@@ -36,9 +36,9 @@
                 <input asp-for="Cvv" class="form-control" />
                 <span asp-validation-for="Cvv" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none">
                 <label asp-for="CodUsuario" class="control-label"></label>
-                <input asp-for="CodUsuario" class="form-control" />
+                <input asp-for="CodUsuario" class="form-control" value="@ViewBag.codUsuario"/>
                 <span asp-validation-for="CodUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -7,7 +7,7 @@ namespace Persistence
     {
         public TbEntrega()
         {
-            FormaspagamentoHasEntrega = new HashSet<TbFormaspagamentoHasEntrega>();
+            TbformaspagamentoHasEntrega = new HashSet<TbFormaspagamentoHasEntrega>();
         }
 
         public int CodEntrega { get; set; }
@@ -16,16 +16,18 @@ namespace Persistence
         public DateTime Data { get; set; }
         public string Status { get; set; }
         public float Valor { get; set; }
-        public string Duracao { get; set;}
-        public string Distancia { get; set; }
-        public string Descricao_origem { get; set; }
-        public string Descricao_destino { get; set; }
+        public string DescricaoOrigem { get; set; }
+        public string DescricaoDestino { get; set; }
         public int CodUsuarioCliente { get; set; }
         public int? CodUsuarioEntregador { get; set; }
-        public string categoriaVeiculo { get; set; }
+        public string Duracao { get; set; }
+        public string Distancia { get; set; }
+        public int? CodVeiculo { get; set; }
+        public string CategoriaVeiculo { get; set; }
 
-        public virtual TbUsuario CodUsuarioClienteNavigation { get; set; }
-        public virtual TbUsuario CodUsuarioEntregadorNavigation { get; set; }
-        public virtual ICollection<TbFormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
+        public TbUsuario CodUsuarioClienteNavigation { get; set; }
+        public TbUsuario CodUsuarioEntregadorNavigation { get; set; }
+        public TbVeiculo CodVeiculoNavigation { get; set; }
+        public ICollection<TbFormaspagamentoHasEntrega> TbformaspagamentoHasEntrega { get; set; }
     }
 }

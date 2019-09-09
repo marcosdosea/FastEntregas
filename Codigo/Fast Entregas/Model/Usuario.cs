@@ -12,28 +12,15 @@ namespace Model
         public int CodUsuario { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
-        [StringLength(45)]
-        public string Nome { get; set; }
-
-        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [StringLength(15)]
         public string Cpf { get; set; }
-
-        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
-        [StringLength(12)]
-        public string Telefone { get; set; }
-
-        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
-        [StringLength(45)]
-        public string Email { get; set; }
-
-        [StringLength(45)]
-        public string Senha { get; set; }
-
-        public string Tipo { get; set; }
 
         public string StatusCliente { get; set; }
 
         public string StatusEntregador { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        public string UserName { get; set; }
+
     }
 }

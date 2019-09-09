@@ -6,41 +6,39 @@
 }
 
 
-    <div class="w3-container mt-1">
-        <h1>Cartões Cadastrados</h1>
-        <ul class="w3-ul w3-card-4 mt-5">
-            @foreach (var item in Model)
+<div class="w3-container mt-1">
+    <h1>Cartões Cadastrados</h1>
+    <ul class="w3-ul w3-card-4 mt-5">
+        @{
+            if (Model != null)
             {
-                var numeroCartao = item.Numero.Substring(12);
-                <li class="w3-bar">
-                    <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right" style="color:black;margin-top: 15px;">
-                        @Html.ActionLink("", "Delete", new { id = item.CodCartao }, new { @class = "fas fa-trash", @style = "color: red" })
-                    </span>
-                    <i class="fas fa-credit-card w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: black; margin-top: 20px;"></i>
-                    <div class="w3-bar-item">
-                        <span class="w3-large">Terminado em @numeroCartao </span><br>
-                        <span style="color: darkgrey">Vencimento: @Html.DisplayFor(modelItem => item.DataValidade)</span><br />
-                        <span style="color: darkgrey">Dono: @Html.DisplayFor(modelItem => item.NomeDono)</span>
-                    </div>
-                </li>
+                foreach (var item in Model)
+                {
+                    var numeroCartao = item.Numero.Substring(12);
+                    <li class="w3-bar">
+                        <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right" style="color:black;margin-top: 15px;">
+                            @Html.ActionLink("", "Delete", new { id = item.CodCartao }, new { @class = "fas fa-trash", @style = "color: red" })
+                        </span>
+                        <i class="fas fa-credit-card w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: black; margin-top: 20px;"></i>
+                        <div class="w3-bar-item">
+                            <span class="w3-large">Terminado em @numeroCartao </span><br>
+                            <span style="color: darkgrey">Vencimento: @Html.DisplayFor(modelItem => item.DataValidade)</span><br />
+                            <span style="color: darkgrey">Dono: @Html.DisplayFor(modelItem => item.NomeDono)</span>
+                        </div>
+                    </li>
 
+                }
             }
-        </ul>
-        <!--<button class="btn mt-4" style="background-color: rgb(157,203,43)" onclick="//document.getElementById('formCadastro').style.display='block'">
-    <a style="text-decoration:none;color:black">Adicionar Novo Cartão</a>
-    </button>-->
-        <span>
-            @Html.ActionLink("Adicionar Novo Cartão", "Create", new { }, new { @class = "btn mt-4", @style="background-color: rgb(157,203,43);text-decoration:none;color:black"})
-        </span>
+            else
+            {
+                <h3>Nenhum Cartão cadastrado</h3>
+            }
 
-    </div>
+        }
+    </ul>
 
-<div id="formCadastro" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-        <span onclick="document.getElementById('formCadastro').style.display='none'"
-              class="w3-button w3-display-topright">&times;</span>
-        <div class="w3-container">
+    <span>
+        @Html.ActionLink("Adicionar Novo Cartão", "Create", new { }, new { @class = "btn mt-4", @style = "background-color: rgb(157,203,43);text-decoration:none;color:black" })
+    </span>
 
-        </div>
-    </div>
 </div>

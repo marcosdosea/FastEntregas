@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FastEntregasWeb.Controllers
 {
+    [Authorize]
     public class UsuarioController : Controller
     {
         private readonly IGerenciadorUsuario gerenciadorUsuario;
@@ -55,8 +57,9 @@ namespace FastEntregasWeb.Controllers
 
 
         // GET: Usuario/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
+            ViewBag.userName = id;
             return View();
         }
 
@@ -68,7 +71,7 @@ namespace FastEntregasWeb.Controllers
             if (ModelState.IsValid)
             {
                 gerenciadorUsuario.Inserir(usuario);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
 
             return View(usuario);

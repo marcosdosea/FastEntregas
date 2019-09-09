@@ -8,7 +8,7 @@ namespace Persistence
         public int CodUsuario { get; set; }
         public int CodVeiculo { get; set; }
 
-        public virtual TbUsuario CodUsuarioNavigation { get; set; }
-        public virtual TbVeiculo CodVeiculoNavigation { get; set; }
+        public TbUsuario CodUsuarioNavigation { get; set; }
+        public TbVeiculo CodVeiculoNavigation { get; set; }
     }
 }

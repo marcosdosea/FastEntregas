@@ -57,5 +57,7 @@ namespace Model
         public int CodUsuarioCliente { get; set; }
 
         public int? CodUsuarioEntregador { get; set; }
+
+        public int? CodVeiculo { get; set; }
     }
 }
