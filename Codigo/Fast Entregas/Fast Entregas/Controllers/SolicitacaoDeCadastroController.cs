@@ -148,7 +148,7 @@ namespace FastEntregasWeb.Controllers
                 gerenciadorSolicitacaoDeCadastro.Inserir(solicitacao);
                 return RedirectToAction(nameof(Index));
             }
-            return View(solicitacao);
+            return RedirectToAction(nameof(DetailsMultiple));
         }
 
         // GET: SolicitacaoDeCadastro/Edit/5

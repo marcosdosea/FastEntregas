@@ -88,15 +88,6 @@ namespace Model.Resources {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Categoria do Veículo que deseja.
-        /// </summary>
-        public static string catVeiculo {
-            get {
-                return ResourceManager.GetString("catVeiculo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Código de Segurança.
         /// </summary>
         public static string cdSegurança {
@@ -115,7 +106,7 @@ namespace Model.Resources {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição Destino.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O que fazer no Destino.
         /// </summary>
         public static string descricao_destino {
             get {
@@ -124,7 +115,7 @@ namespace Model.Resources {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição Origem.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O que fazer na Origem.
         /// </summary>
         public static string descricao_origem {
             get {

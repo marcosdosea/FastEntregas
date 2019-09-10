@@ -71,7 +71,7 @@ namespace FastEntregasWeb.Controllers
             if (ModelState.IsValid)
             {
                 gerenciadorUsuario.Inserir(usuario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Create", "Entrega");
             }
 
             return View(usuario);

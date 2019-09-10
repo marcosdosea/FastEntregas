@@ -45,7 +45,7 @@
             Formas de Pagamento
         </a>
 
-        <a href="#" class="w3-bar-item w3-button w3-border-bottom">
+        <a href="~/Identity/Account/Manage/Index" class="w3-bar-item w3-button w3-border-bottom">
             <i class="fas fa-user" style="font-size:15px; color: rgb(157,203,43); margin-right: 8px;"></i>
             Minha Conta
         </a>
@@ -56,10 +56,16 @@
                 <h style="color:rgb(157,203,43)">Seja Entregador</h>
             </a>
 
-            <a asp-controller="Home" asp-action="Index" class="w3-bar-item w3-button w3-border-top">
+            <!--<a class="w3-bar-item w3-button w3-border-top">
                 <i class="fas fa-door-closed" style="font-size:15px; color: black; margin-right: 8px;"></i>
                 Sair
-            </a>
+            </a>-->
+            <form  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" >
+                <button type="submit" style="background-color: transparent; border: 0px;" class="w3-bar-item w3-button w3-border-top">
+                    <i class="fas fa-door-closed" style="font-size:15px; color: black; margin-right: 8px;"></i>
+                    Sair
+                </button>
+            </form>
         </div>
 
     </div>
