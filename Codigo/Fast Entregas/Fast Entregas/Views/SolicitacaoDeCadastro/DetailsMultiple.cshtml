@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<Model.SolicitacaoDeCadastro>
 @{
+    Layout = "_LayoutCliente";
     ViewData["Title"] = "DetailsMultiple";
 }
 
 <h1>Solicitações De Cadastro</h1>
-<hr />
+<br />
 <div>
     <table class="table">
         <tr>
@@ -22,12 +23,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodUsuarioEntregador)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodUsuarioFuncionario)
             </th>
             <th>
 
@@ -56,13 +51,6 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
 
-                <td class="col-sm-10">
-                    @Html.DisplayFor(modelItem => item.CodUsuarioEntregador)
-                </td>
-
-                <td class="col-sm-10">
-                    @Html.DisplayFor(modelItem => item.CodUsuarioFuncionario)
-                </td>
                 <td>
                     @if (item.Status == "reprovada" && ViewBag.solicitacaoEmAndamento)
                     {
@@ -75,9 +63,5 @@
         }
     </table>
 
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
 </div>
 

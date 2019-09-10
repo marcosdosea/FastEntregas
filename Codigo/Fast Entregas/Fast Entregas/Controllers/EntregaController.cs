@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -9,19 +10,28 @@ using Services;
 
 namespace FastEntregasWeb.Controllers
 {
+    [Authorize]
     public class EntregaController : Controller
     {
         private readonly IGerenciadorEntrega gerenciadorEntrega;
+        private readonly IGerenciadorUsuario gerenciadorUsuario;
 
-        public EntregaController(IGerenciadorEntrega _gerenciadorEntrega)
+        public EntregaController(IGerenciadorEntrega _gerenciadorEntrega, IGerenciadorUsuario _gerenciadorUsuario)
         {
             gerenciadorEntrega = _gerenciadorEntrega;
+            gerenciadorUsuario = _gerenciadorUsuario;
         }
 
         // GET: Entrega
         public ActionResult Index()
-        {
-            return View(gerenciadorEntrega.ObterTodos());
+        {    
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            if (usuario != null)
+            {                
+                return View(gerenciadorEntrega.ObterTodos().Where(entrega=> entrega.CodUsuarioCliente.Equals(usuario.CodUsuario)));
+            }
+            return View();
         }
 
         // GET: Entrega/Details/5
@@ -34,7 +44,14 @@ namespace FastEntregasWeb.Controllers
         // GET: Entrega/Create
         public ActionResult Create()
         {
-            return View();
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            if (usuario != null)
+            {
+                ViewBag.codUsuario = usuario.CodUsuario;
+                return View();
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Entrega/Create

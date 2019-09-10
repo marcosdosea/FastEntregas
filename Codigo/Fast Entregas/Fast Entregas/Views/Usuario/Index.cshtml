@@ -16,22 +16,7 @@
                 @Html.DisplayNameFor(model => model.CodUsuario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Cpf)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Senha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StatusCliente)
@@ -50,22 +35,7 @@
                     @Html.DisplayFor(modelItem => item.CodUsuario)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Cpf)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Senha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tipo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StatusCliente)
@@ -77,18 +47,6 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.CodUsuario }) |
                     @Html.ActionLink("Details", "Details", new { id = item.CodUsuario }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.CodUsuario })
-                    @{
-                        if (item.Tipo == "cliente")
-                        {
-                            <span>|</span>
-                            @Html.ActionLink("Solicitar", "SolicitarCadastro", new { id = item.CodUsuario });
-                        }
-                        else if (item.Tipo == "funcionario")
-                        {
-                            <span>|</span>
-                            @Html.ActionLink("Avaliar", "Index", "SolicitacaoDeCadastro", new { id = item.CodUsuario });
-                        }
-                    }
 
                 </td>
             </tr>

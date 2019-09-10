@@ -33,11 +33,12 @@ namespace Services
             tbEntrega.Valor = entregaModel.Valor;
             tbEntrega.Distancia = entregaModel.Distancia;
             tbEntrega.Duracao = entregaModel.Duracao;
-            tbEntrega.Descricao_origem = entregaModel.Descricao_origem;
-            tbEntrega.Descricao_destino = entregaModel.Descricao_destino;
-            tbEntrega.categoriaVeiculo = entregaModel.Categoria_veiculo;
+            tbEntrega.DescricaoOrigem = entregaModel.Descricao_origem;
+            tbEntrega.DescricaoDestino = entregaModel.Descricao_destino;
+            tbEntrega.CategoriaVeiculo = entregaModel.Categoria_veiculo;
             tbEntrega.CodUsuarioCliente = entregaModel.CodUsuarioCliente;
             tbEntrega.CodUsuarioEntregador = entregaModel.CodUsuarioEntregador;
+            tbEntrega.CodVeiculo = entregaModel.CodVeiculo;
 
             _context.Add(tbEntrega);
             _context.SaveChanges();
@@ -85,9 +86,9 @@ namespace Services
                             Valor = entrega.Valor,
                             Distancia = entrega.Distancia,
                             Duracao = entrega.Duracao,
-                            Descricao_origem = entrega.Descricao_origem,
-                            Descricao_destino = entrega.Descricao_destino,
-                            Categoria_veiculo = entrega.categoriaVeiculo,
+                            Descricao_origem = entrega.DescricaoOrigem,
+                            Descricao_destino = entrega.DescricaoDestino,
+                            Categoria_veiculo = entrega.CategoriaVeiculo,
                             CodUsuarioCliente = entrega.CodUsuarioCliente,
                             CodUsuarioEntregador = entrega.CodUsuarioEntregador
                         };
@@ -159,11 +160,12 @@ namespace Services
             tbEntrega.Valor = entregaModel.Valor;
             tbEntrega.Duracao = entregaModel.Duracao;
             tbEntrega.Distancia = entregaModel.Distancia;
-            tbEntrega.Descricao_origem = entregaModel.Descricao_origem;
-            tbEntrega.Descricao_destino = entregaModel.Descricao_destino;
-            tbEntrega.categoriaVeiculo = entregaModel.Categoria_veiculo;
+            tbEntrega.DescricaoOrigem = entregaModel.Descricao_origem;
+            tbEntrega.DescricaoDestino = entregaModel.Descricao_destino;
+            tbEntrega.CategoriaVeiculo = entregaModel.Categoria_veiculo;
             tbEntrega.CodUsuarioCliente = entregaModel.CodUsuarioCliente;
             tbEntrega.CodUsuarioEntregador = entregaModel.CodUsuarioEntregador;
+            tbEntrega.CodVeiculo = entregaModel.CodVeiculo;
         }
     }
 }

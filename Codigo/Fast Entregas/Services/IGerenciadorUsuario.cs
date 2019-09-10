@@ -9,6 +9,7 @@ namespace Services
         int Inserir(Usuario usuarioModel);
         Usuario Obter(int codUsuario);
         IEnumerable<Usuario> ObterPorCpf(string cpf);
+        Usuario ObterPorUserName(string userName);
         IEnumerable<Usuario> ObterTodos();
         void Remover(int codUsuario);
     }

@@ -7,12 +7,12 @@ namespace Persistence
     {
         public TbFormaspagamento()
         {
-            FormaspagamentoHasEntrega = new HashSet<TbFormaspagamentoHasEntrega>();
+            TbformaspagamentoHasEntrega = new HashSet<TbFormaspagamentoHasEntrega>();
         }
 
         public int CodFormaPagamento { get; set; }
         public string Descricao { get; set; }
 
-        public virtual ICollection<TbFormaspagamentoHasEntrega> FormaspagamentoHasEntrega { get; set; }
+        public ICollection<TbFormaspagamentoHasEntrega> TbformaspagamentoHasEntrega { get; set; }
     }
 }

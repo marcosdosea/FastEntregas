@@ -7,12 +7,12 @@ namespace Persistence
     {
         public TbBanco()
         {
-            ContaBancaria = new HashSet<TbContaBancaria>();
+            TbcontaBancaria = new HashSet<TbContaBancaria>();
         }
 
         public int CodBanco { get; set; }
         public string Nome { get; set; }
 
-        public virtual ICollection<TbContaBancaria> ContaBancaria { get; set; }
+        public ICollection<TbContaBancaria> TbcontaBancaria { get; set; }
     }
 }

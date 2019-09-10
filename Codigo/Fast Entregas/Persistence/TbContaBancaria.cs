@@ -12,7 +12,7 @@ namespace Persistence
         public int CodUsuario { get; set; }
         public int CodBanco { get; set; }
 
-        public virtual TbBanco CodBancoNavigation { get; set; }
-        public virtual TbUsuario CodUsuarioNavigation { get; set; }
+        public TbBanco CodBancoNavigation { get; set; }
+        public TbUsuario CodUsuarioNavigation { get; set; }
     }
 }

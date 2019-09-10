@@ -35,11 +35,11 @@ namespace Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /* if (!optionsBuilder.IsConfigured)
-             {
- #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                 optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=fast_entregas");
-             }*/
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=fast_entregas");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -174,6 +174,10 @@ namespace Persistence
             {
                 entity.ToTable("aspnetusers", "fast_entregas");
 
+                entity.HasIndex(e => e.Email)
+                    .HasName("Email_UNIQUE")
+                    .IsUnique();
+
                 entity.HasIndex(e => e.NormalizedEmail)
                     .HasName("EmailIndex");
 
@@ -300,7 +304,7 @@ namespace Persistence
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.CodUsuarioNavigation)
-                    .WithMany(p => p.Cartao)
+                    .WithMany(p => p.Tbcartao)
                     .HasForeignKey(d => d.CodUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Cartao_Usuario1");
@@ -343,13 +347,13 @@ namespace Persistence
                     .HasColumnType("enum('Conta Corrente','Poupança')");
 
                 entity.HasOne(d => d.CodBancoNavigation)
-                    .WithMany(p => p.ContaBancaria)
+                    .WithMany(p => p.TbcontaBancaria)
                     .HasForeignKey(d => d.CodBanco)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Conta_Bancaria_Banco1");
 
                 entity.HasOne(d => d.CodUsuarioNavigation)
-                    .WithMany(p => p.ContaBancaria)
+                    .WithMany(p => p.TbcontaBancaria)
                     .HasForeignKey(d => d.CodUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_ContaBancaria_Usuario");
@@ -367,9 +371,17 @@ namespace Persistence
                 entity.HasIndex(e => e.CodUsuarioEntregador)
                     .HasName("fk_Corrida_Entrega_Usuario2_idx");
 
+                entity.HasIndex(e => e.CodVeiculo)
+                    .HasName("codVeiculo");
+
                 entity.Property(e => e.CodEntrega)
                     .HasColumnName("codEntrega")
                     .HasColumnType("int(11)");
+
+                entity.Property(e => e.CategoriaVeiculo)
+                    .HasColumnName("categoriaVeiculo")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodUsuarioCliente)
                     .HasColumnName("codUsuarioCliente")
@@ -379,32 +391,44 @@ namespace Persistence
                     .HasColumnName("codUsuarioEntregador")
                     .HasColumnType("int(11)");
 
+                entity.Property(e => e.CodVeiculo)
+                    .HasColumnName("codVeiculo")
+                    .HasColumnType("int(11)");
+
                 entity.Property(e => e.Data)
                     .HasColumnName("data")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Descricao_origem)
-                    .IsRequired()
-                    .HasColumnName("descricao_origem")
-                    .HasMaxLength(300)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Descricao_destino)
+                entity.Property(e => e.DescricaoDestino)
                     .IsRequired()
                     .HasColumnName("descricao_destino")
                     .HasMaxLength(300)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Destino)
+                entity.Property(e => e.DescricaoOrigem)
                     .IsRequired()
+                    .HasColumnName("descricao_origem")
+                    .HasMaxLength(300)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Destino)
                     .HasColumnName("destino")
-                    .HasMaxLength(45)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Distancia)
+                    .HasColumnName("distancia")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Duracao)
+                    .HasColumnName("duracao")
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Origem)
-                    .IsRequired()
                     .HasColumnName("origem")
-                    .HasMaxLength(45)
+                    .HasMaxLength(500)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Status)
@@ -413,34 +437,23 @@ namespace Persistence
                     .HasColumnType("enum('solicitada','cancelada','atendida','em andamento')")
                     .HasDefaultValueSql("solicitada");
 
-                entity.Property(e => e.Valor)
-                    .HasColumnName("valor");
-
-                entity.Property(e => e.Duracao)
-                    .HasColumnName("duracao")
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Distancia)
-                    .HasColumnName("distancia")
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.categoriaVeiculo)
-                    .HasColumnName("categoriaVeiculo")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
+                entity.Property(e => e.Valor).HasColumnName("valor");
 
                 entity.HasOne(d => d.CodUsuarioClienteNavigation)
-                    .WithMany(p => p.EntregaCodUsuarioClienteNavigation)
+                    .WithMany(p => p.TbentregaCodUsuarioClienteNavigation)
                     .HasForeignKey(d => d.CodUsuarioCliente)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Corrida_Entrega_Usuario1");
 
                 entity.HasOne(d => d.CodUsuarioEntregadorNavigation)
-                    .WithMany(p => p.EntregaCodUsuarioEntregadorNavigation)
+                    .WithMany(p => p.TbentregaCodUsuarioEntregadorNavigation)
                     .HasForeignKey(d => d.CodUsuarioEntregador)
                     .HasConstraintName("fk_Corrida_Entrega_Usuario2");
+
+                entity.HasOne(d => d.CodVeiculoNavigation)
+                    .WithMany(p => p.Tbentrega)
+                    .HasForeignKey(d => d.CodVeiculo)
+                    .HasConstraintName("tbentrega_ibfk_2");
             });
 
             modelBuilder.Entity<TbFormaspagamento>(entity =>
@@ -484,13 +497,13 @@ namespace Persistence
                 entity.Property(e => e.Valor).HasColumnName("valor");
 
                 entity.HasOne(d => d.EntregaCodCorridaEntregaNavigation)
-                    .WithMany(p => p.FormaspagamentoHasEntrega)
+                    .WithMany(p => p.TbformaspagamentoHasEntrega)
                     .HasForeignKey(d => d.EntregaCodCorridaEntrega)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_FormasPagamento_has_Entrega_Entrega1");
 
                 entity.HasOne(d => d.FormasPagamentoCodFormaPagamentoNavigation)
-                    .WithMany(p => p.FormaspagamentoHasEntrega)
+                    .WithMany(p => p.TbformaspagamentoHasEntrega)
                     .HasForeignKey(d => d.FormasPagamentoCodFormaPagamento)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_FormasPagamento_has_Entrega_FormasPagamento1");
@@ -500,13 +513,25 @@ namespace Persistence
             {
                 entity.HasKey(e => e.CodSolicitacao);
 
-                entity.ToTable("tbsolicitacaodecadastro", "fast_entregas");
+                entity.ToTable("tbsolicitacao_de_cadastro", "fast_entregas");
+
+                entity.HasIndex(e => e.CodSolicitacao)
+                    .HasName("codSolicitacao_UNIQUE")
+                    .IsUnique();
 
                 entity.HasIndex(e => e.CodUsuarioEntregador)
                     .HasName("fk_Solicitacao_de_Cadastro_Usuario1_idx");
 
                 entity.HasIndex(e => e.CodUsuarioFuncionario)
                     .HasName("fk_Solicitacao_de_Cadastro_Usuario2_idx");
+
+                entity.HasIndex(e => e.NumCnh)
+                    .HasName("numCnh_UNIQUE")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.NumRegistro)
+                    .HasName("numRegistro_UNIQUE")
+                    .IsUnique();
 
                 entity.Property(e => e.CodSolicitacao)
                     .HasColumnName("codSolicitacao")
@@ -543,13 +568,13 @@ namespace Persistence
                     .HasDefaultValueSql("solicitada");
 
                 entity.HasOne(d => d.CodUsuarioEntregadorNavigation)
-                    .WithMany(p => p.SolicitacaoDeCadastroCodUsuarioEntregadorNavigation)
+                    .WithMany(p => p.TbsolicitacaoDeCadastroCodUsuarioEntregadorNavigation)
                     .HasForeignKey(d => d.CodUsuarioEntregador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Solicitacao_de_Cadastro_Usuario1");
 
                 entity.HasOne(d => d.CodUsuarioFuncionarioNavigation)
-                    .WithMany(p => p.SolicitacaoDeCadastroCodUsuarioFuncionarioNavigation)
+                    .WithMany(p => p.TbsolicitacaoDeCadastroCodUsuarioFuncionarioNavigation)
                     .HasForeignKey(d => d.CodUsuarioFuncionario)
                     .HasConstraintName("fk_Solicitacao_de_Cadastro_Usuario2");
             });
@@ -560,9 +585,18 @@ namespace Persistence
 
                 entity.ToTable("tbusuario", "fast_entregas");
 
+                entity.HasIndex(e => e.Cpf)
+                    .HasName("cpf_UNIQUE")
+                    .IsUnique();
+
                 entity.Property(e => e.CodUsuario)
                     .HasColumnName("codUsuario")
                     .HasColumnType("int(11)");
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasColumnName("userName")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cpf)
                     .IsRequired()
@@ -602,13 +636,13 @@ namespace Persistence
                     .HasColumnType("int(11)");
 
                 entity.HasOne(d => d.CodUsuarioNavigation)
-                    .WithMany(p => p.UsuarioVeiculo)
+                    .WithMany(p => p.TbusuarioVeiculo)
                     .HasForeignKey(d => d.CodUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Usuario_has_Veiculo_Usuario1");
 
                 entity.HasOne(d => d.CodVeiculoNavigation)
-                    .WithMany(p => p.UsuarioVeiculo)
+                    .WithMany(p => p.TbusuarioVeiculo)
                     .HasForeignKey(d => d.CodVeiculo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Usuario_has_Veiculo_Veiculo1");
@@ -664,7 +698,7 @@ namespace Persistence
                     .HasDefaultValueSql("bloqueado");
 
                 entity.HasOne(d => d.CodDonoNavigation)
-                    .WithMany(p => p.Veiculo)
+                    .WithMany(p => p.Tbveiculo)
                     .HasForeignKey(d => d.CodDono)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Veiculo_Usuario1");

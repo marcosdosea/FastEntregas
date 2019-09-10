@@ -133,10 +133,10 @@
     <value>Código do Usuário</value>
   </data>
   <data name="descricao_destino" xml:space="preserve">
-    <value>Descrição Destino</value>
+    <value>O que fazer no Destino</value>
   </data>
   <data name="descricao_origem" xml:space="preserve">
-    <value>Descrição Origem</value>
+    <value>O que fazer na Origem</value>
   </data>
   <data name="dtEntrega" xml:space="preserve">
     <value>Data da Entrega</value>

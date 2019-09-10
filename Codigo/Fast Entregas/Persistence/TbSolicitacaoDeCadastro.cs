@@ -13,7 +13,7 @@ namespace Persistence
         public int CodUsuarioEntregador { get; set; }
         public int? CodUsuarioFuncionario { get; set; }
 
-        public virtual TbUsuario CodUsuarioEntregadorNavigation { get; set; }
-        public virtual TbUsuario CodUsuarioFuncionarioNavigation { get; set; }
+        public TbUsuario CodUsuarioEntregadorNavigation { get; set; }
+        public TbUsuario CodUsuarioFuncionarioNavigation { get; set; }
     }
 }

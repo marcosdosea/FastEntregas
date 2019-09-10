@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Fast_Entregas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fast_Entregas.Controllers
 {

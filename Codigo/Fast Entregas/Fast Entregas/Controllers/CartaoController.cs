@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -9,19 +10,28 @@ using Services;
 
 namespace FastEntregasWeb.Controllers
 {
+    [Authorize]
     public class CartaoController : Controller
     {
         private readonly IGerenciadorCartao gerenciadorCartao;
+        private readonly IGerenciadorUsuario gerenciadorUsuario;
 
-        public CartaoController(IGerenciadorCartao _gerenciadorCartao)
+        public CartaoController(IGerenciadorCartao _gerenciadorCartao, IGerenciadorUsuario _gerenciadorUsuario)
         {
             gerenciadorCartao = _gerenciadorCartao;
+            gerenciadorUsuario = _gerenciadorUsuario;
         }
 
         // GET: Cartao
         public ActionResult Index()
         {
-            return View(gerenciadorCartao.ObterTodos());
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            if (usuario != null)
+            {
+                return View(gerenciadorCartao.ObterTodos().Where(cartao=> cartao.CodUsuario.Equals(usuario.CodUsuario)));
+            }
+            return View();
         }
 
         // GET: Cartao/Details/5
@@ -34,7 +44,14 @@ namespace FastEntregasWeb.Controllers
         // GET: Cartao/Create
         public ActionResult Create()
         {
-            return View();
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            if (usuario != null)
+            {
+                ViewBag.codUsuario = usuario.CodUsuario;
+                return View();
+            }
+            return RedirectToAction("Create", "Entrega");
         }
 
         // POST: Cartao/Create

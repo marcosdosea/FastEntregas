@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -9,13 +10,16 @@ using Services;
 
 namespace FastEntregasWeb.Controllers
 {
+    [Authorize]
     public class SolicitacaoDeCadastroController : Controller
     {
         private readonly IGerenciadorSolicitacaoDeCadastro gerenciadorSolicitacaoDeCadastro;
+        private readonly IGerenciadorUsuario gerenciadorUsuario;
 
-        public SolicitacaoDeCadastroController(IGerenciadorSolicitacaoDeCadastro _gerenciadorSolicitacaoDeCadastro)
+        public SolicitacaoDeCadastroController(IGerenciadorSolicitacaoDeCadastro _gerenciadorSolicitacaoDeCadastro, IGerenciadorUsuario _gerenciadorUsuario)
         {
             gerenciadorSolicitacaoDeCadastro = _gerenciadorSolicitacaoDeCadastro;
+            gerenciadorUsuario = _gerenciadorUsuario;
         }
 
         // GET: SolicitacaoDeCadastro
@@ -69,13 +73,22 @@ namespace FastEntregasWeb.Controllers
         // GET: SolicitacaoDeCadastro/DetailsMultiple/5
         public ActionResult DetailsMultiple(int id)
         {
-            IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = gerenciadorSolicitacaoDeCadastro.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioEntregador.Equals(id));
-            ViewBag.solicitacaoEmAndamento = true;
-            foreach (var item in solicitacaoDeCadastro)
-            {
-                if (item.Status != "reprovada")
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = null;
+            if (usuario != null)
+            {                
+                solicitacaoDeCadastro = gerenciadorSolicitacaoDeCadastro.ObterTodos()
+                    .Where(solicitacao => solicitacao.CodUsuarioEntregador
+                    .Equals(usuario.CodUsuario));
+
+                ViewBag.solicitacaoEmAndamento = true;
+                foreach (var item in solicitacaoDeCadastro)
                 {
-                    ViewBag.solicitacaoEmAndamento = false;
+                    if (item.Status != "reprovada")
+                    {
+                        ViewBag.solicitacaoEmAndamento = false;
+                    }
                 }
             }
             return View(solicitacaoDeCadastro);
@@ -93,16 +106,34 @@ namespace FastEntregasWeb.Controllers
         }
 
         /// <summary>
-        /// Criar nova solicitação de cadastro já com o código do usuário que vai solicitar
+        /// Criar nova solicitação de cadastro
         /// </summary>
-        /// <param name="id"> Código do usuário </param>
+        /// <param></param>
         /// <returns></returns>
 
         // GET: SolicitacaoDeCadastro/Create
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
-            ViewBag.codUsuario = id;
-            return View();
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            if (usuario != null)
+            {
+                IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = null;
+                solicitacaoDeCadastro = gerenciadorSolicitacaoDeCadastro.ObterTodos()
+                    .Where(solicitacao => solicitacao.CodUsuarioEntregador
+                    .Equals(usuario.CodUsuario));
+                if (solicitacaoDeCadastro.Count() == 0)
+                {
+                    ViewBag.codUsuario = usuario.CodUsuario;
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction(nameof(DetailsMultiple));
+                }
+
+            }
+            return RedirectToAction("Create", "Entrega");
         }
 
 
@@ -117,7 +148,7 @@ namespace FastEntregasWeb.Controllers
                 gerenciadorSolicitacaoDeCadastro.Inserir(solicitacao);
                 return RedirectToAction(nameof(Index));
             }
-            return View(solicitacao);
+            return RedirectToAction(nameof(DetailsMultiple));
         }
 
         // GET: SolicitacaoDeCadastro/Edit/5

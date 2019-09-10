@@ -12,6 +12,6 @@ namespace Persistence
         public int Cvv { get; set; }
         public int CodUsuario { get; set; }
 
-        public virtual TbUsuario CodUsuarioNavigation { get; set; }
+        public TbUsuario CodUsuarioNavigation { get; set; }
     }
 }

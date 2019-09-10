@@ -7,33 +7,29 @@ namespace Persistence
     {
         public TbUsuario()
         {
-            Cartao = new HashSet<TbCartao>();
-            ContaBancaria = new HashSet<TbContaBancaria>();
-            EntregaCodUsuarioClienteNavigation = new HashSet<TbEntrega>();
-            EntregaCodUsuarioEntregadorNavigation = new HashSet<TbEntrega>();
-            SolicitacaoDeCadastroCodUsuarioEntregadorNavigation = new HashSet<TbSolicitacaoDeCadastro>();
-            SolicitacaoDeCadastroCodUsuarioFuncionarioNavigation = new HashSet<TbSolicitacaoDeCadastro>();
-            UsuarioVeiculo = new HashSet<TbUsuarioVeiculo>();
-            Veiculo = new HashSet<TbVeiculo>();
+            Tbcartao = new HashSet<TbCartao>();
+            TbcontaBancaria = new HashSet<TbContaBancaria>();
+            TbentregaCodUsuarioClienteNavigation = new HashSet<TbEntrega>();
+            TbentregaCodUsuarioEntregadorNavigation = new HashSet<TbEntrega>();
+            TbsolicitacaoDeCadastroCodUsuarioEntregadorNavigation = new HashSet<TbSolicitacaoDeCadastro>();
+            TbsolicitacaoDeCadastroCodUsuarioFuncionarioNavigation = new HashSet<TbSolicitacaoDeCadastro>();
+            TbusuarioVeiculo = new HashSet<TbUsuarioVeiculo>();
+            Tbveiculo = new HashSet<TbVeiculo>();
         }
 
         public int CodUsuario { get; set; }
-        public string Nome { get; set; }
         public string Cpf { get; set; }
-        public string Telefone { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
-        public string Tipo { get; set; }
         public string StatusCliente { get; set; }
         public string StatusEntregador { get; set; }
+        public string UserName { get; set; }
 
-        public virtual ICollection<TbCartao> Cartao { get; set; }
-        public virtual ICollection<TbContaBancaria> ContaBancaria { get; set; }
-        public virtual ICollection<TbEntrega> EntregaCodUsuarioClienteNavigation { get; set; }
-        public virtual ICollection<TbEntrega> EntregaCodUsuarioEntregadorNavigation { get; set; }
-        public virtual ICollection<TbSolicitacaoDeCadastro> SolicitacaoDeCadastroCodUsuarioEntregadorNavigation { get; set; }
-        public virtual ICollection<TbSolicitacaoDeCadastro> SolicitacaoDeCadastroCodUsuarioFuncionarioNavigation { get; set; }
-        public virtual ICollection<TbUsuarioVeiculo> UsuarioVeiculo { get; set; }
-        public virtual ICollection<TbVeiculo> Veiculo { get; set; }
+        public ICollection<TbCartao> Tbcartao { get; set; }
+        public ICollection<TbContaBancaria> TbcontaBancaria { get; set; }
+        public ICollection<TbEntrega> TbentregaCodUsuarioClienteNavigation { get; set; }
+        public ICollection<TbEntrega> TbentregaCodUsuarioEntregadorNavigation { get; set; }
+        public ICollection<TbSolicitacaoDeCadastro> TbsolicitacaoDeCadastroCodUsuarioEntregadorNavigation { get; set; }
+        public ICollection<TbSolicitacaoDeCadastro> TbsolicitacaoDeCadastroCodUsuarioFuncionarioNavigation { get; set; }
+        public ICollection<TbUsuarioVeiculo> TbusuarioVeiculo { get; set; }
+        public ICollection<TbVeiculo> Tbveiculo { get; set; }
     }
 }
