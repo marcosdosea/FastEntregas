@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `fast_entregas` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `fast_entregas`;
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fast_entregas
@@ -211,7 +209,7 @@ CREATE TABLE `aspnetusers` (
 
 LOCK TABLES `aspnetusers` WRITE;
 /*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
-INSERT INTO `aspnetusers` VALUES ('017cc0a2-0654-419e-af05-ff55203704a7','lipe9119','LIPE9119','lipe.dornelles08@hotmail.com','LIPE.DORNELLES08@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEIlKiPOBPP/mQRqYsWflh2vUk9b5w6w6XPmslust7bvLcNBgE6j96EaE8Ey0GVxyEw==','CVWMRRZDAGNO7LAEFPMQHP5U6O4PDELD','8dca0ebf-39ca-4118-90e0-b27736083318','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0),('7787915a-af05-47d0-8498-2139ecde7044','dornelles','DORNELLES','lipe.dornelles@hotmail.com','LIPE.DORNELLES@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEFekk+SAzR9q/US1kEzXkVq1bGdWYFeOfcitK1zgt9BHa6cFdYXexrjA6oAfnaIGVA==','UYKNBBXM2PFTFQACXUV5AAJB7ZCLUXUX','318a6b61-1dc8-4097-b52f-c41d06cb15e7','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0),('a12c27fd-dc9d-4519-b3be-66feea9cfce5','Hamilton','HAMILTON','h.s.teles@hotmail.com','H.S.TELES@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEIuASEjAjfstsaANcgIGhKoNjVcEtkspgQJDUKiZt2WOF2TCcqcaTXVkxJdgXdyghg==','VUF5SW6H3JOD32QG3WGAP67KUBZM4LSP','338bb32c-8aad-45f9-b956-7f8bc5ca7dff','+5579991341771',_binary '\0',_binary '\0',NULL,_binary '',0),('c2476ab9-81d8-49f7-8d48-2c505aa896b9','felipe','FELIPE','carmeluce@hotmail.com','CARMELUCE@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEL2bU7FbwJjMm51aCboBDRh9Sf7gd+0RK0YWjDNabIMQf1oQ81/Ya5m6bWUAODRRfQ==','DNO4YDRVV5UDU3MEJSB3ZAJCO7PXKW3U','adeff41b-b450-4cc8-b351-6eea6b151ded','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0);
+INSERT INTO `aspnetusers` VALUES ('0b654e48-51c6-4e88-95f9-89d8bbd6a6a7','lipe.dornelles@gmail.com','LIPE.DORNELLES@GMAIL.COM','lipe.dornelles@gmail.com','LIPE.DORNELLES@GMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEAW8iunIcGaxjiSHNnhzCdOchGL63qddBYFofCN6fSg+xeyINVQ0xYMQCUTIM8yR5w==','B4G257YQLSGLM7QUV6ITCV7KZXKMHBSY','fc30906c-f214-4c6b-9520-4938795dc766','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0),('7787915a-af05-47d0-8498-2139ecde7044','dornelles','DORNELLES','lipe.dornelles@hotmail.com','LIPE.DORNELLES@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEFekk+SAzR9q/US1kEzXkVq1bGdWYFeOfcitK1zgt9BHa6cFdYXexrjA6oAfnaIGVA==','UYKNBBXM2PFTFQACXUV5AAJB7ZCLUXUX','318a6b61-1dc8-4097-b52f-c41d06cb15e7','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0),('a12c27fd-dc9d-4519-b3be-66feea9cfce5','Hamilton','HAMILTON','h.s.teles@hotmail.com','H.S.TELES@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEIuASEjAjfstsaANcgIGhKoNjVcEtkspgQJDUKiZt2WOF2TCcqcaTXVkxJdgXdyghg==','VUF5SW6H3JOD32QG3WGAP67KUBZM4LSP','338bb32c-8aad-45f9-b956-7f8bc5ca7dff','+5579991341771',_binary '\0',_binary '\0',NULL,_binary '',0),('a7144e61-6fce-4a35-8aaf-0abccb302161','felipeDornelles','FELIPEDORNELLES','h.s.tles@hotmail.com','H.S.TLES@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEEugiUOHvd2P9xfuCT5BIz6OF10Ho9eAq/wIXfUThl8PTY2oL8MTtQVCbVuOJk9Ybw==','WNQXIJXAQE7PXZ6NDVZ62MUNVF3OPXE5','fab37b39-8b83-47a4-a209-c8394db35c18','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0),('c2476ab9-81d8-49f7-8d48-2c505aa896b9','felipe','FELIPE','carmeluce@hotmail.com','CARMELUCE@HOTMAIL.COM',_binary '\0','AQAAAAEAACcQAAAAEL2bU7FbwJjMm51aCboBDRh9Sf7gd+0RK0YWjDNabIMQf1oQ81/Ya5m6bWUAODRRfQ==','DNO4YDRVV5UDU3MEJSB3ZAJCO7PXKW3U','adeff41b-b450-4cc8-b351-6eea6b151ded','79991194510',_binary '\0',_binary '\0',NULL,_binary '',0);
 /*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -357,7 +355,7 @@ CREATE TABLE `tbentrega` (
   CONSTRAINT `fk_Corrida_Entrega_Usuario2` FOREIGN KEY (`codUsuarioEntregador`) REFERENCES `tbusuario` (`codUsuario`),
   CONSTRAINT `tbentrega_ibfk_1` FOREIGN KEY (`codVeiculo`) REFERENCES `tbveiculo` (`codVeiculo`),
   CONSTRAINT `tbentrega_ibfk_2` FOREIGN KEY (`codVeiculo`) REFERENCES `tbveiculo` (`codVeiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -366,7 +364,7 @@ CREATE TABLE `tbentrega` (
 
 LOCK TABLES `tbentrega` WRITE;
 /*!40000 ALTER TABLE `tbentrega` DISABLE KEYS */;
-INSERT INTO `tbentrega` VALUES (29,'Rua Pericles Vieira De Azevedo 485, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Rua Manoel Andrade 2279, Coroa Do Meio, Aracaju - Sergipe, 49035, Brazil','2019-09-05','solicitada',450,'sdfsdfsdf','ghjghjghj',1,NULL,'1min','0.46km',NULL,NULL),(30,'Rua Professor Lima Junior 438, Centro, Itabaiana - Sergipe, 49503, Brazil','UFS - Universidade Federal de Sergipe, Av. Ver Olimpio Grande, Itabaiana, Sergipe 49500, Brazil','2019-09-05','solicitada',450,'sdfsdfsdf','ghjghjghj',1,NULL,'1min','0.60km',NULL,NULL),(31,'Rua Pericles Vieira De Azevedo 485, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','2019-09-05','solicitada',1192,'sdfsdfsdf','ghjghjghj',1,NULL,'12min','5.96km',NULL,NULL),(32,'Rua Pericles Vieira De Azevedo, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Rua Manoel Andrade 2279, Coroa Do Meio, Aracaju - Sergipe, 49035, Brazil','2019-09-08','solicitada',450,'sdfsdfsdf','ghjghjghj',1,NULL,'1min','0.37km',NULL,'Carro'),(33,'Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','Colégio Jardins, Av. Min Geraldo Barreto Sobral, Aracaju, Sergipe 49025, Brazil','2019-09-08','solicitada',450,'sdfsdfsdf','ghjghjghj',13,NULL,'5min','1.63km',NULL,'Moto');
+INSERT INTO `tbentrega` VALUES (29,'Rua Pericles Vieira De Azevedo 485, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Rua Manoel Andrade 2279, Coroa Do Meio, Aracaju - Sergipe, 49035, Brazil','2019-09-05','solicitada',450,'sdfsdfsdf','ghjghjghj',1,NULL,'1min','0.46km',NULL,NULL),(30,'Rua Professor Lima Junior 438, Centro, Itabaiana - Sergipe, 49503, Brazil','UFS - Universidade Federal de Sergipe, Av. Ver Olimpio Grande, Itabaiana, Sergipe 49500, Brazil','2019-09-05','solicitada',450,'sdfsdfsdf','ghjghjghj',1,NULL,'1min','0.60km',NULL,NULL),(31,'Rua Pericles Vieira De Azevedo 485, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','2019-09-05','solicitada',1192,'sdfsdfsdf','ghjghjghj',1,NULL,'12min','5.96km',NULL,NULL),(32,'Rua Pericles Vieira De Azevedo, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Rua Manoel Andrade 2279, Coroa Do Meio, Aracaju - Sergipe, 49035, Brazil','2019-09-08','solicitada',450,'sdfsdfsdf','ghjghjghj',1,NULL,'1min','0.37km',NULL,'Carro'),(33,'Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','Colégio Jardins, Av. Min Geraldo Barreto Sobral, Aracaju, Sergipe 49025, Brazil','2019-09-08','solicitada',450,'sdfsdfsdf','ghjghjghj',13,NULL,'5min','1.63km',NULL,'Moto'),(34,'Rua Pericles Vieira De Azevedo 485, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Rua Manoel Andrade 2279, Coroa Do Meio, Aracaju - Sergipe, 49035, Brazil','2019-09-09','solicitada',450,'sdfsdfsdf','ghjghjghj',15,NULL,'1min','0.46km',NULL,'Carro'),(35,'Rua Pericles Vieira De Azevedo 485, Coroa Do Meio, Aracaju - Sergipe, 49036, Brazil','Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','2019-09-09','solicitada',1192,'PEGAR DOCUMENTO COM fELIPE','Entregar na recepção a Natan',16,NULL,'11min','5.96km',NULL,'Moto'),(36,'','','2018-09-05','solicitada',450,'','',1,NULL,NULL,NULL,NULL,NULL),(37,'','','2018-10-05','solicitada',450,'','',1,NULL,NULL,NULL,NULL,NULL),(38,'','','2018-09-05','solicitada',450,'','',1,NULL,NULL,NULL,NULL,NULL),(39,'Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','UFS - Universidade Federal de Sergipe, Av. Mal. Rondon, S/N, São Cristóvão, Sergipe 49088, Brazil','2019-09-10','solicitada',2440,'sdfsdfsdf','ghjghjghj',15,NULL,'26min','12.2km',NULL,'Carro'),(40,'Rua Manoel Andrade 2279, Coroa Do Meio, Aracaju - Sergipe, 49035, Brazil','Colégio Jardins, Av. Min Geraldo Barreto Sobral, Aracaju, Sergipe 49025, Brazil','2019-09-10','solicitada',1050,'sdfsdfsdf','ghjghjghj',15,NULL,'10min','5.25km',NULL,'Carro'),(41,'Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','UFS - Universidade Federal de Sergipe, Av. Mal. Rondon, S/N, São Cristóvão, Sergipe 49088, Brazil','2019-09-10','solicitada',2440,'sdfsdfsdf','ghjghjghj',15,NULL,'24min','12.2km',NULL,'Carro'),(42,'UFS - Universidade Federal de Sergipe, Av. Mal. Rondon, S/N, São Cristóvão, Sergipe 49088, Brazil','Shopping Jardins, Av. Min. Geraldo Barreto Sobral, 215, Aracaju, Sergipe 49025, Brazil','2019-09-10','solicitada',1636,'sdfsdfsdf','ghjghjghj',15,NULL,'17min','8.18km',NULL,'Carro');
 /*!40000 ALTER TABLE `tbentrega` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,6 +388,7 @@ CREATE TABLE `tbformaspagamento` (
 
 LOCK TABLES `tbformaspagamento` WRITE;
 /*!40000 ALTER TABLE `tbformaspagamento` DISABLE KEYS */;
+INSERT INTO `tbformaspagamento` VALUES (1,'Dinheiro'),(2,'Cartão de Crédito');
 /*!40000 ALTER TABLE `tbformaspagamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -418,6 +417,7 @@ CREATE TABLE `tbformaspagamento_has_entrega` (
 
 LOCK TABLES `tbformaspagamento_has_entrega` WRITE;
 /*!40000 ALTER TABLE `tbformaspagamento_has_entrega` DISABLE KEYS */;
+INSERT INTO `tbformaspagamento_has_entrega` VALUES (1,39,0),(1,40,0),(1,42,0),(2,41,0);
 /*!40000 ALTER TABLE `tbformaspagamento_has_entrega` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -444,7 +444,7 @@ CREATE TABLE `tbsolicitacao_de_cadastro` (
   KEY `fk_Solicitacao_de_Cadastro_Usuario2_idx` (`codUsuarioFuncionario`),
   CONSTRAINT `fk_Solicitacao_de_Cadastro_Usuario1` FOREIGN KEY (`codUsuarioEntregador`) REFERENCES `tbusuario` (`codUsuario`),
   CONSTRAINT `fk_Solicitacao_de_Cadastro_Usuario2` FOREIGN KEY (`codUsuarioFuncionario`) REFERENCES `tbusuario` (`codUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -453,7 +453,7 @@ CREATE TABLE `tbsolicitacao_de_cadastro` (
 
 LOCK TABLES `tbsolicitacao_de_cadastro` WRITE;
 /*!40000 ALTER TABLE `tbsolicitacao_de_cadastro` DISABLE KEYS */;
-INSERT INTO `tbsolicitacao_de_cadastro` VALUES (1,'06776096988','1557101985','1997-10-08','solicitada',13,NULL);
+INSERT INTO `tbsolicitacao_de_cadastro` VALUES (1,'06776096988','1557101985','1997-10-08','solicitada',13,NULL),(3,'06776096987','1557101981','1997-10-08','solicitada',16,NULL);
 /*!40000 ALTER TABLE `tbsolicitacao_de_cadastro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -472,7 +472,7 @@ CREATE TABLE `tbusuario` (
   `userName` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`codUsuario`),
   UNIQUE KEY `cpf_UNIQUE` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -481,7 +481,7 @@ CREATE TABLE `tbusuario` (
 
 LOCK TABLES `tbusuario` WRITE;
 /*!40000 ALTER TABLE `tbusuario` DISABLE KEYS */;
-INSERT INTO `tbusuario` VALUES (1,'06447692548',NULL,NULL,NULL),(5,'57438773515','offline','online',NULL),(8,'78945612323','offline','offline',NULL),(10,'07162756514','offline','offline','dornelles'),(11,'0103024925','offline','offline','Hamilton'),(13,'0103024924','offline','offline','felipe');
+INSERT INTO `tbusuario` VALUES (1,'06447692548',NULL,NULL,NULL),(5,'57438773515','offline','online',NULL),(8,'78945612323','offline','offline',NULL),(10,'07162756514','offline','offline','dornelles'),(11,'0103024925','offline','offline','Hamilton'),(13,'0103024924','offline','offline','felipe'),(15,'0103024928','offline','offline','lipe.dornelles@gmail.com'),(16,'0103024920','offline','offline','felipeDornelles');
 /*!40000 ALTER TABLE `tbusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -553,4 +553,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-08 21:21:57
+-- Dump completed on 2019-09-10 22:53:57

@@ -51,6 +51,8 @@ namespace Fast_Entregas
             services.AddTransient<IGerenciadorSolicitacaoDeCadastro, GerenciadorSolicitacaoDeCadastro>();
             services.AddTransient<IGerenciadorBanco, GerenciadorBanco>();
             services.AddTransient<IGerenciadorEntrega, GerenciadorEntrega>();
+            services.AddTransient<IGerenciadorFormaPagamento, GerenciadorFormaPagamento>();
+            services.AddTransient<IGerenciadorFormaPagamentoHasEntrega, GerenciadorFormaPagamentoHasEntrega>();
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()

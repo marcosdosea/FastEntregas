@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Model
 {
-    public partial class Entrega
+    public partial class EntregaModel
     {
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Key]
@@ -26,6 +26,9 @@ namespace Model
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime Data { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+        public string FormaPagamento { get; set; }
 
         public string Status { get; set; }
 
