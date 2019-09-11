@@ -5,44 +5,45 @@
     ViewData["Title"] = "GastoDia";
 }
 
-<div class="w3-container mt-1">
-    <h1>GastoDia</h1>
-    
-    <table class="table" style="display: none">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Data)
-                </th>
+    <div class="w3-container mt-1">
+        <h1>Gasto do Cliente por Dia</h1>
+        <hr />
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Valor)
-                </th>
+        <table class="table" style="display: none">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Valor)
+                    </th>
 
 
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr name="dados">
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Data)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Valor)
-                    </td>
-
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr name="dados">
 
-    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valor)
+                        </td>
 
-</div>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+
+    </div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">

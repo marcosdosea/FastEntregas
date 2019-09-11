@@ -11,6 +11,7 @@ namespace Services
         IEnumerable<Entrega> ObterPorCliente(int codUsuarioCliente);
         IEnumerable<Entrega> ObterPorEntregador(int codUsuarioEntregador);
         IEnumerable<Grafico> GetGastoDia(int codUser);
+        IEnumerable<Grafico> GetCorridasDia(int codUser);
         IEnumerable<Entrega> ObterTodos();
         void Remover(int codEntrega);
     }
