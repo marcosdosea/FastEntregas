@@ -15,11 +15,15 @@ namespace FastEntregasWeb.Controllers
     {
         private readonly IGerenciadorEntrega gerenciadorEntrega;
         private readonly IGerenciadorUsuario gerenciadorUsuario;
+        private readonly IGerenciadorFormaPagamento gerenciadorFormaPagamento;
+        private readonly IGerenciadorFormaPagamentoHasEntrega gerenciadorPagamento;
 
-        public EntregaController(IGerenciadorEntrega _gerenciadorEntrega, IGerenciadorUsuario _gerenciadorUsuario)
+        public EntregaController(IGerenciadorEntrega _gerenciadorEntrega, IGerenciadorUsuario _gerenciadorUsuario, IGerenciadorFormaPagamento _gerenciadorFormaPagamento, IGerenciadorFormaPagamentoHasEntrega _gerenciadorPagamento)
         {
             gerenciadorEntrega = _gerenciadorEntrega;
             gerenciadorUsuario = _gerenciadorUsuario;
+            gerenciadorFormaPagamento = _gerenciadorFormaPagamento;
+            gerenciadorPagamento = _gerenciadorPagamento;
         }
 
         // GET: Entrega
@@ -57,17 +61,23 @@ namespace FastEntregasWeb.Controllers
         // POST: Entrega/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Entrega entrega)
+        public ActionResult Create(EntregaModel entregaModel)
         {
-            entrega.Data = DateTime.Now;
-            entrega.Status = "solicitada";
+            Entrega entrega = Atribuir(entregaModel);
+            int codFormaPagamento = gerenciadorFormaPagamento.ObterPorDescricao(entregaModel.FormaPagamento).CodFormaPagamento;
+            FormaspagamentoHasEntrega pagamento = new FormaspagamentoHasEntrega();
+            pagamento.CodFormaPagamento = codFormaPagamento;
+            pagamento.Valor = entrega.Valor;
             if (ModelState.IsValid)
             {
-                gerenciadorEntrega.Inserir(entrega);
+                
+                int codEntrega = gerenciadorEntrega.Inserir(entrega);
+                pagamento.CodEntrega = codEntrega;
+                gerenciadorPagamento.Inserir(pagamento);
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(entrega);
+            return View(entregaModel);
         }
 
         // GET: Entrega/Edit/5
@@ -105,6 +115,27 @@ namespace FastEntregasWeb.Controllers
         {
             gerenciadorEntrega.Remover(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        private Entrega Atribuir(EntregaModel entrega)
+        {
+            Entrega e = new Entrega();
+            e.CodEntrega = entrega.CodEntrega;
+            e.Origem = entrega.Origem;
+            e.Destino = entrega.Destino;
+            e.Data = DateTime.Now;
+            e.Status = "solicitada";
+            e.Valor = entrega.Valor;
+            e.Duracao = entrega.Duracao;
+            e.Distancia = entrega.Distancia;
+            e.Descricao_origem = entrega.Descricao_origem;
+            e.Descricao_destino = entrega.Descricao_destino;
+            e.Categoria_veiculo = entrega.Categoria_veiculo;
+            e.CodUsuarioCliente = entrega.CodUsuarioCliente;
+            e.CodUsuarioEntregador = entrega.CodUsuarioEntregador;
+            e.CodVeiculo = entrega.CodVeiculo;
+
+            return e;
         }
     }
 }

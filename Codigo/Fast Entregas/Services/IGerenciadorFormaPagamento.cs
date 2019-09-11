@@ -8,7 +8,7 @@ namespace Services
         void Editar(Formaspagamento formaPagamento);
         int Inserir(Formaspagamento formaPagamento);
         Formaspagamento Obter(int codFormaPagamento);
-        IEnumerable<Formaspagamento> ObterPorDescricao(string descricao);
+        Formaspagamento ObterPorDescricao(string descricao);
         IEnumerable<Formaspagamento> ObterTodos();
         void Remover(int codFormaPamento);
     }

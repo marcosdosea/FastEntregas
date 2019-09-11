@@ -97,10 +97,10 @@ namespace Services
         /// </summary>
         /// <param name="placa">placa a ser buscada</param>
         /// <returns></returns>
-        public IEnumerable<Formaspagamento> ObterPorDescricao(string descricao)
+        public Formaspagamento ObterPorDescricao(string descricao)
         {
             IEnumerable<Formaspagamento> formaPagamento = GetQuery().Where(formaPagamentoModel => formaPagamentoModel.Descricao.StartsWith(descricao));
-            return formaPagamento;
+            return formaPagamento.ElementAtOrDefault(0);
         }
 
         /// <summary>

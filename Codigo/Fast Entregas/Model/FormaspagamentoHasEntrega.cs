@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Model.Resources;
 using System.ComponentModel.DataAnnotations;
 
-namespace Persistence
+namespace Model
 {
     public partial class FormaspagamentoHasEntrega
     {
@@ -13,7 +13,6 @@ namespace Persistence
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Key]
         public int CodEntrega { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         public float Valor { get; set; }
     }
 }

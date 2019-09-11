@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Persistence;
+using Model;
 
 namespace Services
 {

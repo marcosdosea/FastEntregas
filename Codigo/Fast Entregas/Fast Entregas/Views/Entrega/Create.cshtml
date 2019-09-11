@@ -1,4 +1,4 @@
-﻿@model Model.Entrega
+﻿@model Model.EntregaModel
 
 @{
     Layout = "_LayoutCliente";
@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="form-group">
                     <label asp-for="Origem" class="control-label"></label>
-                    <input asp-for="Origem" class="form-control" id="origem" onfocusout="//MarkerPopup(document.getElementById('origem').value)" readonly />
+                    <input asp-for="Origem" class="form-control" id="origem" readonly />
                     <span asp-validation-for="Origem" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Destino" class="control-label"></label>
-                    <input asp-for="Destino" class="form-control" id="destino" onfocusout="//MarkerPopup(document.getElementById('destino').value)" readonly />
+                    <input asp-for="Destino" class="form-control" id="destino" readonly />
                     <span asp-validation-for="Destino" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group" style="display: none">
                     <label asp-for="CodUsuarioCliente" class="control-label"></label>
-                    <input asp-for="CodUsuarioCliente" class="form-control" id="codUsuario" value="@ViewBag.codUsuario"/>
+                    <input asp-for="CodUsuarioCliente" class="form-control" id="codUsuario" value="@ViewBag.codUsuario" />
                     <span asp-validation-for="CodUsuarioCliente" class="text-danger"></span>
                 </div>
 
@@ -60,12 +60,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Forma de Pagamento</label>
-                    <select class="form-control" id="formaPagamento">
+                    <label asp-for="FormaPagamento" class="control-label">Forma de Pagamento</label>
+                    <select asp-for="FormaPagamento" class="form-control" id="formaPagamento">
                         <option>Dinheiro</option>
                         <option>Cartão de Crédito</option>
                     </select>
-                    <span class="text-danger"></span>
+                    <span asp-validation-for="FormaPagamento" class="text-danger"></span>
                 </div>
 
                 <div class="form-group mt-5 border-top text-center">
@@ -155,7 +155,7 @@
             .addTo(map);
     }
 
-        document.getElementsByClassName('mapbox-directions-profile mapbox-directions-component-keyline mapbox-directions-clearfix')[0].style.display = 'none';
+    document.getElementsByClassName('mapbox-directions-profile mapbox-directions-component-keyline mapbox-directions-clearfix')[0].style.display = 'none';
     async function Route() {
 
         var origem = document.getElementsByClassName('mapboxgl-ctrl-geocoder')[0].children[1].value;
@@ -188,7 +188,6 @@
         }
 
     }
-
 
     var button = document.querySelector('#pay-button');
 
