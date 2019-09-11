@@ -38,6 +38,17 @@ namespace FastEntregasWeb.Controllers
             return View();
         }
 
+        public ActionResult GastoDia()
+        {
+            string userName = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
+            if (usuario != null)
+            {
+                return View(gerenciadorEntrega.GetGastoDia(usuario.CodUsuario));
+            }
+            return View();
+        }
+
         // GET: Entrega/Details/5
         public ActionResult Details(int id)
         {

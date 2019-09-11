@@ -6,117 +6,118 @@
 }
 
 
-<div class="w3-container mt-3 mb-5">
-    <button onclick="w3.sortHTML('#lista', 'li')">organizar por status</button>
-    <input oninput="w3.filterHTML('#lista', 'li', this.value)" placeholder="Pesquisar na lista..">
-    <ul id="lista" class="w3-ul w3-card-4 mt-4">
-        @{
-            if (Model.Count() != 0)
-            {
-                @foreach (var item in Model)
-            {
-                <li class="w3-bar">
-
-                    <button class="btn btn-danger w3-right" style="padding-right:10px;padding-left:0;margin-top: 2.5%;margin-left:1%;" onclick="document.getElementById('confirmaDelete').style.display='block'">
-                        <i class="fas fa-trash" style="margin-right:5px;margin-left:10px"></i>
-                        Excluir
-                    </button>
-                    <button class="btn btn-info w3-right" style="padding-right:10px;padding-left:0;margin-top: 2.5%;margin-left:1%;" onclick="document.getElementById('informacoes').style.display='block'">
-                        <i class="fas fa-info" style="margin-right:5px;margin-left:10px"></i>
-                        Detalhes
-                    </button>
-                    <!--@if (item.Status == "solicitada")
+    <div class="w3-container mt-3 mb-5">
+        @Html.ActionLink("Gasto por Dia", "GastoDia", new {  }, new { @class = "btn mt-4", @style = "background-color: rgb(157,203,43);text-decoration:none;color:black" })
+        <button class="btn mt-4" style="background-color: rgb(157,203,43);text-decoration:none;color:black" onclick="w3.sortHTML('#lista', 'li')">Organizar por Status</button>
+        <input class="btn mt-4 border-dark" oninput="w3.filterHTML('#lista', 'li', this.value)" placeholder="Pesquisar na lista..">
+        <ul id="lista" class="w3-ul w3-card-4 mt-4">
+            @{
+                if (Model.Count() != 0)
                 {
-                    <button class="btn btn-info w3-right" style="padding-right:10px;padding-left:0;margin-top: 2.5%" >
-                        <i class="fas fa-pen" style="margin-right:5px;margin-left:10px"></i>
-                        Editar
-                    </button>
-                }-->
+                    @foreach (var item in Model)
+                    {
+                        <li class="w3-bar">
 
-                    <div id="confirmaDelete" class="w3-modal">
-                        <div class="w3-modal-content w3-animate-top w3-card-4">
-                            <header class="w3-container w3-border-bottom w3-border-gray" style="background-color:rgb(157,203,43);height:100px">
-                                <h2 style="margin-left:4.5%;padding-top:20px;">
-                                    <i class="fas fa-trash" style="margin-right:5px;margin-left:10px;"></i>
-                                    Tem Certeza que deseja excluir esse registro ?
-                                </h2>
-                            </header>
-                            <div class="w3-container mt-3" style="margin-left:10%;">
-                                <h3>Endereço de Origem: @Html.DisplayFor(modelItem => item.Origem);</h3>
-                                <h3>Endereço de Destino: @Html.DisplayFor(modelItem => item.Destino);</h3>
-                                <h3>Data da Entrega: @Html.DisplayFor(modelItem => item.Data);</h3>
-                                <h3>Status da Entrega: @Html.DisplayFor(modelItem => item.Status);</h3>
-                                <h3>Valor: @Html.DisplayFor(modelItem => item.Valor);</h3>
-                                <h3>Descrição Origem: @Html.DisplayFor(modelItem => item.Descricao_origem);</h3>
-                                <h3>Descrição Destino: @Html.DisplayFor(modelItem => item.Descricao_destino);</h3>
-                            </div>
-                            <footer class="w3-container mt-3" style="margin-left:10%;">
-                                <div class="row  mb-3">
-                                    <form asp-action="Delete" class="w3-left">
-                                        <input type="submit" value="Excluir" class="btn btn-primary" />
-                                    </form>
-                                    <button class="btn btn-danger w3-left" style="margin-left:1%;" onclick="document.getElementById('confirmaDelete').style.display='none'">
-                                        Cancelar
-                                    </button>
+                            <button class="btn btn-danger w3-right" style="padding-right:10px;padding-left:0;margin-top: 2.5%;margin-left:1%;" onclick="document.getElementById('confirmaDelete').style.display='block'">
+                                <i class="fas fa-trash" style="margin-right:5px;margin-left:10px"></i>
+                                Excluir
+                            </button>
+                            <button class="btn btn-info w3-right" style="padding-right:10px;padding-left:0;margin-top: 2.5%;margin-left:1%;" onclick="document.getElementById('informacoes').style.display='block'">
+                                <i class="fas fa-info" style="margin-right:5px;margin-left:10px"></i>
+                                Detalhes
+                            </button>
+                            <!--@if (item.Status == "solicitada")
+                        {
+                            <button class="btn btn-info w3-right" style="padding-right:10px;padding-left:0;margin-top: 2.5%" >
+                                <i class="fas fa-pen" style="margin-right:5px;margin-left:10px"></i>
+                                Editar
+                            </button>
+                        }-->
+
+                            <div id="confirmaDelete" class="w3-modal">
+                                <div class="w3-modal-content w3-animate-top w3-card-4">
+                                    <header class="w3-container w3-border-bottom w3-border-gray" style="background-color:rgb(157,203,43);height:100px">
+                                        <h2 style="margin-left:4.5%;padding-top:20px;">
+                                            <i class="fas fa-trash" style="margin-right:5px;margin-left:10px;"></i>
+                                            Tem Certeza que deseja excluir esse registro ?
+                                        </h2>
+                                    </header>
+                                    <div class="w3-container mt-3" style="margin-left:10%;">
+                                        <h3>Endereço de Origem: @Html.DisplayFor(modelItem => item.Origem);</h3>
+                                        <h3>Endereço de Destino: @Html.DisplayFor(modelItem => item.Destino);</h3>
+                                        <h3>Data da Entrega: @Html.DisplayFor(modelItem => item.Data);</h3>
+                                        <h3>Status da Entrega: @Html.DisplayFor(modelItem => item.Status);</h3>
+                                        <h3>Valor: @Html.DisplayFor(modelItem => item.Valor);</h3>
+                                        <h3>Descrição Origem: @Html.DisplayFor(modelItem => item.Descricao_origem);</h3>
+                                        <h3>Descrição Destino: @Html.DisplayFor(modelItem => item.Descricao_destino);</h3>
+                                    </div>
+                                    <footer class="w3-container mt-3" style="margin-left:10%;">
+                                        <div class="row  mb-3">
+                                            <form asp-action="Delete" class="w3-left">
+                                                <input type="submit" value="Excluir" class="btn btn-primary" />
+                                            </form>
+                                            <button class="btn btn-danger w3-left" style="margin-left:1%;" onclick="document.getElementById('confirmaDelete').style.display='none'">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                    </footer>
                                 </div>
-                            </footer>
-                        </div>
-                    </div>
-
-                    <div id="informacoes" class="w3-modal">
-                        <div class="w3-modal-content w3-animate-top w3-card-4">
-                            <header class="w3-container w3-border-bottom w3-border-gray" style="background-color:rgb(157,203,43);height:100px">
-                                <span style="margin-top:10px" onclick="document.getElementById('informacoes').style.display='none'"
-                                      class="w3-button w3-display-topright">
-                                    &times;
-                                </span>
-                                <h2 style="margin-left:4.5%;padding-top:20px;">
-                                    <i class="fas fa-info-circle" style="margin-right:5px;margin-left:10px"></i>
-                                    Detalhes
-                                </h2>
-                            </header>
-                            <div class="w3-container mt-3 pb-3" style="margin-left:10%">
-                                <h3>Endereço de Origem: @Html.DisplayFor(modelItem => item.Origem);</h3>
-                                <h3>Endereço de Destino: @Html.DisplayFor(modelItem => item.Destino);</h3>
-                                <h3>Data da Entrega: @Html.DisplayFor(modelItem => item.Data);</h3>
-                                <h3>Status da Entrega: @Html.DisplayFor(modelItem => item.Status);</h3>
-                                <h3>Valor: @Html.DisplayFor(modelItem => item.Valor);</h3>
-                                <h3>Descrição Origem: @Html.DisplayFor(modelItem => item.Descricao_origem);</h3>
-                                <h3>Descrição Destino: @Html.DisplayFor(modelItem => item.Descricao_destino);</h3>
                             </div>
-                        </div>
-                    </div>
 
-                    @if (item.Status == "solicitada")
-                    {
-                        <i class="fas fa-flag-checkered w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: black; margin-top: 25px;"></i>
+                            <div id="informacoes" class="w3-modal">
+                                <div class="w3-modal-content w3-animate-top w3-card-4">
+                                    <header class="w3-container w3-border-bottom w3-border-gray" style="background-color:rgb(157,203,43);height:100px">
+                                        <span style="margin-top:10px" onclick="document.getElementById('informacoes').style.display='none'"
+                                              class="w3-button w3-display-topright">
+                                            &times;
+                                        </span>
+                                        <h2 style="margin-left:4.5%;padding-top:20px;">
+                                            <i class="fas fa-info-circle" style="margin-right:5px;margin-left:10px"></i>
+                                            Detalhes
+                                        </h2>
+                                    </header>
+                                    <div class="w3-container mt-3 pb-3" style="margin-left:10%">
+                                        <h3>Endereço de Origem: @Html.DisplayFor(modelItem => item.Origem);</h3>
+                                        <h3>Endereço de Destino: @Html.DisplayFor(modelItem => item.Destino);</h3>
+                                        <h3>Data da Entrega: @Html.DisplayFor(modelItem => item.Data);</h3>
+                                        <h3>Status da Entrega: @Html.DisplayFor(modelItem => item.Status);</h3>
+                                        <h3>Valor: @Html.DisplayFor(modelItem => item.Valor);</h3>
+                                        <h3>Descrição Origem: @Html.DisplayFor(modelItem => item.Descricao_origem);</h3>
+                                        <h3>Descrição Destino: @Html.DisplayFor(modelItem => item.Descricao_destino);</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (item.Status == "solicitada")
+                            {
+                                <i class="fas fa-flag-checkered w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: black; margin-top: 25px;"></i>
+                            }
+                            else if (item.Status == "cancelada")
+                            {
+                                <i class="fas fa-ban w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: red; margin-top: 25px;"></i>
+                            }
+                            else if (item.Status == "atendida")
+                            {
+                                <i class="fas fa-check-circle w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: greenyellow; margin-top: 25px;"></i>
+                            }
+                            else if (item.Status == "em andamento")
+                            {
+                                <i class="fas fa-route w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color:chocolate; margin-top: 25px;"></i>
+                            }
+                            <div class="w3-bar-item">
+                                <span class="w3-large">Status: @Html.DisplayFor(modelItem => item.Status) </span><br>
+                                <span class="w3-large">Origem: @Html.DisplayFor(modelItem => item.Origem) </span><br>
+                                <span class="w3-large">Destino: @Html.DisplayFor(modelItem => item.Destino) </span><br>
+                                <!--<span style="color: darkgrey">Data: @Html.DisplayFor(modelItem => item.Data)</span>
+                            <span style="color: darkgrey; margin-left:10px">Valor: @Html.DisplayFor(modelItem => item.Valor)</span>-->
+                            </div>
+                        </li>
                     }
-                    else if (item.Status == "cancelada")
-                    {
-                        <i class="fas fa-ban w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: red; margin-top: 25px;"></i>
-                    }
-                    else if (item.Status == "atendida")
-                    {
-                        <i class="fas fa-check-circle w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color: greenyellow; margin-top: 25px;"></i>
-                    }
-                    else if (item.Status == "em andamento")
-                    {
-                        <i class="fas fa-route w3-bar-item w3-circle w3-hide-small" style="font-size:30px; color:chocolate; margin-top: 25px;"></i>
-                    }
-                    <div class="w3-bar-item">
-                        <span class="w3-large">Status: @Html.DisplayFor(modelItem => item.Status) </span><br>
-                        <span class="w3-large">Origem: @Html.DisplayFor(modelItem => item.Origem) </span><br>
-                        <span class="w3-large">Destino: @Html.DisplayFor(modelItem => item.Destino) </span><br>
-                        <!--<span style="color: darkgrey">Data: @Html.DisplayFor(modelItem => item.Data)</span>
-                    <span style="color: darkgrey; margin-left:10px">Valor: @Html.DisplayFor(modelItem => item.Valor)</span>-->
-                    </div>
-                </li>
+                }
+                else
+                {
+                    <h3>Sem Nenhuma corrida</h3>
+                }
             }
-            }
-            else
-            {
-                <h3>Sem Nenhuma corrida</h3>
-            }
-        }
-    </ul>
-</div>
+        </ul>
+    </div>

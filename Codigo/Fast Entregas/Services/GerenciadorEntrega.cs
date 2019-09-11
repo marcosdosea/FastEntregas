@@ -95,6 +95,19 @@ namespace Services
             return query;
         }
 
+        public IEnumerable<Grafico> GetGastoDia(int codUser)
+        {
+            IEnumerable<Grafico> query = GetQuery()
+                .Where(entrega => entrega.CodUsuarioCliente == codUser)
+                .GroupBy(entrega => entrega.Data)
+                .Select(grafico => new Grafico
+                {
+                    Data = grafico.Key.ToString(),
+                    Valor = grafico.Sum(entrega => entrega.Valor)
+                });
+
+            return query;
+        }
         /// <summary>
         /// Obtém todas as entregas
         /// </summary>
@@ -145,7 +158,7 @@ namespace Services
         /// <returns></returns>
         public IEnumerable<Entrega> ObterPorTipoVeiculo(string cateoriaVeiculo)
         {
-            IEnumerable<Entrega> entregas = GetQuery().Where(entregaModel => entregaModel.Status.Equals("solicitada") && 
+            IEnumerable<Entrega> entregas = GetQuery().Where(entregaModel => entregaModel.Status.Equals("solicitada") &&
                                                                              entregaModel.Categoria_veiculo.Equals(cateoriaVeiculo));
             return entregas;
         }
