@@ -95,6 +95,20 @@ namespace Services
             return query;
         }
 
+        public IEnumerable<Grafico> GetCorridasDia(int codUser)
+        {
+            IEnumerable<Grafico> query = GetQuery()
+                .Where(entrega => entrega.CodUsuarioCliente == codUser)
+                .GroupBy(entrega => entrega.Data)
+                .Select(grafico => new Grafico
+                {
+                    Data = grafico.Key.ToString(),
+                    Qtd = grafico.Count()
+                });
+
+            return query;
+        }
+
         public IEnumerable<Grafico> GetGastoDia(int codUser)
         {
             IEnumerable<Grafico> query = GetQuery()

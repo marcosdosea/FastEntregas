@@ -8,6 +8,6 @@ namespace Model
     {
         public string Data { get; set; }
         public float Valor { get; set; }
-
+        public int Qtd { get; set; }
     }
 }
