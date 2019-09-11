@@ -70,8 +70,8 @@ namespace FastEntregasWeb.Controllers
         /// <param name="id">Código do usuario</param>
         /// <returns></returns>
 
-        // GET: SolicitacaoDeCadastro/DetailsMultiple/5
-        public ActionResult DetailsMultiple(int id)
+        // GET: SolicitacaoDeCadastro/DetailsMultiple/
+        public ActionResult DetailsMultiple()
         {
             string userName = User.Identity.Name;
             var usuario = gerenciadorUsuario.ObterPorUserName(userName);
@@ -146,7 +146,7 @@ namespace FastEntregasWeb.Controllers
             if (ModelState.IsValid)
             {
                 gerenciadorSolicitacaoDeCadastro.Inserir(solicitacao);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(DetailsMultiple));
             }
             return RedirectToAction(nameof(DetailsMultiple));
         }
