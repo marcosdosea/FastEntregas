@@ -10,6 +10,7 @@ namespace Services
         Entrega Obter(int codEntrega);
         IEnumerable<Entrega> ObterPorCliente(int codUsuarioCliente);
         IEnumerable<Entrega> ObterPorEntregador(int codUsuarioEntregador);
+        IEnumerable<Grafico> GetGastoDia(int codUser);
         IEnumerable<Entrega> ObterTodos();
         void Remover(int codEntrega);
     }
