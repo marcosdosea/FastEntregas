@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Services;
+using System.Linq;
 
 namespace FastEntregasWeb.Controllers
 {
@@ -29,7 +26,8 @@ namespace FastEntregasWeb.Controllers
             var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if (usuario != null)
             {
-                return View(gerenciadorCartao.ObterTodos().Where(cartao=> cartao.CodUsuario.Equals(usuario.CodUsuario)));
+                return View(gerenciadorCartao.ObterTodos()
+                    .Where(cartao => cartao.CodUsuario.Equals(usuario.CodUsuario)));
             }
             return View();
         }
