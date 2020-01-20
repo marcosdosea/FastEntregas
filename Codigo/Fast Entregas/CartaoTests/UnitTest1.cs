@@ -112,6 +112,8 @@ namespace CartaoTests
             mockRepoCartao.Setup(repo => repo.ObterTodos())
                 .Returns(GetTestCartoes());
             var mockRepoUsuario = new Mock<IGerenciadorUsuario>();
+            mockRepoUsuario.Setup(repo => repo.ObterPorUserName(It.IsAny<String>()))
+                .Returns(GetUsuario());
             var controller = new CartaoController(mockRepoCartao.Object, mockRepoUsuario.Object);
 
             //Act
@@ -127,7 +129,22 @@ namespace CartaoTests
         [Fact]
         public void ExcluirCartao()
         {
+            //Arrange
+            var mockRepoCartao = new Mock<IGerenciadorCartao>();
+            mockRepoCartao.Setup(repo => repo.Remover(It.IsAny<int>())).Verifiable();
 
+            var mockRepoUsuario = new Mock<IGerenciadorUsuario>();
+            var newCartao = GetTestCartaoCompleto();
+            var controller = new CartaoController(mockRepoCartao.Object, mockRepoUsuario.Object);
+            
+            //Act
+            var result = controller.Delete(newCartao.CodCartao, null);
+
+            //Assert
+            var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
+            Assert.Null(redirectToActionResult.ControllerName);
+            Assert.Equal("Index", redirectToActionResult.ActionName);
+            mockRepoCartao.Verify();
         }
 
         private IEnumerable<Cartao> GetTestCartoes()
@@ -136,10 +153,12 @@ namespace CartaoTests
             {
                 new Cartao()
                 {
+                    CodCartao = 1,
                     Numero = "5592320009111522",
                     NomeDono = "FELIPE D M TELES",
                     DataValidade = "06/2020",
-                    Cvv = 136
+                    Cvv = 136,
+                    CodUsuario = 1
                 }
             };
         }
@@ -151,7 +170,30 @@ namespace CartaoTests
                 Numero = "5592320009111522",
                 NomeDono = "FELIPE D M TELES",
                 DataValidade = "06/2020",
-                Cvv = 136
+                Cvv = 136,
+                CodUsuario = 1
+            };
+        }
+
+        private Cartao GetTestCartaoCompleto()
+        {
+            return new Cartao()
+            {
+                CodCartao = 1,
+                Numero = "5592320009111522",
+                NomeDono = "FELIPE D M TELES",
+                DataValidade = "06/2020",
+                Cvv = 136,
+                CodUsuario = 1
+            };
+        }
+
+        private Usuario GetUsuario()
+        {
+            return new Usuario()
+            {
+                CodUsuario = 1,
+                UserName = "lipe9119"
             };
         }
     }
