@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Google Drive\\UFS\\7 periodo\\Qualidade de software\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
+      "projectPath": "C:\\Google Drive\\UFS\\7 periodo\\Qualidade de software\\FastEntregas\\Codigo\\Fast Entregas\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\natan\\.nuget\\packages\\",
-      "outputPath": "C:\\Google Drive\\UFS\\6 periodo\\Engenharia de software 2\\FastEntregas\\Codigo\\Fast Entregas\\Model\\obj\\",
+      "outputPath": "C:\\Google Drive\\UFS\\7 periodo\\Qualidade de software\\FastEntregas\\Codigo\\Fast Entregas\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -734,10 +734,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
