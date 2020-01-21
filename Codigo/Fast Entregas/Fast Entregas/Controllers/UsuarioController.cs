@@ -35,17 +35,19 @@ namespace FastEntregasWeb.Controllers
         /// <returns></returns>
         
         // GET: Usuario/SolicitarCadastro
-        public ActionResult SolicitarCadastro(int id)
+        public ActionResult SolicitarCadastro()
         {
-            //Usuario usuario = gerenciadorUsuario.Obter(id);
-            IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = gerenciadorSolicitacao.ObterTodos().Where(solicitacao => solicitacao.CodUsuarioEntregador.Equals(id));
+            var username = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(username);
+            IEnumerable<SolicitacaoDeCadastro> solicitacaoDeCadastro = gerenciadorSolicitacao.ObterTodos()
+                .Where(solicitacao => solicitacao.CodUsuarioEntregador.Equals(usuario.CodUsuario));
 
             if (solicitacaoDeCadastro.ToList().Count() == 0)
             {
-                return RedirectToAction("Create", "SolicitacaoDeCadastro", new { id = id });
+                return RedirectToAction("Create", "SolicitacaoDeCadastro", new { id = usuario.CodUsuario });
             }
 
-            return RedirectToAction("DetailsMultiple", "SolicitacaoDeCadastro", new { id = id });
+            return RedirectToAction("DetailsMultiple", "SolicitacaoDeCadastro", new { id = usuario.CodUsuario });
         }
 
         // GET: Usuario/Details/5

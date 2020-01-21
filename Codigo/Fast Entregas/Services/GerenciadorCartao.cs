@@ -66,10 +66,10 @@ namespace Services
         /// Consulta genérica aos dados do cartao
         /// </summary>
         /// <returns></returns>
-        private IQueryable<Cartao> GetQuery()
+        private IEnumerable<Cartao> GetQuery()
         {
             IQueryable<TbCartao> tb_cartao = _context.TbCartao;
-            var query = from cartao in tb_cartao
+            IEnumerable<Cartao> query = from cartao in tb_cartao
                         select new Cartao
                         {
                             CodCartao = cartao.CodCartao,

@@ -14,28 +14,44 @@ namespace FastEntregasWeb.Controllers
     public class VeiculoController : Controller
     {
         private readonly IGerenciadorVeiculo gerenciadorVeiculo;
+        private readonly IGerenciadorUsuario gerenciadorUsuario;
 
-        public VeiculoController(IGerenciadorVeiculo _gerenciadorVeiculo)
+        public VeiculoController(IGerenciadorVeiculo _gerenciadorVeiculo, IGerenciadorUsuario _gerenciadorUsuario)
         {
             gerenciadorVeiculo = _gerenciadorVeiculo;
+            gerenciadorUsuario = _gerenciadorUsuario;
         }
 
         // GET: Veiculo
         public ActionResult Index()
         {
-            return View(gerenciadorVeiculo.ObterTodos());
+            string username = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(username);
+            if(usuario != null)
+            {
+                return View(gerenciadorVeiculo.ObterTodos()
+                    .Where(veiculo => veiculo.CodDono.Equals(usuario.CodUsuario)));
+            }
+            return View();
         }
 
         // GET: Veiculo/Details/5
-        public ActionResult Details(int codigo)
+        public ActionResult Details(int id)
         {
-            Veiculo veiculo = gerenciadorVeiculo.Obter(codigo);
+            Veiculo veiculo = gerenciadorVeiculo.Obter(id);
             return View(veiculo);
         }
 
         // GET: Veiculo/Create
         public ActionResult Create()
         {
+            string username = User.Identity.Name;
+            var usuario = gerenciadorUsuario.ObterPorUserName(username);
+            if (usuario != null)
+            {
+                ViewBag.codUsuario = usuario.CodUsuario;
+                return View();
+            }
             return View();
         }
 
@@ -44,6 +60,8 @@ namespace FastEntregasWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Veiculo veiculo)
         {
+            veiculo.EmUso = "Nao";
+            veiculo.Status = "disponivel";
             if (ModelState.IsValid)
             {
                 gerenciadorVeiculo.Inserir(veiculo);

@@ -20,9 +20,13 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Cartao
-        public ActionResult Index()
+        public ActionResult Index(string userName)
         {
-            string userName = User.Identity.Name;
+            if (userName == null)
+            {
+                userName = User.Identity.Name;
+            }
+
             var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if (usuario != null)
             {
@@ -31,13 +35,13 @@ namespace FastEntregasWeb.Controllers
             }
             return View();
         }
-
+        /*
         // GET: Cartao/Details/5
         public ActionResult Details(int id)
         {
             Cartao cartao = gerenciadorCartao.Obter(id);
             return View(cartao);
-        }
+        }*/
 
         // GET: Cartao/Create
         public ActionResult Create()
@@ -66,7 +70,7 @@ namespace FastEntregasWeb.Controllers
             return View(cartao);
 
         }
-
+        /*
         // GET: Cartao/Edit/5
         public ActionResult Edit(int id)
         {
@@ -88,7 +92,7 @@ namespace FastEntregasWeb.Controllers
             return View(cartao);
 
         }
-
+        */
         // GET: Cartao/Delete/5
         public ActionResult Delete(int id)
         {
