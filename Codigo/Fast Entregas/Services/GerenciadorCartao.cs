@@ -88,7 +88,7 @@ namespace Services
         /// <returns></returns>
         public IEnumerable<Cartao> ObterTodos()
         {
-            return GetQuery();
+            return GetQuery().ToList();
         }
 
         /// <summary>

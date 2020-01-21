@@ -84,7 +84,7 @@ namespace Services
         /// <returns></returns>
         public IEnumerable<Usuario> ObterTodos()
         {
-            return GetQuery();
+            return GetQuery().ToList();
         }
 
         /// <summary>

@@ -36,8 +36,9 @@ namespace ControllerTests
             Assert.Equal("Index", redirectToActionResult.ActionName);
             mockCartao.Verify();
         }
+        
         /// <summary>
-        /// Testando o método Create da Controller Cartão de Crédito para cartão inválido CVV
+        /// Testando o método Create da Controller Cartão de Crédito para cartão inválido
         /// </summary>
         [Fact]
         public void CreateCartaoFail()
@@ -57,68 +58,47 @@ namespace ControllerTests
             Assert.Null(view.ViewName);
         }
 
-        /*/// <summary>
-        /// Testando o método Create da Controller Cartão de Crédito para cartão inválido Numero
+        /// <summary>
+        /// Testando o método Create da Controller Cartão de Crédito formulário
         /// </summary>
         [Fact]
-        public void InserirCartaoInvalido_Numero()
+        public void CreateCartaoView()
         {
             //Arrange
-            var mockRepoCartao = new Mock<IGerenciadorCartao>();
-
-            var mockRepoUsuario = new Mock<IGerenciadorUsuario>();
-            var controller = new CartaoController(mockRepoCartao.Object, mockRepoUsuario.Object);
-            controller.ModelState.AddModelError("Numero", "Required");
-            var newCartao = GetTestCartao();
+            var mockCartao = new Mock<IGerenciadorCartao>();
+            
+            var mockUsuario = new Mock<IGerenciadorUsuario>();
+            mockUsuario.Setup(repo => repo.ObterPorUserName(It.IsAny<String>()))
+                .Returns(GetUsuario());
+            var usuario = GetUsuario();
+            var controller = new CartaoController(mockCartao.Object, mockUsuario.Object);
 
             //Act
-            var result = controller.Create(newCartao);
+            var result = controller.Create(usuario.UserName);
 
             //Assert
-            var view = Assert.IsType<ViewResult>(result);
-            Assert.Null(view.ViewName);
+            var viewResult = Assert.IsType<ViewResult>(result);
+            
         }
 
         /// <summary>
-        /// Testando o método Create da Controller Cartão de Crédito para cartão inválido Validade
-        /// </summary>
-        [Fact]
-        public void InserirCartaoInvalido_Validade()
-        {
-            //Arrange
-            var mockRepoCartao = new Mock<IGerenciadorCartao>();
-
-            var mockRepoUsuario = new Mock<IGerenciadorUsuario>();
-
-            var controller = new CartaoController(mockRepoCartao.Object, mockRepoUsuario.Object);
-            controller.ModelState.AddModelError("DataValidade", "Required");
-            var newCartao = GetTestCartao();
-
-            //Act
-            var result = controller.Create(newCartao);
-
-            //Assert
-            var view = Assert.IsType<ViewResult>(result);
-            Assert.Null(view.ViewName);
-        }
-        */
-
-        /// <summary>
-        /// Incompleta
+        /// Testando o método Index da controller Cartão de Crédito
         /// </summary>
         [Fact]
         public void IndexCartoes()
         {
             //Arrange
+            var usuario = GetUsuario();
+
             var mockCartao = new Mock<IGerenciadorCartao>();
             mockCartao.Setup(repo => repo.ObterTodos())
-                .Returns(GetTestCartoes());
+                .Returns(GetTestCartoes().
+                Where(cartao => cartao.CodUsuario.Equals(usuario.CodUsuario)).ToList());
 
             var mockUsuario = new Mock<IGerenciadorUsuario>();
             mockUsuario.Setup(repo => repo.ObterPorUserName(It.IsAny<String>()))
                 .Returns(GetUsuario());
-
-            var usuario = GetUsuario();
+            
             var controller = new CartaoController(mockCartao.Object, mockUsuario.Object);
             
             //Act
@@ -153,7 +133,28 @@ namespace ControllerTests
             Assert.Null(redirectToActionResult.ControllerName);
             Assert.Equal("Index", redirectToActionResult.ActionName);
             mockRepoCartao.Verify();
-        }       
+        }
+
+        /// <summary>
+        /// Testando o método Delete da Controller Cartão de Crédito exibisão de dados
+        /// </summary>
+        [Fact]
+        public void DeleteCartaoView()
+        {
+            //Arrange
+            var mockCartao = new Mock<IGerenciadorCartao>();
+            var mockUsuario = new Mock<IGerenciadorUsuario>();
+            var cartao = GetTestCartaoCompleto();
+            var controller = new CartaoController(mockCartao.Object, mockUsuario.Object);
+
+            //Act
+            var result = controller.Delete(cartao.CodCartao);
+
+            //Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+        }
+
 
         private IEnumerable<Cartao> GetTestCartoes()
         {          
@@ -167,8 +168,17 @@ namespace ControllerTests
                     DataValidade = "06/2020",
                     Cvv = 136,
                     CodUsuario = 1
+                },
+                new Cartao()
+                {
+                    CodCartao = 2,
+                    Numero = "30277670609054",
+                    NomeDono = "FELIPE D M TELES",
+                    DataValidade = "12/2020",
+                    Cvv = 184,
+                    CodUsuario = 2
                 }
-            };
+            }.ToList();
         }
 
         private Cartao GetTestCartao()

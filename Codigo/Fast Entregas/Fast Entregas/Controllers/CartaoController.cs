@@ -31,10 +31,11 @@ namespace FastEntregasWeb.Controllers
             if (usuario != null)
             {
                 return View(gerenciadorCartao.ObterTodos()
-                    .Where(cartao => cartao.CodUsuario.Equals(usuario.CodUsuario)));
+                    .Where(cartao => cartao.CodUsuario.Equals(usuario.CodUsuario)).ToList());
             }
             return View();
         }
+
         /*
         // GET: Cartao/Details/5
         public ActionResult Details(int id)
@@ -44,9 +45,13 @@ namespace FastEntregasWeb.Controllers
         }*/
 
         // GET: Cartao/Create
-        public ActionResult Create()
+        public ActionResult Create(string userName)
         {
-            string userName = User.Identity.Name;
+
+            if (userName == null)
+            {
+                userName = User.Identity.Name;
+            }
             var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if (usuario != null)
             {

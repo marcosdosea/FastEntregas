@@ -23,14 +23,17 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Veiculo
-        public ActionResult Index()
+        public ActionResult Index(string userName)
         {
-            string username = User.Identity.Name;
-            var usuario = gerenciadorUsuario.ObterPorUserName(username);
+            if (userName == null)
+            {
+                userName = User.Identity.Name;
+            }
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if(usuario != null)
             {
                 return View(gerenciadorVeiculo.ObterTodos()
-                    .Where(veiculo => veiculo.CodDono.Equals(usuario.CodUsuario)));
+                    .Where(veiculo => veiculo.CodDono.Equals(usuario.CodUsuario)).ToList());
             }
             return View();
         }
@@ -43,10 +46,13 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Veiculo/Create
-        public ActionResult Create()
+        public ActionResult Create(string userName)
         {
-            string username = User.Identity.Name;
-            var usuario = gerenciadorUsuario.ObterPorUserName(username);
+            if(userName == null)
+            {
+                userName = User.Identity.Name;
+            }
+            var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if (usuario != null)
             {
                 ViewBag.codUsuario = usuario.CodUsuario;
