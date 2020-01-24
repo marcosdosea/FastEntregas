@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Services;
+using System.Linq;
 
 namespace FastEntregasWeb.Controllers
 {
@@ -23,28 +20,38 @@ namespace FastEntregasWeb.Controllers
         }
 
         // GET: Cartao
-        public ActionResult Index()
+        public ActionResult Index(string userName)
         {
-            string userName = User.Identity.Name;
+            if (userName == null)
+            {
+                userName = User.Identity.Name;
+            }
+
             var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if (usuario != null)
             {
-                return View(gerenciadorCartao.ObterTodos().Where(cartao=> cartao.CodUsuario.Equals(usuario.CodUsuario)));
+                return View(gerenciadorCartao.ObterTodos()
+                    .Where(cartao => cartao.CodUsuario.Equals(usuario.CodUsuario)).ToList());
             }
             return View();
         }
 
+        /*
         // GET: Cartao/Details/5
         public ActionResult Details(int id)
         {
             Cartao cartao = gerenciadorCartao.Obter(id);
             return View(cartao);
-        }
+        }*/
 
         // GET: Cartao/Create
-        public ActionResult Create()
+        public ActionResult Create(string userName)
         {
-            string userName = User.Identity.Name;
+
+            if (userName == null)
+            {
+                userName = User.Identity.Name;
+            }
             var usuario = gerenciadorUsuario.ObterPorUserName(userName);
             if (usuario != null)
             {
@@ -68,7 +75,7 @@ namespace FastEntregasWeb.Controllers
             return View(cartao);
 
         }
-
+        /*
         // GET: Cartao/Edit/5
         public ActionResult Edit(int id)
         {
@@ -90,7 +97,7 @@ namespace FastEntregasWeb.Controllers
             return View(cartao);
 
         }
-
+        */
         // GET: Cartao/Delete/5
         public ActionResult Delete(int id)
         {
