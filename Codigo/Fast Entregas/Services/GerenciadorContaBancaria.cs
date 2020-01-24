@@ -43,12 +43,18 @@ namespace Services
         /// <param name="contabancariaModel"></param>
         public void Editar(ContaBancaria contabancariaModel)
         {
-            if(contabancariaModel == null)
+            if (contabancariaModel == null)
             {
                 throw new Exception("Dados Invalidos");
             }
-            
-            TbContaBancaria tbContaBancaria = new TbContaBancaria();
+
+            TbContaBancaria tbContaBancaria = _context.TbContaBancaria.Find(contabancariaModel.CodConta);
+
+            if (tbContaBancaria == null)
+            {
+                throw new Exception("Conta não encontrada");
+            }
+
             Atribuir(contabancariaModel, tbContaBancaria);
             _context.Update(tbContaBancaria);
             _context.SaveChanges();
@@ -106,11 +112,11 @@ namespace Services
             return contabancaria.ElementAtOrDefault(0);
         }
 
-       /// <summary>
-       /// Obter conta bancaria pelo número da conta
-       /// </summary>
-       /// <param name="conta"></param>
-       /// <returns></returns>
+        /// <summary>
+        /// Obter conta bancaria pelo número da conta
+        /// </summary>
+        /// <param name="conta"></param>
+        /// <returns></returns>
         public IEnumerable<ContaBancaria> ObterPorConta(int conta)
         {
             IEnumerable<ContaBancaria> contabancaria = GetQuery().Where(contabancariaModel => contabancariaModel.Numero == conta);
@@ -124,7 +130,7 @@ namespace Services
         /// <param name="tbContaBancaria">objeto entity</param>
         private void Atribuir(ContaBancaria contabancariaModel, TbContaBancaria tbContaBancaria)
         {
-            tbContaBancaria.CodConta = contabancariaModel.CodConta;
+            //tbContaBancaria.CodConta = contabancariaModel.CodConta; 
             tbContaBancaria.Numero = contabancariaModel.Numero;
             tbContaBancaria.Agencia = contabancariaModel.Agencia;
             tbContaBancaria.Tipo = contabancariaModel.Tipo;

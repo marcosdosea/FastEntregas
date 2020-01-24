@@ -43,7 +43,18 @@ namespace Services
         /// <param name="cartao">dados do cartao</param>
         public void Editar(Cartao cartaoModel)
         {
-            TbCartao tbCartao = new TbCartao();
+            if (cartaoModel == null)
+            {
+                throw new Exception("Dados Invalidos");
+            }
+
+            TbCartao tbCartao = _context.TbCartao.Find(cartaoModel.CodCartao);
+
+            if (tbCartao == null)
+            {
+                throw new Exception("Cartão não encontrada");
+            }
+
             Atribuir(cartaoModel, tbCartao);
             _context.Update(tbCartao);
             _context.SaveChanges();
