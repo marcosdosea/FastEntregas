@@ -10,7 +10,7 @@ using Xunit;
 
 namespace TestesControllers
 {
-    public class UnitTest1
+    public class TesteContaBancaria
     {
         [Fact]
         public void ContaBancaria_ObterTodas()
