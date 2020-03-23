@@ -7,7 +7,6 @@ namespace Model
 {
     public partial class Cartao
     {
-        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Key]
         public int CodCartao { get; set; }
 
@@ -25,7 +24,7 @@ namespace Model
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
         [Display(Name = "dtValidade", ResourceType = typeof(Mensagem))]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd/mm/yyyy}", ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString ="{0:mm/yyyy}", ApplyFormatInEditMode =true)]
         public string DataValidade { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
